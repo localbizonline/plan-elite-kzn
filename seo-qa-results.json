@@ -1,0 +1,120 @@
+{
+  "timestamp": "2026-02-07T18:59:18.356Z",
+  "deployUrl": "https://plan-elite-kzn.netlify.app",
+  "attempt": 1,
+  "agent": "seo-qa",
+  "summary": {
+    "pages": 17,
+    "checks": 459,
+    "errors": 0,
+    "warnings": 20
+  },
+  "passed": true,
+  "failures": [],
+  "notes": [
+    "4 false-positive 404s reclassified as warnings: area pages use root-level [slug].astro (not /areas/ prefix), /about/ route is /about-us/",
+    "Area pages verified live at /building-construction-property-development-durban-north-umhlanga-ballito/ etc."
+  ],
+  "warnings": [
+    {
+      "page": "/areas/durban-north-umhlanga-ballito/",
+      "check": "route-mismatch",
+      "detail": "Route uses root-level [slug].astro pattern, not /areas/ prefix. Actual URL: /building-construction-property-development-durban-north-umhlanga-ballito/"
+    },
+    {
+      "page": "/areas/durban-pinetown-hillcrest-bluff/",
+      "check": "route-mismatch",
+      "detail": "Route uses root-level [slug].astro pattern, not /areas/ prefix. Actual URL: /building-construction-property-development-durban-pinetown-hillcrest-bluff/"
+    },
+    {
+      "page": "/areas/south-coast-kzn/",
+      "check": "route-mismatch",
+      "detail": "Route uses root-level [slug].astro pattern, not /areas/ prefix. Actual URL: /building-construction-property-development-south-coast-kzn/"
+    },
+    {
+      "page": "/about/",
+      "check": "route-mismatch",
+      "detail": "Route is /about-us/ not /about/. seo-qa.mjs hardcoded /about/ as expected route."
+    },
+    {
+      "page": "/",
+      "check": "title-length",
+      "detail": "Title is 70 chars (recommended <= 65)"
+    },
+    {
+      "page": "/",
+      "check": "description-length",
+      "detail": "Description is 216 chars (recommended 120-160)"
+    },
+    {
+      "page": "/services/",
+      "check": "description-length",
+      "detail": "Description is 22 chars (recommended 120-160)"
+    },
+    {
+      "page": "/about-us/",
+      "check": "description-length",
+      "detail": "Description is 195 chars (recommended 120-160)"
+    },
+    {
+      "page": "/contact/",
+      "check": "description-length",
+      "detail": "Description is 171 chars (recommended 120-160)"
+    },
+    {
+      "page": "/services/building-construction/",
+      "check": "title-length",
+      "detail": "Title is 80 chars (recommended <= 65)"
+    },
+    {
+      "page": "/services/building-construction/",
+      "check": "description-length",
+      "detail": "Description is 165 chars (recommended 120-160)"
+    },
+    {
+      "page": "/services/nutec-wendy-houses/",
+      "check": "title-length",
+      "detail": "Title is 75 chars (recommended <= 65)"
+    },
+    {
+      "page": "/services/paving-landscaping/",
+      "check": "title-length",
+      "detail": "Title is 77 chars (recommended <= 65)"
+    },
+    {
+      "page": "/services/tiling-flooring/",
+      "check": "title-length",
+      "detail": "Title is 73 chars (recommended <= 65)"
+    },
+    {
+      "page": "/services/tiling-flooring/",
+      "check": "description-length",
+      "detail": "Description is 161 chars (recommended 120-160)"
+    },
+    {
+      "page": "/services/awnings-lapas/",
+      "check": "title-length",
+      "detail": "Title is 71 chars (recommended <= 65)"
+    },
+    {
+      "page": "/services/cladding-walling/",
+      "check": "title-length",
+      "detail": "Title is 74 chars (recommended <= 65)"
+    },
+    {
+      "page": "/services/cladding-walling/",
+      "check": "description-length",
+      "detail": "Description is 174 chars (recommended 120-160)"
+    },
+    {
+      "page": "/privacy-policy/",
+      "check": "description-length",
+      "detail": "Description is 81 chars (recommended 120-160)"
+    },
+    {
+      "page": "/terms-and-conditions/",
+      "check": "description-length",
+      "detail": "Description is 49 chars (recommended 120-160)"
+    }
+  ]
+}

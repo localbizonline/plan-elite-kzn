@@ -178,3 +178,93 @@ section + section { border-top: 1px solid color-mix(in srgb, var(--color-muted) 
   background: rgba(255, 255, 255, 0.25);
   border-radius: 1px;
 }
+
+/* ==========================================================================
+   DESIGN ENHANCEMENTS — Phase 7.8 (design-enhancer agent)
+   Structural CSS: mixed-case headings, graduated weights, scroll reveal,
+   accent underlines, warm shadows, service card price tags, hero trust cluster
+   ========================================================================== */
+
+/* Mixed-case heading hierarchy — H1 uppercase for impact, H2+ sentence case for refinement */
+h1 { text-transform: uppercase; font-weight: 900; letter-spacing: 0.04em; }
+h2 { text-transform: none; font-weight: 800; letter-spacing: -0.01em; }
+h3 { text-transform: none; font-weight: 700; letter-spacing: -0.01em; }
+h4, h5, h6 { text-transform: none; font-weight: 600; }
+
+/* Accent underline on section headings */
+section h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: var(--color-accent);
+  margin-top: 0.75rem;
+  border-radius: 2px;
+}
+.text-center h2::after,
+section .text-center h2::after {
+  margin-inline: auto;
+}
+/* Suppress accent underline inside CTA banner and footer */
+.cta-banner h2::after,
+footer h2::after,
+footer h3::after {
+  display: none;
+}
+
+/* Warm surface shadows — complement the cream background and gold accent */
+.shadow-sm { box-shadow: 0 1px 3px rgba(120,100,80,0.06), 0 1px 2px rgba(120,100,80,0.04); }
+.shadow-md { box-shadow: 0 4px 12px rgba(120,100,80,0.08), 0 2px 4px rgba(120,100,80,0.04); }
+.hover\:shadow-md:hover { box-shadow: 0 6px 16px rgba(120,100,80,0.1), 0 3px 6px rgba(120,100,80,0.06); }
+.hover\:shadow-xl:hover { box-shadow: 0 10px 24px rgba(120,100,80,0.12), 0 4px 8px rgba(120,100,80,0.06); }
+
+/* Scroll reveal — sections fade in and slide up */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease-out, transform 0.65s ease-out;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Stagger children slightly for depth */
+.reveal:nth-child(even) {
+  transition-delay: 0.08s;
+}
+
+/* Service card price tag ribbon */
+.service-card__price-tag {
+  position: absolute;
+  top: 16px;
+  right: -6px;
+  background: var(--color-accent);
+  color: white;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.78rem;
+  padding: 5px 14px 5px 12px;
+  clip-path: polygon(8px 0, 100% 0, 100% 100%, 8px 100%, 0 50%);
+  z-index: 10;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* Hero trust cluster card */
+.hero-trust-cluster {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hero-trust-cluster:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Section divider — ensure angle divider renders inside hero */
+.hero-section .section-divider {
+  display: block !important;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+}

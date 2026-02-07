@@ -1,0 +1,66 @@
+{
+  "timestamp": "2026-02-07T19:00:00.000Z",
+  "attempt": 1,
+  "agent": "image-qa",
+  "summary": {
+    "expectedImages": 34,
+    "found": 34,
+    "placeholders": 0,
+    "duplicates": 0,
+    "missingImports": 0,
+    "errors": 0,
+    "warnings": 2
+  },
+  "passed": true,
+  "errors": [],
+  "warnings": [
+    {
+      "check": "image-size",
+      "detail": "gallery-5.png is 4.63MB — consider converting to JPG/WebP"
+    },
+    {
+      "check": "image-size",
+      "detail": "gallery-6.png is 2.31MB — consider converting to JPG/WebP"
+    }
+  ],
+  "imageInventory": {
+    "generated": [
+      "src/assets/images/home-hero/home-hero-1.jpg",
+      "src/assets/images/inner-hero/inner-hero-1.jpg",
+      "src/assets/images/inner-hero/inner-hero-2.jpg",
+      "src/assets/images/inner-hero/inner-hero-3.jpg",
+      "src/assets/images/inner-hero/inner-hero-4.jpg",
+      "src/assets/images/service-areas/service-areas-1.jpg",
+      "src/assets/images/services/building-construction/card/card-1.jpg",
+      "src/assets/images/services/building-construction/hero/hero-1.jpg",
+      "src/assets/images/services/building-construction/content/content-1.jpg",
+      "src/assets/images/services/nutec-wendy-houses/card/card-1.jpg",
+      "src/assets/images/services/nutec-wendy-houses/hero/hero-1.jpg",
+      "src/assets/images/services/nutec-wendy-houses/content/content-1.jpg",
+      "src/assets/images/services/paving-landscaping/card/card-1.jpg",
+      "src/assets/images/services/paving-landscaping/hero/hero-1.jpg",
+      "src/assets/images/services/paving-landscaping/content/content-1.jpg",
+      "src/assets/images/services/tiling-flooring/card/card-1.jpg",
+      "src/assets/images/services/tiling-flooring/hero/hero-1.jpg",
+      "src/assets/images/services/tiling-flooring/content/content-1.jpg",
+      "src/assets/images/services/awnings-lapas/card/card-1.jpg",
+      "src/assets/images/services/awnings-lapas/hero/hero-1.jpg",
+      "src/assets/images/services/awnings-lapas/content/content-1.jpg",
+      "src/assets/images/services/cladding-walling/card/card-1.jpg",
+      "src/assets/images/services/cladding-walling/hero/hero-1.jpg",
+      "src/assets/images/services/cladding-walling/content/content-1.jpg"
+    ],
+    "brand": [
+      "src/assets/images/logo/logo-1.jpg",
+      "src/assets/images/headshot/headshot-1.jpg"
+    ],
+    "gallery": [
+      "src/assets/images/gallery/gallery-1.jpg",
+      "src/assets/images/gallery/gallery-2.jpg",
+      "src/assets/images/gallery/gallery-3.jpg",
+      "src/assets/images/gallery/gallery-4.jpg",
+      "src/assets/images/gallery/gallery-5.png",
+      "src/assets/images/gallery/gallery-6.png"
+    ]
+  }
+}

@@ -1,29 +1,104 @@
 {
-  "generatedAt": "2026-02-07T18:40:00.000Z",
   "model": "fal-ai/nano-banana-pro",
+  "endpoint": "https://fal.run/fal-ai/nano-banana-pro",
+  "generatedAt": "2026-02-07T20:56:00.000Z",
   "promptSource": "IMAGE-PROMPTS.md",
-  "totalGenerated": 21,
-  "images": [
-    { "slot": "home-hero", "path": "src/assets/images/home-hero/hero.jpg", "status": "generated" },
-    { "slot": "inner-hero", "path": "src/assets/images/inner-hero/inner-hero.jpg", "status": "generated" },
-    { "slot": "service-areas", "path": "src/assets/images/service-areas/temp.jpg", "status": "placeholder" },
-    { "slot": "building-construction/card", "path": "src/assets/images/services/building-construction/card/card.jpg", "status": "generated" },
-    { "slot": "building-construction/hero", "path": "src/assets/images/services/building-construction/hero/hero.jpg", "status": "generated" },
-    { "slot": "building-construction/content", "path": "src/assets/images/services/building-construction/content/content.jpg", "status": "generated" },
-    { "slot": "nutec-wendy-houses/card", "path": "src/assets/images/services/nutec-wendy-houses/card/card.jpg", "status": "generated" },
-    { "slot": "nutec-wendy-houses/hero", "path": "src/assets/images/services/nutec-wendy-houses/hero/hero.jpg", "status": "generated" },
-    { "slot": "nutec-wendy-houses/content", "path": "src/assets/images/services/nutec-wendy-houses/content/content.jpg", "status": "generated" },
-    { "slot": "paving-landscaping/card", "path": "src/assets/images/services/paving-landscaping/card/temp.jpg", "status": "placeholder" },
-    { "slot": "paving-landscaping/hero", "path": "src/assets/images/services/paving-landscaping/hero/temp.jpg", "status": "placeholder" },
-    { "slot": "paving-landscaping/content", "path": "src/assets/images/services/paving-landscaping/content/temp.jpg", "status": "placeholder" },
-    { "slot": "tiling-flooring/card", "path": "src/assets/images/services/tiling-flooring/card/temp.jpg", "status": "placeholder" },
-    { "slot": "tiling-flooring/hero", "path": "src/assets/images/services/tiling-flooring/hero/temp.jpg", "status": "placeholder" },
-    { "slot": "tiling-flooring/content", "path": "src/assets/images/services/tiling-flooring/content/temp.jpg", "status": "placeholder" },
-    { "slot": "awnings-lapas/card", "path": "src/assets/images/services/awnings-lapas/card/temp.jpg", "status": "placeholder" },
-    { "slot": "awnings-lapas/hero", "path": "src/assets/images/services/awnings-lapas/hero/temp.jpg", "status": "placeholder" },
-    { "slot": "awnings-lapas/content", "path": "src/assets/images/services/awnings-lapas/content/temp.jpg", "status": "placeholder" },
-    { "slot": "cladding-walling/card", "path": "src/assets/images/services/cladding-walling/card/temp.jpg", "status": "placeholder" },
-    { "slot": "cladding-walling/hero", "path": "src/assets/images/services/cladding-walling/hero/temp.jpg", "status": "placeholder" },
-    { "slot": "cladding-walling/content", "path": "src/assets/images/services/cladding-walling/content/temp.jpg", "status": "placeholder" }
+  "stats": {
+    "generated": 25,
+    "skipped": 0,
+    "failed": 0,
+    "total": 25
+  },
+  "brandImages": [
+    {
+      "slot": "hero-alt",
+      "path": "src/assets/images/inner-hero/inner-hero.jpg",
+      "status": "generated",
+      "sizeKB": 281
+    },
+    {
+      "slot": "about",
+      "path": "src/assets/images/inner-hero/about.jpg",
+      "status": "generated",
+      "sizeKB": 514
+    },
+    {
+      "slot": "about-hero",
+      "path": "src/assets/images/inner-hero/about-hero.jpg",
+      "status": "generated",
+      "sizeKB": 509
+    },
+    {
+      "slot": "contact-hero",
+      "path": "src/assets/images/inner-hero/contact-hero.jpg",
+      "status": "generated",
+      "sizeKB": 287
+    },
+    {
+      "slot": "og-image",
+      "path": "public/og-image.jpg",
+      "status": "generated",
+      "sizeKB": 403
+    },
+    {
+      "slot": "areas",
+      "path": "src/assets/images/service-areas/service-areas.jpg",
+      "status": "generated",
+      "sizeKB": 163
+    },
+    {
+      "slot": "home-hero",
+      "path": "src/assets/images/home-hero/hero.jpg",
+      "status": "generated",
+      "sizeKB": 255
+    }
+  ],
+  "serviceImages": [
+    {
+      "service": "building-construction",
+      "card": { "path": "src/assets/images/services/building-construction/card/card.jpg", "sizeKB": 190 },
+      "hero": { "path": "src/assets/images/services/building-construction/hero/hero.jpg", "sizeKB": 263 },
+      "content": { "path": "src/assets/images/services/building-construction/content/content.jpg", "sizeKB": 182 }
+    },
+    {
+      "service": "nutec-wendy-houses",
+      "card": { "path": "src/assets/images/services/nutec-wendy-houses/card/card.jpg", "sizeKB": 132 },
+      "hero": { "path": "src/assets/images/services/nutec-wendy-houses/hero/hero.jpg", "sizeKB": 236 },
+      "content": { "path": "src/assets/images/services/nutec-wendy-houses/content/content.jpg", "sizeKB": 157 }
+    },
+    {
+      "service": "paving-landscaping",
+      "card": { "path": "src/assets/images/services/paving-landscaping/card/card.jpg", "sizeKB": 352 },
+      "hero": { "path": "src/assets/images/services/paving-landscaping/hero/hero.jpg", "sizeKB": 372 },
+      "content": { "path": "src/assets/images/services/paving-landscaping/content/content.jpg", "sizeKB": 294 }
+    },
+    {
+      "service": "tiling-flooring",
+      "card": { "path": "src/assets/images/services/tiling-flooring/card/card.jpg", "sizeKB": 143 },
+      "hero": { "path": "src/assets/images/services/tiling-flooring/hero/hero.jpg", "sizeKB": 183 },
+      "content": { "path": "src/assets/images/services/tiling-flooring/content/content.jpg", "sizeKB": 126 }
+    },
+    {
+      "service": "awnings-lapas",
+      "card": { "path": "src/assets/images/services/awnings-lapas/card/card.jpg", "sizeKB": 287 },
+      "hero": { "path": "src/assets/images/services/awnings-lapas/hero/hero.jpg", "sizeKB": 268 },
+      "content": { "path": "src/assets/images/services/awnings-lapas/content/content.jpg", "sizeKB": 319 }
+    },
+    {
+      "service": "cladding-walling",
+      "card": { "path": "src/assets/images/services/cladding-walling/card/card.jpg", "sizeKB": 201 },
+      "hero": { "path": "src/assets/images/services/cladding-walling/hero/hero.jpg", "sizeKB": 196 },
+      "content": { "path": "src/assets/images/services/cladding-walling/content/content.jpg", "sizeKB": 137 }
+    }
+  ],
+  "airtableImages": [
+    { "slot": "logo", "path": "src/assets/images/logo/logo.jpg", "sizeKB": 18, "source": "airtable" },
+    { "slot": "headshot", "path": "src/assets/images/headshot/headshot.jpg", "sizeKB": 155, "source": "airtable" },
+    { "slot": "gallery-1", "path": "src/assets/images/gallery/gallery-1.jpg", "sizeKB": 426, "source": "airtable" },
+    { "slot": "gallery-2", "path": "src/assets/images/gallery/gallery-2.jpg", "sizeKB": 218, "source": "airtable" },
+    { "slot": "gallery-3", "path": "src/assets/images/gallery/gallery-3.jpg", "sizeKB": 267, "source": "airtable" },
+    { "slot": "gallery-4", "path": "src/assets/images/gallery/gallery-4.jpg", "sizeKB": 129, "source": "airtable" },
+    { "slot": "gallery-5", "path": "src/assets/images/gallery/gallery-5.png", "sizeKB": 4739, "source": "airtable" },
+    { "slot": "gallery-6", "path": "src/assets/images/gallery/gallery-6.png", "sizeKB": 2366, "source": "airtable" }
   ]
 }

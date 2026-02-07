@@ -48,19 +48,31 @@ const whyChooseCards = site.homepage.whyChooseCards.map((card) => {
     <ValueStrip items={(site as any).homepage.valueStrip} />
   )}
 
-  <TrustBadges />
+  <div class="reveal">
+    <TrustBadges />
+  </div>
 
-  <GoogleReviewWidget />
+  <div class="reveal">
+    <GoogleReviewWidget />
+  </div>
 
-  <Services />
+  <div class="reveal">
+    <Services />
+  </div>
 
-  <ServiceAreas />
+  <div class="reveal">
+    <Gallery />
+  </div>
+
+  <div class="reveal">
+    <ServiceAreas />
+  </div>
 
   <!-- Why Choose Us -->
-  <section class="py-16 md:py-24 bg-background">
+  <section class="py-16 md:py-24 bg-background reveal">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-[family-name:var(--font-display)] uppercase text-primary mb-4">
+        <h2 class="text-3xl md:text-4xl font-[family-name:var(--font-display)] text-primary mb-4">
           {site.homepage.whyChooseTitle}
         </h2>
         <p class="text-muted max-w-2xl mx-auto text-lg">
@@ -79,7 +91,7 @@ const whyChooseCards = site.homepage.whyChooseCards.map((card) => {
                 </svg>
               )}
             </div>
-            <h3 class="text-xl font-[family-name:var(--font-display)] uppercase text-primary mb-3">{card.title}</h3>
+            <h3 class="text-xl font-[family-name:var(--font-display)] text-primary mb-3">{card.title}</h3>
             <p class="text-muted">{card.description}</p>
           </div>
         ))}
@@ -87,9 +99,11 @@ const whyChooseCards = site.homepage.whyChooseCards.map((card) => {
     </div>
   </section>
 
-  <Gallery />
+  <div class="reveal">
+    <FAQ faqs={site.homepage.faqs} />
+  </div>
 
-  <FAQ faqs={site.homepage.faqs} />
-
-  <ContactForm />
+  <div class="reveal">
+    <ContactForm />
+  </div>
 </BaseLayout>

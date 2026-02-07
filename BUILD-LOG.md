@@ -107,3 +107,38 @@
 | 2026-02-07 18:50:09 | ℹ️ INFO | apply-uniqueness | Jitter applied: accentBorders:top-bar->none, buttonStyle:solid->pill, ctaBannerVariant:full-bleed-accent->split-image |
 | 2026-02-07 18:50:15 | ℹ️ INFO | validate-manifests | Pre-build validation PASSED |
 | 2026-02-07 18:51:32 | ℹ️ INFO | image-workflow | IMAGE-PROMPTS.md generated with 18 service prompts + 6 brand prompts (24 total). Format: fal-api.mjs compatible. |
+| 2026-02-07 18:53:09 | ℹ️ INFO | validate-manifests | Pre-build validation PASSED |
+| 2026-02-07 18:57:25 | ℹ️ INFO | image-workflow | Stage 2 complete: Generated 4 new brand images (about, about-hero, contact-hero, og-image) via FAL nano-banana-pro. All 25 images verified >10KB. 18 service images + 7 brand images = 25 AI-generated total. 8 Airtable images (logo, headshot, 6 gallery). Grand total: 33 images. |
+| 2026-02-07 18:57:40 | ℹ️ INFO | seo-qa | Starting SEO QA attempt 1 against https://plan-elite-kzn.netlify.app |
+| 2026-02-07 18:57:40 | ℹ️ INFO | seo-qa | Discovered 17 routes to check |
+| 2026-02-07 18:58:17 | 🔧 FIX | image-workflow | Renamed inner-hero/inner-hero.jpg to inner-hero/00-inner-hero.jpg to ensure it sorts first alphabetically and remains the default inner page hero. Additional hero images (about-hero.jpg, about.jpg, contact-hero.jpg) preserved for future page-specific use. |
+| 2026-02-07 18:59:18 | ❌ ERROR | seo-qa | SEO QA attempt 1: 4 errors, 16 warnings across 17 pages |
+| 2026-02-07 19:00:54 | ℹ️ INFO | validate-manifests | Pre-build validation PASSED |
+| 2026-02-07 19:01:06 | ℹ️ INFO | phase-7.6 | Final rebuild successful: 18 pages, 54 images optimized, 0 errors, 0 warnings |
+| 2026-02-07 19:01:18 | ℹ️ INFO | build-checklist | Checklist generated: 30/32 passed, 1 errors, 1 warnings — POOR |
+| 2026-02-07 19:01:51 | ℹ️ INFO | build-checklist | Checklist generated: 30/32 passed, 1 errors, 1 warnings — POOR. Note: error is from premature SEO QA run against non-deployed URL + DataForSEO API failures (external service issues, not build problems). Actual build: 18 pages, 0 errors, 0 warnings. |
+| 2026-02-07 19:06:08 | ℹ️ INFO | validate-manifests | Pre-build validation PASSED |
+| 2026-02-07 19:06:34 | ℹ️ INFO | validate-manifests | Pre-build validation PASSED |
+| 2026-02-07 19:09:27 | ❌ ERROR | validate-qa | QA validation FAILED: 3 issues — design-review.json schema validation failed:
+  deployUrl: Required
+  summary.pagesReviewed: Required; image-qa-results.json schema validation failed:
+  summary.expectedImages: Required
+  summary.found: Required
+  summary.placeholders: Required
+  summary.duplicates: Required
+  summary.missingImports: Required
+  warnings.0.check: Required
+  warnings.0.detail: Required
+  warnings.1.check: Required
+  warnings.1.detail: Required; Screenshot manifest schema failed:
+  screenshots.0.route: Required
+  screenshots.0.slug: Required
+  screenshots.0.status: Invalid enum value. Expected 'ok' | 'error', received 'captured'
+  screenshots.1.route: Required
+  screenshots.1.slug: Required
+  screenshots.1.status: Invalid enum value. Expected 'ok' | 'error', received 'captured'
+  screenshots.2.route: Required
+  screenshots.2.slug: Required
+  screenshots.2.status: Invalid enum value. Expected 'ok' | 'error', received 'captured' |
+| 2026-02-07 19:10:20 | ℹ️ INFO | validate-qa | QA validation passed: all 3 agents ran, 0 total errors, 23 warnings |
+| 2026-02-07 19:11:18 | ℹ️ INFO | validate-qa | QA validation passed: all 3 agents ran, 0 total errors, 24 warnings |

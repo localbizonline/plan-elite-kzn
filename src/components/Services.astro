@@ -18,7 +18,7 @@ const gridClass = count >= 5
 <section class="py-20 md:py-28 bg-surface">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12">
-      <h2 class="text-3xl sm:text-4xl md:text-5xl font-[family-name:var(--font-display)] text-primary uppercase mb-4">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-[family-name:var(--font-display)] text-primary mb-4">
         Our Services
       </h2>
       <p class="text-muted text-lg max-w-2xl mx-auto font-[family-name:var(--font-body)]">
@@ -30,9 +30,10 @@ const gridClass = count >= 5
       {site.services.map((service) => (
         <a
           href={`/services/${service.slug}/`}
-          class="group bg-surface rounded-md overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-t-4 border-accent"
+          class="group relative bg-surface rounded-md overflow-visible shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-t-4 border-accent"
         >
-          <div class="aspect-[4/3] overflow-hidden">
+          <div class="service-card__price-tag">Free Quote</div>
+          <div class="aspect-[4/3] overflow-hidden rounded-t-md">
             <Image
               src={getServiceImage(service.slug, 'card') || getHomeHero()!}
               alt={`${service.title} - ${site.name}`}
@@ -43,7 +44,7 @@ const gridClass = count >= 5
             />
           </div>
           <div class="p-6">
-            <h3 class="text-xl font-[family-name:var(--font-display)] text-primary uppercase mb-2">
+            <h3 class="text-xl font-[family-name:var(--font-display)] text-primary mb-2">
               {service.title}
             </h3>
             <p class="text-muted text-base leading-relaxed font-[family-name:var(--font-body)]">

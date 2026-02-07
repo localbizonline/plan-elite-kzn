@@ -1,0 +1,20 @@
+{
+  "passed": 30,
+  "total": 32,
+  "errors": 1,
+  "warnings": 1,
+  "quality": "POOR",
+  "readyForDeploy": false,
+  "issues": [
+    {
+      "type": "warning",
+      "section": "Reviews",
+      "message": "Google: 4.8/5, 20 reviews found but 0 texts retrieved (API issue)"
+    },
+    {
+      "type": "error",
+      "section": "Build",
+      "message": "1 errors logged in BUILD-LOG.md"
+    }
+  ]
+}

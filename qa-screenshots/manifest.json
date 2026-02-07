@@ -1,0 +1,24 @@
+{
+  "deployUrl": "https://plan-elite-kzn.netlify.app",
+  "timestamp": "2026-02-07T19:04:00.000Z",
+  "screenshots": [
+    {
+      "route": "/",
+      "slug": "homepage",
+      "desktop": "qa-screenshots/homepage.png",
+      "status": "ok"
+    },
+    {
+      "route": "/services/",
+      "slug": "services",
+      "desktop": "qa-screenshots/services.png",
+      "status": "ok"
+    },
+    {
+      "route": "/about-us/",
+      "slug": "about",
+      "desktop": "qa-screenshots/about.png",
+      "status": "ok"
+    }
+  ]
+}
