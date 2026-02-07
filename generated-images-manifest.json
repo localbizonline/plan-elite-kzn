@@ -1,0 +1,29 @@
+{
+  "generatedAt": "2026-02-07T18:40:00.000Z",
+  "model": "fal-ai/nano-banana-pro",
+  "promptSource": "IMAGE-PROMPTS.md",
+  "totalGenerated": 21,
+  "images": [
+    { "slot": "home-hero", "path": "src/assets/images/home-hero/hero.jpg", "status": "generated" },
+    { "slot": "inner-hero", "path": "src/assets/images/inner-hero/inner-hero.jpg", "status": "generated" },
+    { "slot": "service-areas", "path": "src/assets/images/service-areas/temp.jpg", "status": "placeholder" },
+    { "slot": "building-construction/card", "path": "src/assets/images/services/building-construction/card/card.jpg", "status": "generated" },
+    { "slot": "building-construction/hero", "path": "src/assets/images/services/building-construction/hero/hero.jpg", "status": "generated" },
+    { "slot": "building-construction/content", "path": "src/assets/images/services/building-construction/content/content.jpg", "status": "generated" },
+    { "slot": "nutec-wendy-houses/card", "path": "src/assets/images/services/nutec-wendy-houses/card/card.jpg", "status": "generated" },
+    { "slot": "nutec-wendy-houses/hero", "path": "src/assets/images/services/nutec-wendy-houses/hero/hero.jpg", "status": "generated" },
+    { "slot": "nutec-wendy-houses/content", "path": "src/assets/images/services/nutec-wendy-houses/content/content.jpg", "status": "generated" },
+    { "slot": "paving-landscaping/card", "path": "src/assets/images/services/paving-landscaping/card/temp.jpg", "status": "placeholder" },
+    { "slot": "paving-landscaping/hero", "path": "src/assets/images/services/paving-landscaping/hero/temp.jpg", "status": "placeholder" },
+    { "slot": "paving-landscaping/content", "path": "src/assets/images/services/paving-landscaping/content/temp.jpg", "status": "placeholder" },
+    { "slot": "tiling-flooring/card", "path": "src/assets/images/services/tiling-flooring/card/temp.jpg", "status": "placeholder" },
+    { "slot": "tiling-flooring/hero", "path": "src/assets/images/services/tiling-flooring/hero/temp.jpg", "status": "placeholder" },
+    { "slot": "tiling-flooring/content", "path": "src/assets/images/services/tiling-flooring/content/temp.jpg", "status": "placeholder" },
+    { "slot": "awnings-lapas/card", "path": "src/assets/images/services/awnings-lapas/card/temp.jpg", "status": "placeholder" },
+    { "slot": "awnings-lapas/hero", "path": "src/assets/images/services/awnings-lapas/hero/temp.jpg", "status": "placeholder" },
+    { "slot": "awnings-lapas/content", "path": "src/assets/images/services/awnings-lapas/content/temp.jpg", "status": "placeholder" },
+    { "slot": "cladding-walling/card", "path": "src/assets/images/services/cladding-walling/card/temp.jpg", "status": "placeholder" },
+    { "slot": "cladding-walling/hero", "path": "src/assets/images/services/cladding-walling/hero/temp.jpg", "status": "placeholder" },
+    { "slot": "cladding-walling/content", "path": "src/assets/images/services/cladding-walling/content/temp.jpg", "status": "placeholder" }
+  ]
+}

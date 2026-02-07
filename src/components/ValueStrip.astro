@@ -1,0 +1,33 @@
+---
+interface ValueItem {
+  label: string;
+  value: string;
+  icon: string;
+}
+
+interface Props {
+  items: ValueItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="bg-primary text-white relative z-10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-white/20">
+      {items.map((item) => (
+        <div class="flex items-center gap-4 py-5 sm:py-6 sm:px-6 lg:px-10">
+          <span class="text-2xl flex-shrink-0" aria-hidden="true">{item.icon}</span>
+          <div>
+            <div class="text-sm text-white/70 uppercase tracking-wide font-semibold font-[family-name:var(--font-body)]">
+              {item.label}
+            </div>
+            <div class="text-xl sm:text-2xl font-[family-name:var(--font-display)] font-bold">
+              {item.value}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

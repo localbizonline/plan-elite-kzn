@@ -1,0 +1,90 @@
+---
+import { Image } from 'astro:assets';
+import { site } from '../site.config';
+import { getServiceAreasBackground } from '../images';
+
+const areas = site.homepage.serviceAreas;
+const title = site.homepage.serviceAreasTitle || `Areas We Serve in ${site.address.city}`;
+const subtitle = site.homepage.serviceAreasSubtitle || `Professional ${site.tagline.toLowerCase()} across ${site.address.city} and surrounding areas.`;
+
+const bgImage = getServiceAreasBackground();
+---
+
+{areas && areas.length > 0 && (
+  <section class="relative py-20 md:py-28 overflow-hidden">
+    {/* Background image with dark overlay */}
+    {bgImage && (
+      <>
+        <Image
+          src={bgImage}
+          alt=""
+          class="absolute inset-0 w-full h-full object-cover"
+          widths={[640, 960, 1280, 1920]}
+          sizes="100vw"
+          loading="lazy"
+          role="presentation"
+        />
+        <div class="absolute inset-0 bg-primary/85"></div>
+      </>
+    )}
+
+    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
+      {/* Section header */}
+      <div class="text-center mb-12">
+        <div class="inline-flex items-center gap-2 mb-4">
+          <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/>
+          </svg>
+          <span class="text-accent font-bold text-sm uppercase tracking-wider">Service Areas</span>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-[family-name:var(--font-display)] uppercase text-white mb-4">
+          {title}
+        </h2>
+        <p class="text-gray-300 max-w-2xl mx-auto text-lg">
+          {subtitle}
+        </p>
+      </div>
+
+      {/* Area cards grid */}
+      <div class={`grid gap-4 md:gap-6 ${
+        areas.length <= 3
+          ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
+          : areas.length === 4
+            ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4'
+            : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5'
+      }`}>
+        {areas.map((area) => (
+          <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-6 text-center hover:bg-white/15 transition-colors duration-200">
+            <svg class="w-8 h-8 text-accent mx-auto mb-3" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/>
+            </svg>
+            <h3 class="text-white font-[family-name:var(--font-display)] uppercase text-lg mb-2">
+              {area.name}
+            </h3>
+            {area.suburbs && (
+              <p class="text-gray-400 text-sm leading-relaxed">
+                {area.suburbs}
+              </p>
+            )}
+          </div>
+        ))}
+      </div>
+
+      {/* CTA */}
+      <div class="text-center mt-10">
+        <p class="text-gray-400 mb-4 text-sm">
+          Don't see your area? We likely cover it.
+        </p>
+        <a
+          href={`tel:${site.phoneRaw}`}
+          class="inline-flex items-center gap-2 bg-accent hover:bg-accent-light text-white px-6 py-3 rounded-md font-bold transition-colors duration-200"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1v3.49a1 1 0 01-1 1C10.07 22 2 13.93 2 3.01a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.19z"/>
+          </svg>
+          Call {site.phone}
+        </a>
+      </div>
+    </div>
+  </section>
+)}

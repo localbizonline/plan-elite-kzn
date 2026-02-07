@@ -1,0 +1,30 @@
+{
+  "direction": "Clean Professional",
+  "cssAxes": {
+    "borderRadius": "soft",
+    "shadowStyle": "subtle",
+    "sectionSpacing": "standard",
+    "cardStyle": "elevated",
+    "headingCase": "title-case",
+    "headingWeight": "bold",
+    "headingSizeScale": "standard",
+    "letterSpacing": "normal",
+    "headingHighlight": "none",
+    "buttonStyle": "pill",
+    "hoverEffect": "lift",
+    "sectionDividers": "line",
+    "imageShape": "default",
+    "accentBorders": "none",
+    "backgroundPattern": "solid",
+    "heroTitleDecoration": "underline-accent",
+    "sectionDividerShape": "none",
+    "ctaBannerVariant": "split-image"
+  },
+  "jitter": [
+    "accentBorders:top-bar->none",
+    "buttonStyle:solid->pill",
+    "ctaBannerVariant:full-bleed-accent->split-image"
+  ],
+  "reasoning": "Clean Professional direction with jitter on accentBorders, buttonStyle, ctaBannerVariant to differentiate from other builds",
+  "appliedAt": "2026-02-07T18:50:09.259Z"
+}

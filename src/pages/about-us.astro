@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import ContactForm from '../components/ContactForm.astro';
+import HeadshotPlaceholder from '../components/HeadshotPlaceholder.astro';
+import { Image } from 'astro:assets';
+import { site } from '../site.config';
+import { getInnerHero, getHomeHero, getHeadshot } from '../images';
+
+const heroImage = getInnerHero() || getHomeHero()!;
+const headshotImg = getHeadshot();
+---
+
+<BaseLayout
+  title={site.about.metaTitle}
+  description={site.about.metaDescription}
+>
+  <Hero
+    title={site.about.heroTitle}
+    subtitle={site.about.heroSubtitle}
+    backgroundImage={heroImage}
+  />
+
+  <!-- About Section -->
+  <section class="py-16 md:py-20 bg-surface">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="order-2 lg:order-1">
+          <h2 class="text-3xl md:text-4xl font-[family-name:var(--font-display)] uppercase text-primary mb-6">
+            {site.about.heading}
+          </h2>
+          {site.about.paragraphs.map((p) => (
+            <p class="text-muted text-lg leading-relaxed mb-5">
+              {p}
+            </p>
+          ))}
+        </div>
+        <div class="order-1 lg:order-2 flex justify-center">
+          <div class="relative">
+            {headshotImg ? (
+              <Image
+                src={headshotImg}
+                alt={`${site.founder} - ${site.name}`}
+                class="rounded-md shadow-lg w-full max-w-md object-cover"
+                width={480}
+                height={600}
+                loading="eager"
+              />
+            ) : (
+              <HeadshotPlaceholder class="rounded-md shadow-lg max-w-md" />
+            )}
+            <div class="absolute -bottom-4 -left-4 bg-accent text-white px-6 py-3 rounded-md shadow-lg">
+              <p class="font-[family-name:var(--font-display)] uppercase text-lg">{site.about.badge}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <section class="py-12 bg-primary">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        {site.about.stats.map((stat) => (
+          <div>
+            <p class="text-4xl md:text-5xl font-[family-name:var(--font-display)] uppercase text-white mb-2">{stat.value}</p>
+            <p class="text-white/80 text-sm md:text-base uppercase tracking-wide">{stat.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Services />
+
+  <ContactForm />
+</BaseLayout>

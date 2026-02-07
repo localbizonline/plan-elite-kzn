@@ -1,0 +1,61 @@
+---
+import { site } from '../site.config';
+
+interface Props {
+  rating?: number;
+  count?: number;
+  variant?: 'hero' | 'inline';
+}
+
+const {
+  rating = site.reviews.averageRating,
+  count = site.reviews.totalReviews,
+  variant = 'hero',
+} = Astro.props;
+
+const fullStars = Math.floor(rating);
+const hasHalf = rating % 1 >= 0.5;
+---
+
+{variant === 'hero' ? (
+  <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2">
+    {/* Google "G" icon */}
+    <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12.545 10.239v3.821h5.445c-.712 2.315-2.647 3.972-5.445 3.972a6.033 6.033 0 110-12.064c1.498 0 2.866.549 3.921 1.453l2.814-2.814A9.969 9.969 0 0012.545 2C7.021 2 2.543 6.477 2.543 12s4.478 10 10.002 10c8.396 0 10.249-7.85 9.426-11.748l-9.426-.013z"/>
+    </svg>
+    <div class="flex items-center gap-0.5">
+      {Array.from({ length: 5 }).map((_, i) => (
+        <svg
+          class={`w-4 h-4 ${i < fullStars ? 'text-yellow-400' : (i === fullStars && hasHalf) ? 'text-yellow-400' : 'text-white/30'}`}
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          aria-hidden="true"
+        >
+          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+        </svg>
+      ))}
+    </div>
+    <span class="text-white font-semibold text-sm">{rating}</span>
+    <span class="text-white/60 text-xs">({count} reviews)</span>
+  </div>
+) : (
+  <div class="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-4 py-2">
+    <svg class="w-5 h-5 text-accent" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12.545 10.239v3.821h5.445c-.712 2.315-2.647 3.972-5.445 3.972a6.033 6.033 0 110-12.064c1.498 0 2.866.549 3.921 1.453l2.814-2.814A9.969 9.969 0 0012.545 2C7.021 2 2.543 6.477 2.543 12s4.478 10 10.002 10c8.396 0 10.249-7.85 9.426-11.748l-9.426-.013z"/>
+    </svg>
+    <div class="flex items-center gap-0.5">
+      {Array.from({ length: 5 }).map((_, i) => (
+        <svg
+          class={`w-4 h-4 ${i < fullStars ? 'text-yellow-400' : (i === fullStars && hasHalf) ? 'text-yellow-400' : 'text-gray-300'}`}
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          aria-hidden="true"
+        >
+          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+        </svg>
+      ))}
+    </div>
+    <span class="text-primary font-semibold text-sm">{rating}</span>
+    <span class="text-muted text-xs">({count} reviews)</span>
+  </div>
+)}

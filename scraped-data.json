@@ -1,0 +1,425 @@
+{
+  "scrapeDate": "2026-02-07",
+  "sourceUrl": "https://elitecompanygroup.com/",
+  "businessName": "Plan Elite",
+  "domain": "elitecompanygroup.com",
+  "pagesScraped": [
+    "https://elitecompanygroup.com/",
+    "https://elitecompanygroup.com/what-we-offer/",
+    "https://elitecompanygroup.com/get-in-touch/"
+  ],
+
+  "branding": {
+    "companyName": "Plan Elite",
+    "parentCompany": "Elite Company Group",
+    "tagline": "Dream Elite - Plan Elite - Build Elite",
+    "yearEstablished": 2016,
+    "logoNotes": "Logo named 'Web-Logo-Black-Background' — white/light logo on black/dark background. Also has a 'Footer Logo' variant (lighter version for dark footer background).",
+    "colors": {
+      "primary": "#000000",
+      "primaryDescription": "Black — dominant background color across the entire site",
+      "accent": "Gold/amber tones — visible in imagery, accents, and hover states",
+      "accentNotes": "Exact hex not extractable from markdown; gold/warm amber used throughout for premium feel",
+      "text": "#FFFFFF",
+      "textDescription": "White text on dark backgrounds throughout",
+      "secondaryBackground": "Dark charcoal/near-black for alternate sections",
+      "overallPalette": "Black + white + gold/amber. Dark, premium, luxury aesthetic.",
+      "notes": "Very dark site overall. Black backgrounds with white/light text. Gold accents reinforce luxury/premium positioning. Clean contrast ratio."
+    },
+    "fonts": {
+      "displayFont": "Unknown — appears to be a modern geometric sans-serif (possibly Montserrat, Poppins, or similar). Used for headings, hero text, and team names.",
+      "bodyFont": "Unknown — clean sans-serif for paragraph text. Likely the same family or a complementary sans-serif.",
+      "notes": "Unable to extract exact font-family from markdown scrape. CSS inspection needed for exact values. All-caps used extensively for headings and team member names, suggesting a font that works well in uppercase.",
+      "fontCharacteristics": "Clean, modern, geometric sans-serif. Professional weight hierarchy — bold headings, regular body text."
+    },
+    "designStyle": "Dark, premium, corporate. Heavy use of black backgrounds with white text. Professional photography. Grid-based team layout. Luxury/high-end positioning. Minimalist navigation (only 3 pages). Full-width sections with ample spacing.",
+    "socialLinks": {
+      "facebook": "https://www.facebook.com/PlanElite",
+      "linkedin": "https://www.linkedin.com/company/plan-elite/posts/?feedView=all",
+      "instagram": "https://www.instagram.com/plan_elite_architecture/"
+    },
+    "websiteCredit": "SDDS Web Design (https://sddsweb.co.za)"
+  },
+
+  "content": {
+    "homepage": {
+      "url": "https://elitecompanygroup.com/",
+      "title": "Plan Elite - Plan Elite",
+      "heroHeadline": "PLAN ELITE",
+      "heroSubheadline": "Dream Elite - Plan Elite - Build Elite",
+      "heroDescription": "We specialise in architecture and property development, enhancing the appeal of commercial and residential properties since 2016. With us, you'll experience the full journey — from architecture and development to interior design, all under one roof. We're the company that brings visions to life and sets the benchmark for excellence.",
+      "heroCTA": {
+        "text": "View Our Services",
+        "url": "https://elitecompanygroup.com/what-we-offer/"
+      },
+      "sections": [
+        {
+          "name": "Hero",
+          "content": "Main tagline, company description, CTA to services"
+        },
+        {
+          "name": "Image Gallery / Portfolio",
+          "content": "Multiple images displayed — project photos showcasing completed work. Number '45' displayed prominently, likely total projects completed."
+        },
+        {
+          "name": "Team Section",
+          "heading": "MEET THE TEAM",
+          "content": "Grid of 13 team members with photos and titles. Professional headshot-style photos."
+        }
+      ],
+      "stats": {
+        "projectCount": 45,
+        "notes": "Number 45 displayed on homepage — total projects completed"
+      }
+    },
+
+    "services": {
+      "url": "https://elitecompanygroup.com/what-we-offer/",
+      "title": "What We Offer - Plan Elite",
+      "overview": "Four core service pillars with tabbed navigation at the top. Each service has a detailed description section with imagery.",
+      "serviceList": [
+        {
+          "name": "Architectural Services",
+          "anchor": "#architectural",
+          "shortDescription": "Bespoke architectural solutions — conceptual design, 3D visualisations, detailed design and development, architectural consulting, planning documentation, sustainability integration, regulatory compliance and permitting.",
+          "fullContent": "At Plan Elite, our architectural services are driven by an unwavering commitment to design excellence, innovation, and practical functionality. We deliver bespoke architectural solutions that not only meet aesthetic and spatial requirements but also express the unique vision of every Plan Elite client.\n\nEvery project with Plan Elite begins with a comprehensive conceptual design phase, where creative ideas are transformed into initial sketches and 3D visualisations that reveal the potential of a space while aligning perfectly with its intended use. Once the concept is approved, the Plan Elite design team advances to detailed design and development, producing precise plans that include material specifications, finishes, and fixture details — ensuring a seamless translation from concept to construction.\n\nPlan Elite also offers specialised architectural consulting, refining design concepts and providing pragmatic, value-driven recommendations to optimise functionality, cost-efficiency, and long-term value. Our team prepares comprehensive planning documentation that forms a solid foundation for project execution and remains in full compliance with all relevant regulatory standards.\n\nSustainability is at the heart of Plan Elite's design philosophy. We integrate energy-efficient systems, sustainable materials, and green building strategies that minimise environmental impact while promoting long-term operational savings.\n\nIn addition, Plan Elite expertly manages all aspects of regulatory compliance and permitting, navigating complex zoning laws, building codes, and both local and international regulations to ensure every project progresses smoothly, legally, and on schedule.",
+          "keyCapabilities": [
+            "Conceptual design and 3D visualisations",
+            "Detailed design and development",
+            "Architectural consulting",
+            "Planning documentation",
+            "Sustainability integration (green building)",
+            "Regulatory compliance and permitting",
+            "Material specifications and finishes"
+          ]
+        },
+        {
+          "name": "Engineering Services",
+          "shortDescription": "Structural and civil engineering — structural design, civil infrastructure, stormwater management, foundations, steel and concrete systems, feasibility studies, construction supervision, compliance certification.",
+          "fullContent": "At Plan Elite, our engineering services are dedicated to shaping the built environment through precision, innovation, and technical excellence. We provide a comprehensive range of structural and civil engineering solutions that support the full project lifecycle — from concept to completion.\n\nOur team of Plan Elite engineers collaborates closely with architects, developers, and contractors to ensure every design is not only visually striking but also structurally sound, efficient, and sustainable. By integrating advanced engineering principles with a deep understanding of architectural intent, Plan Elite delivers outcomes that balance form, function, and performance.\n\nOur expertise spans structural design, civil infrastructure, stormwater management, foundations, and steel and concrete systems. Each project is tailored to meet site-specific conditions, regulatory requirements, and environmental considerations — ensuring long-term resilience and cost-effective construction.\n\nSustainability is embedded in Plan Elite's engineering philosophy. We prioritise the use of sustainable materials, energy-efficient systems, and modern design technologies to minimise environmental impact and enhance the overall performance of the built environment.\n\nFrom feasibility studies and detailed analysis to construction supervision and compliance certification, Plan Elite provides end-to-end engineering solutions that uphold the highest standards of safety, durability, and innovation.\n\nAt Plan Elite, we don't just design structures — we engineer the foundations of lasting excellence.",
+          "keyCapabilities": [
+            "Structural design",
+            "Civil infrastructure",
+            "Stormwater management",
+            "Foundation engineering",
+            "Steel and concrete systems",
+            "Feasibility studies",
+            "Construction supervision",
+            "Compliance certification"
+          ]
+        },
+        {
+          "name": "Construction Services",
+          "shortDescription": "New builds and revamps — end-to-end project management, turnkey construction solutions, quality control, CIDB and NHBRC registered. Residential, industrial, and commercial buildings.",
+          "fullContent": "At Plan Elite, we specialise in new builds and comprehensive revamps that enhance both structural stability and architectural aesthetics. Our construction services provide complete, end-to-end project management, overseeing every phase of the build — from initial ground-breaking to final handover — with a steadfast commitment to timelines, budget control, and execution excellence.\n\nPlan Elite delivers turnkey construction solutions, offering clients a seamless, hassle-free experience that culminates in fully completed and operational spaces ready for immediate use. Our commitment to quality control is unwavering; we maintain strict supervision and compliance protocols to ensure exceptional workmanship, structural integrity, and lasting durability across all projects.\n\nOur construction division is fully registered with the Construction Industry Development Board (CIDB) and the National Home Builders Registration Council (NHBRC), ensuring that every project meets the highest industry standards and regulatory compliance requirements.\n\nWith extensive experience across the built environment, Plan Elite has successfully delivered a diverse range of projects, including medium to high-end residential developments, industrial facilities, and commercial buildings. We work closely with developers, investors, and property owners to create outcomes that meet both functional demands and commercial goals, embodying the excellence and professionalism synonymous with the Plan Elite name.",
+          "keyCapabilities": [
+            "New builds",
+            "Comprehensive revamps/renovations",
+            "End-to-end project management",
+            "Turnkey construction solutions",
+            "Quality control and supervision",
+            "CIDB registered",
+            "NHBRC registered",
+            "Residential developments (medium to high-end)",
+            "Industrial facilities",
+            "Commercial buildings"
+          ]
+        },
+        {
+          "name": "Interior Design Services",
+          "shortDescription": "Full-service interior design and decorating — residential, commercial, healthcare interiors. Custom furnishings and finishings, bespoke furniture, exclusive surface finishings.",
+          "fullContent": "Plan Elites delivers full-service interior design and decorating, creating stunning, functional, and tailored spaces across South Africa.\n\nWe specialise in transforming environments for:\n\nResidential Interiors: Crafting beautiful and highly liveable homes.\n\nCommercial Interiors: Designing dynamic spaces that enhance your brand and productivity (e.g., offices, retail, hospitality).\n\nHealthcare Interiors: Developing comfortable, efficient, and well-being-focused clinical environments.\n\nWhat sets us apart is our focus on custom furnishings and finishings. We don't rely on off-the-shelf solutions; instead, we design and produce unique, bespoke pieces, including custom-made furniture and exclusive surface finishings, ensuring your interior is perfectly cohesive and one-of-a-kind.\n\nWe manage the entire project from concept to completion.",
+          "keyCapabilities": [
+            "Residential interior design",
+            "Commercial interior design (offices, retail, hospitality)",
+            "Healthcare interior design",
+            "Custom furnishings and finishings",
+            "Bespoke/custom-made furniture",
+            "Exclusive surface finishings",
+            "Full project management (concept to completion)"
+          ],
+          "specialisations": [
+            "Residential Interiors",
+            "Commercial Interiors",
+            "Healthcare Interiors"
+          ]
+        }
+      ],
+      "additionalServicesFromForm": [
+        "Renovation Services",
+        "Prefabricated Steel Structures"
+      ],
+      "notes": "The contact form includes 'Renovation Services' and 'Prefabricated Steel Structures' as enquiry options, but these do not have dedicated service descriptions on the What We Offer page."
+    },
+
+    "contact": {
+      "url": "https://elitecompanygroup.com/get-in-touch/",
+      "title": "Get In Touch - Plan Elite",
+      "heading": "Contact Us",
+      "subheading": "Have A Project in Mind?",
+      "description": "Ready to shape the future? Let Plan Elites assist. We operate nationwide. Get in touch with us today to request a meeting.",
+      "investorMessage": "For Investors: If you have a potential project in mind, let us know how we can collaborate or manage your development.",
+      "contacts": [
+        {
+          "role": "Head of Sales & Client Relations",
+          "name": "Daniel Green",
+          "email": "daniel@elitecompanygroup.com",
+          "phone": "+27 61 168 0099"
+        },
+        {
+          "role": "Architectural & Planning Department",
+          "name": "Ryno Van Den Berg",
+          "email": "cs@elitecompanygroup.com",
+          "phone": "+27 74 626 8909"
+        },
+        {
+          "role": "Accounts Department",
+          "email": "accounts@elitecompanygroup.com"
+        }
+      ],
+      "formFields": [
+        { "label": "Name and Surname", "type": "text", "required": true },
+        { "label": "Email Address", "type": "email", "required": true },
+        { "label": "Phone Number", "type": "tel", "required": false },
+        {
+          "label": "Select your Province",
+          "type": "select",
+          "required": true,
+          "options": ["Kwazulu-Natal", "Gauteng", "Western Cape", "Eastern Cape"]
+        },
+        { "label": "Message", "type": "textarea", "required": false, "maxLength": 180 },
+        {
+          "label": "My Enquiry Relates to",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Architectural Services",
+            "Engineering Services",
+            "Construction Services",
+            "Renovation Services",
+            "Prefabricated Steel Structures",
+            "Other / General"
+          ]
+        }
+      ],
+      "serviceAreas": {
+        "provinces": ["KwaZulu-Natal", "Gauteng", "Western Cape", "Eastern Cape"],
+        "coverage": "Nationwide",
+        "notes": "Form includes province selector suggesting primary operations in KZN, Gauteng, Western Cape, and Eastern Cape. Site explicitly states 'We operate nationwide.'"
+      }
+    }
+  },
+
+  "images": {
+    "logo": {
+      "description": "White/light logo on black background. Named 'Web-Logo-Black-Background'. A footer variant also exists.",
+      "variants": ["Web-Logo-Black-Background (header)", "Footer Logo (footer)"],
+      "notes": "Logo appears designed for dark backgrounds. Would need a light-background version if site uses light sections."
+    },
+    "heroImages": {
+      "description": "Homepage hero section features architectural/property development imagery. Dark, premium feel.",
+      "notes": "Exact image URLs not extractable from markdown scrape."
+    },
+    "portfolioGallery": {
+      "description": "Homepage contains a gallery/portfolio section with multiple project photos. Number '45' displayed — likely indicating 45 completed projects.",
+      "estimatedCount": "Multiple (5-10+ images visible in grid)",
+      "notes": "These appear to be real project photos rather than stock images. Would be valuable to download for the new site."
+    },
+    "teamPhotos": {
+      "description": "13 team member headshot photos displayed in a grid on the homepage. Professional portrait-style images with name labels.",
+      "members": [
+        { "name": "Daniel Green", "photoLabel": "DANIEL" },
+        { "name": "Ryno Van Den Berg", "photoLabel": "RYNO" },
+        { "name": "Riaan Van Rooyen", "photoLabel": "RYNO" },
+        { "name": "Desire Van Den Berg", "photoLabel": "DESIREE" },
+        { "name": "Riaan Van Den Berg", "photoLabel": "BRADLEY" },
+        { "name": "Bradley Short", "photoLabel": "BRADLEY" },
+        { "name": "Luke Candy", "photoLabel": "LUKE" },
+        { "name": "Kiara Govender", "photoLabel": "KIARA" },
+        { "name": "Jess Green", "photoLabel": "RIAAN" },
+        { "name": "Wavell Chimango", "photoLabel": "RIAAN DIRECTOR" },
+        { "name": "Yorke Lottering", "photoLabel": "DESIREE" },
+        { "name": "Shaelyn Becker", "photoLabel": "RIAAN" },
+        { "name": "Gareez Little", "photoLabel": "RIAAN" }
+      ],
+      "notes": "Photo labels don't always match names (likely filename references). 13 headshots total."
+    },
+    "serviceImages": {
+      "description": "Each service section on the What We Offer page has accompanying imagery — architectural renders, construction photos, interior design shots.",
+      "sections": [
+        "Architectural Services — architectural renders/plans",
+        "Engineering Services — structural/engineering imagery",
+        "Construction Services — construction site/completed building photos",
+        "Interior Design Services — interior photography"
+      ]
+    },
+    "overallImageStyle": "Professional, high-quality photography. Dark/moody tone consistent with black background aesthetic. Mix of real project photos, professional headshots, and service-related imagery."
+  },
+
+  "supplementaryInfo": {
+    "team": {
+      "totalMembers": 13,
+      "members": [
+        { "name": "Daniel Green", "title": "Founder and CEO", "contactEmail": "daniel@elitecompanygroup.com", "phone": "+27 61 168 0099" },
+        { "name": "Ryno Van Den Berg", "title": "Director", "contactEmail": "cs@elitecompanygroup.com", "phone": "+27 74 626 8909" },
+        { "name": "Riaan Van Rooyen", "title": "Director and Head of Construction" },
+        { "name": "Desire Van Den Berg", "title": "Accounts Manager" },
+        { "name": "Riaan Van Den Berg", "title": "KZN Construction Manager" },
+        { "name": "Bradley Short", "title": "Lead Draughtsman" },
+        { "name": "Luke Candy", "title": "Lead Sales Representative & Client Relations" },
+        { "name": "Kiara Govender", "title": "Architect" },
+        { "name": "Jess Green", "title": "Marketing" },
+        { "name": "Wavell Chimango", "title": "Senior Professional Architect" },
+        { "name": "Yorke Lottering", "title": "Foreman" },
+        { "name": "Shaelyn Becker", "title": "Sales Representative" },
+        { "name": "Gareez Little", "title": "CPT Construction Manager" }
+      ],
+      "departmentBreakdown": {
+        "leadership": ["Daniel Green (CEO)", "Ryno Van Den Berg (Director)", "Riaan Van Rooyen (Director)"],
+        "architecture": ["Kiara Govender (Architect)", "Wavell Chimango (Senior Professional Architect)", "Bradley Short (Lead Draughtsman)"],
+        "construction": ["Riaan Van Rooyen (Head of Construction)", "Riaan Van Den Berg (KZN Construction Manager)", "Gareez Little (CPT Construction Manager)", "Yorke Lottering (Foreman)"],
+        "salesAndMarketing": ["Luke Candy (Lead Sales & Client Relations)", "Shaelyn Becker (Sales Representative)", "Jess Green (Marketing)"],
+        "accounts": ["Desire Van Den Berg (Accounts Manager)"]
+      },
+      "regionalPresence": {
+        "KZN": "Riaan Van Den Berg (KZN Construction Manager)",
+        "CPT": "Gareez Little (CPT Construction Manager)",
+        "notes": "Regional construction managers suggest offices or active operations in KwaZulu-Natal and Cape Town, beyond just head office."
+      }
+    },
+
+    "certifications": [
+      {
+        "body": "CIDB",
+        "fullName": "Construction Industry Development Board",
+        "notes": "Construction division is fully registered. CIDB registration is required for all construction work on government projects in South Africa."
+      },
+      {
+        "body": "NHBRC",
+        "fullName": "National Home Builders Registration Council",
+        "notes": "Construction division is fully registered. NHBRC registration is mandatory for residential home builders in South Africa."
+      }
+    ],
+
+    "projectTypes": [
+      "Medium to high-end residential developments",
+      "Industrial facilities",
+      "Commercial buildings",
+      "Office interiors",
+      "Retail spaces",
+      "Hospitality venues",
+      "Healthcare facilities"
+    ],
+
+    "projectCount": {
+      "total": 45,
+      "source": "Homepage display",
+      "notes": "45 projects completed as displayed on the homepage. This is a significant portfolio for a company founded in 2016."
+    },
+
+    "keyValuePropositions": [
+      "Full journey — architecture, development, interior design, all under one roof",
+      "Enhancing the appeal of commercial and residential properties since 2016",
+      "Brings visions to life and sets the benchmark for excellence",
+      "Operates nationwide across South Africa",
+      "CIDB and NHBRC registered",
+      "Turnkey construction solutions",
+      "Custom furnishings and finishings — bespoke, not off-the-shelf",
+      "Sustainability at the heart of design philosophy",
+      "Green building strategies",
+      "3D visualisations for conceptual design"
+    ],
+
+    "targetAudiences": [
+      "Property developers",
+      "Investors",
+      "Residential homeowners (medium to high-end)",
+      "Commercial property owners",
+      "Healthcare facility operators"
+    ],
+
+    "uniqueSellingPoints": [
+      "One-stop shop: architecture + engineering + construction + interior design",
+      "Operating since 2016 (10 years)",
+      "13-person team with dedicated specialists across disciplines",
+      "CIDB and NHBRC registered (industry compliance)",
+      "Nationwide coverage with regional construction managers (KZN, CPT)",
+      "Custom interior design pieces (not off-the-shelf)",
+      "Investor collaboration and property development management",
+      "Prefabricated steel structures capability"
+    ],
+
+    "operationalDetails": {
+      "coverage": "Nationwide, South Africa",
+      "primaryProvinces": ["KwaZulu-Natal", "Gauteng", "Western Cape", "Eastern Cape"],
+      "yearFounded": 2016,
+      "yearsInBusiness": 10,
+      "emails": {
+        "sales": "daniel@elitecompanygroup.com",
+        "architecture": "cs@elitecompanygroup.com",
+        "accounts": "accounts@elitecompanygroup.com"
+      },
+      "phones": {
+        "sales": "+27 61 168 0099",
+        "architecture": "+27 74 626 8909"
+      }
+    },
+
+    "missingFromWebsite": [
+      "Physical address / office locations not listed",
+      "No testimonials or client reviews displayed",
+      "No portfolio page with individual project case studies",
+      "No blog or news section",
+      "No pricing or quote process information",
+      "No WhatsApp contact link",
+      "No operating hours listed",
+      "No specific project examples or case studies with photos",
+      "No awards or recognition mentioned"
+    ],
+
+    "seoObservations": {
+      "title": "Plan Elite - Plan Elite",
+      "titleIssue": "Homepage title repeats 'Plan Elite' — suboptimal for SEO. No location or service keywords in title.",
+      "missingElements": [
+        "No meta description visible in scrape",
+        "No structured data / schema markup apparent",
+        "No blog or content section for organic traffic",
+        "No portfolio/gallery page with project case studies",
+        "No testimonials or social proof",
+        "No location-specific pages"
+      ],
+      "opportunities": [
+        "Add location-specific pages (KZN, Gauteng, Cape Town)",
+        "Add individual service pages instead of single long scrollable page",
+        "Add portfolio/project showcase with case studies",
+        "Add testimonials and Google reviews",
+        "Improve page titles with location + service keywords",
+        "Add blog for organic content",
+        "Schema markup for LocalBusiness and ProfessionalService"
+      ]
+    },
+
+    "technicalNotes": {
+      "platform": "Likely WordPress (based on page structure, design credit from SDDS Web Design, and common SA web design patterns)",
+      "currentDesigner": "SDDS Web Design (https://sddsweb.co.za)",
+      "siteStructure": "3 pages only: Home, What We Offer, Get In Touch",
+      "formImplementation": "Contact form with honeypot anti-spam field",
+      "imageDelivery": "Standard WordPress image hosting (no CDN apparent)"
+    },
+
+    "socialMedia": {
+      "facebook": {
+        "url": "https://www.facebook.com/PlanElite",
+        "handle": "PlanElite"
+      },
+      "linkedin": {
+        "url": "https://www.linkedin.com/company/plan-elite/",
+        "companyPage": true
+      },
+      "instagram": {
+        "url": "https://www.instagram.com/plan_elite_architecture/",
+        "handle": "plan_elite_architecture"
+      }
+    }
+  }
+}

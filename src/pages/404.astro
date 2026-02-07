@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../site.config';
+---
+
+<BaseLayout
+  title={`Page Not Found | ${site.name}`}
+  description={`The page you are looking for could not be found. Visit ${site.name} for professional services.`}
+>
+  <section class="py-24 md:py-32 bg-background text-center">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6">
+      <h1 class="text-6xl md:text-8xl font-[family-name:var(--font-display)] text-primary uppercase mb-4">404</h1>
+      <h2 class="text-2xl md:text-3xl font-[family-name:var(--font-display)] text-primary uppercase mb-4">Page Not Found</h2>
+      <p class="text-muted text-lg mb-8">
+        Sorry, the page you are looking for does not exist or has been moved.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/"
+          class="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent-light text-white px-8 py-4 rounded-md text-lg font-bold transition-colors"
+        >
+          Go Home
+        </a>
+        <a
+          href={`tel:${site.phoneRaw}`}
+          class="inline-flex items-center justify-center gap-2 border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-4 rounded-md text-lg font-bold transition-colors"
+        >
+          Call {site.phone}
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

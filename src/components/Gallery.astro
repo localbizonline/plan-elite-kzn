@@ -1,0 +1,63 @@
+---
+import { Image } from 'astro:assets';
+import { site } from '../site.config';
+import { getGalleryImages } from '../images';
+
+const galleryImages = getGalleryImages();
+const title = site.homepage.galleryTitle || 'Our Recent Work';
+const subtitle = site.homepage.gallerySubtitle || `See ${site.name} in action. Quality workmanship you can trust.`;
+---
+
+{galleryImages.length > 0 && (
+  <section class="py-16 md:py-24 bg-surface">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      {/* Section header */}
+      <div class="text-center mb-12">
+        <span class="text-accent font-bold text-sm uppercase tracking-wider">Gallery</span>
+        <h2 class="text-3xl md:text-4xl font-[family-name:var(--font-display)] uppercase text-primary mt-2 mb-4">
+          {title}
+        </h2>
+        <p class="text-muted max-w-2xl mx-auto text-lg">
+          {subtitle}
+        </p>
+      </div>
+
+      {/* Image grid — adapts columns to image count */}
+      <div class={`grid gap-4 md:gap-6 ${
+        galleryImages.length === 1
+          ? 'grid-cols-1 max-w-2xl mx-auto'
+          : galleryImages.length === 2
+            ? 'grid-cols-1 sm:grid-cols-2'
+            : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
+      }`}>
+        {galleryImages.map((img, i) => (
+          <div class="group rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+            <div class="aspect-[4/3] overflow-hidden">
+              <Image
+                src={img}
+                alt={`${site.name} — recent work example ${i + 1}`}
+                width={600}
+                height={450}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* CTA */}
+      <div class="text-center mt-10">
+        <a
+          href="/contact/"
+          class="inline-flex items-center gap-2 bg-accent hover:bg-accent-light text-white px-6 py-3 rounded-md font-bold transition-colors duration-200"
+        >
+          Get a Free Quote
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+)}

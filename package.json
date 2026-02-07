@@ -1,0 +1,40 @@
+{
+  "name": "local-service-template",
+  "type": "module",
+  "version": "1.0.0",
+  "templateVersion": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "prebuild": "node scripts/validate-manifests.mjs --project .",
+    "build": "astro build",
+    "postbuild": "node scripts/post-build.mjs --project .",
+    "preview": "astro preview",
+    "astro": "astro",
+    "gate:init": "node scripts/lib/phase-gate.mjs --init --project .",
+    "gate:status": "node scripts/lib/phase-gate.mjs --status --project .",
+    "gate:check": "node scripts/lib/phase-gate.mjs --check --project .",
+    "validate": "node scripts/validate-manifests.mjs --project .",
+    "qa": "node scripts/lib/qa.mjs --project .",
+    "qa:seo": "node scripts/lib/seo-qa.mjs --project .",
+    "qa:images": "node scripts/lib/image-qa.mjs --project .",
+    "qa:screenshots": "node scripts/lib/screenshot-qa.mjs --project .",
+    "qa:validate": "node scripts/lib/validate-qa.mjs --project .",
+    "health": "node scripts/pre-build.mjs --project .",
+    "sync": "node scripts/sync.mjs --project .",
+    "refresh-reviews": "node scripts/refresh-reviews.mjs --project .",
+    "test": "node --test scripts/__tests__/",
+    "log:init": "node scripts/lib/build-logger.mjs --init --project .",
+    "log:summary": "node scripts/lib/build-logger.mjs --summary --project ."
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.0",
+    "@tailwindcss/vite": "^4.1.18",
+    "astro": "^5.16.15",
+    "playwright": "^1.58.2",
+    "tailwindcss": "^4.1.18"
+  },
+  "devDependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "zod": "^3.25.76"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "aesthetic": "Luxury/Refined with Industrial undertones. Dark navy and gold palette drawn directly from the Plan Elite logo. The design conveys premium architectural authority — polished, confident, and high-end. Geometric typography mirrors the logo's clean uppercase sans-serif letterforms while a serif body font adds sophistication befitting a property development firm.",
+  "fonts": {
+    "heading": "Montserrat",
+    "body": "Merriweather"
+  },
+  "colors": {
+    "primary": "#0E1235",
+    "secondary": "#1A1F4E",
+    "accent": "#C5943A",
+    "background": "#F5F3EF",
+    "surface": "#FFFFFF",
+    "text": "#0E1235",
+    "textLight": "#5A5E7A"
+  },
+  "borderRadius": "0.25rem",
+  "competitorContext": "No competitor data available — Phase 1.2 did not complete before design direction. Design is based purely on logo analysis and niche positioning.",
+  "designNotes": "Logo analysis: The Plan Elite logo features a geometric upward-pointing chevron/arrow icon (white with a gold/bronze diagonal accent bar) on a very dark midnight navy background (#0D0F2B). The wordmark reads 'PLAN' in bold white uppercase and 'ELITE' in metallic gold uppercase, using a clean geometric sans-serif with wide letter-spacing. Colors extracted: primary dark navy (#0E1235) from the logo background, gold accent (#C5943A) from the chevron accent bar and 'ELITE' text, white from the icon and 'PLAN' text. Montserrat was chosen as the heading font because its geometric, clean, bold uppercase style closely mirrors the logo's typeface — modern, architectural, and authoritative. Merriweather was chosen as the body font to add a sophisticated serif contrast, reinforcing the premium 'Elite' positioning for a property development and architecture firm. The warm cream background (#F5F3EF) complements the gold accent without competing with the dark navy headings. Overall direction: Luxury/Refined — this is not a rough trades company but a premium building and development firm with NHBRC and SACAP accreditations, 10 years of experience, and an emphasis on architecture and interior design."
+}

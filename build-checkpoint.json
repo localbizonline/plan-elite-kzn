@@ -1,0 +1,47 @@
+{
+  "buildId": "build-1770489170905",
+  "stage": "A",
+  "status": "complete",
+  "completedAt": "2026-02-07T18:49:00.000Z",
+  "projectPath": "/Users/jeremymartin/Documents/Cursor/Websites/plan-elite-kzn",
+  "summary": {
+    "companyName": "Plan Elite KZN",
+    "niche": "Building Construction & Property Development",
+    "primaryCity": "Durban",
+    "pages": 18,
+    "services": 6,
+    "areaPages": 3,
+    "images": {
+      "total": 54,
+      "aiGenerated": 21,
+      "fromAirtable": 8,
+      "placeholders": 0
+    },
+    "reviews": {
+      "averageRating": 4.8,
+      "totalReviews": 20,
+      "testimonials": 7
+    },
+    "designDirection": "Luxury/Refined",
+    "uniquenessDirection": "Clean Professional",
+    "ctaBannerVariant": "stats-bar",
+    "fonts": {
+      "display": "Montserrat",
+      "body": "Merriweather"
+    },
+    "colors": {
+      "primary": "#0E1235",
+      "accent": "#C5943A"
+    },
+    "enhancements": 7,
+    "buildTime": "1.27s"
+  },
+  "readyForStageB": true,
+  "stageBActions": [
+    "Create GitHub repository",
+    "Push code",
+    "Create Netlify site",
+    "Deploy",
+    "Run QA verification"
+  ]
+}

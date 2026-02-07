@@ -1,0 +1,35 @@
+---
+import { site } from '../site.config';
+
+/** Strip everything except safe SVG path/shape elements and their attributes. */
+function sanitizeSvgInner(raw: string): string {
+  const allowed = /^(path|circle|rect|line|polyline|polygon|ellipse|g)$/i;
+  const safeAttrs = /^(d|cx|cy|r|rx|ry|x|y|x1|y1|x2|y2|width|height|points|fill|stroke|stroke-width|stroke-linecap|stroke-linejoin|transform|opacity|fill-rule|clip-rule|viewBox)$/i;
+  // Remove <script>, <use>, event handlers, and any non-shape elements
+  return raw
+    .replace(/<script[\s\S]*?<\/script>/gi, '')
+    .replace(/\bon\w+\s*=\s*["'][^"']*["']/gi, '')
+    .replace(/<(?!\/?(?:path|circle|rect|line|polyline|polygon|ellipse|g)\b)[^>]+>/gi, '');
+}
+---
+
+<section class="bg-surface border-y border-gray-200 py-6 md:py-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-wrap justify-center gap-6 md:gap-10 lg:gap-14">
+      {site.badges.map((badge) => (
+        <div class="flex items-center gap-2 text-primary">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 text-accent flex-shrink-0"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            set:html={sanitizeSvgInner(badge.icon)}
+          />
+          <span class="text-base font-bold font-[family-name:var(--font-body)] whitespace-nowrap">
+            {badge.label}
+          </span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

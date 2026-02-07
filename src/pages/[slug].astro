@@ -1,0 +1,68 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import TrustBadges from '../components/TrustBadges.astro';
+import Services from '../components/Services.astro';
+import FAQ from '../components/FAQ.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { site } from '../site.config';
+
+export async function getStaticPaths() {
+  const locations = await getCollection('locations');
+  return locations.map((location) => ({
+    params: { slug: location.data.slug },
+    props: { location: location.data },
+  }));
+}
+
+const { location } = Astro.props;
+
+const faqs = [
+  {
+    question: `What services does ${site.name} offer in ${location.city}?`,
+    answer: `${site.name} provides a full range of professional services to ${location.city} and surrounding suburbs including ${location.suburbs}. Contact us for a free quote.`,
+  },
+  {
+    question: `How quickly can ${site.name} respond in ${location.city}?`,
+    answer: `We aim to respond promptly to all calls in ${location.city}. Contact us directly for an accurate estimate.`,
+  },
+  {
+    question: `Does ${site.name} serve all suburbs in ${location.city}?`,
+    answer: `Yes, we service ${location.city} and all surrounding suburbs including ${location.suburbs}.`,
+  },
+];
+---
+
+<BaseLayout
+  title={location.metaTitle}
+  description={location.metaDescription}
+>
+  <Hero
+    title={`${site.name} ${location.city}`}
+    subtitle={`Professional services in ${location.city} and surrounding areas.`}
+  />
+
+  <TrustBadges />
+
+  <!-- Location Content -->
+  <section class="py-16 md:py-20 bg-surface">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl md:text-4xl font-[family-name:var(--font-display)] uppercase text-primary mb-6">
+        Professional Services in {location.city}
+      </h2>
+      <p class="text-muted text-lg leading-relaxed mb-6">
+        {site.name} provides professional services across {location.city} and the greater {location.cityGroup} area. We serve all suburbs including {location.suburbs}.
+      </p>
+      <p class="text-muted leading-relaxed mb-6">
+        With {site.foundingYear === 'N/A' ? 'years' : `over ${new Date().getFullYear() - parseInt(site.foundingYear)} years`} of experience, {site.name} is your trusted local service provider. Call {site.phone} for a free quote.
+      </p>
+    </div>
+  </section>
+
+  <Services />
+
+  <FAQ faqs={faqs} />
+
+  <ContactForm />
+</BaseLayout>

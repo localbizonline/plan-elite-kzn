@@ -1,0 +1,89 @@
+{
+  "companyName": "Plan Elite KZN",
+  "companySlug": "plan-elite-kzn",
+  "ownerName": "Riaan",
+  "ownerSurname": "Van Rooyen",
+  "phone": "081 000 9096",
+  "whatsapp": "27810009096",
+  "email": "riaan@elitecompanygroup.com",
+  "website": "https://elitecompanygroup.com/",
+  "physicalAddress": "58 Inanda Rd, Waterfall, Durban, 3610",
+  "niche": "Building Construction & Property Development",
+  "nicheCategories": ["Building Construction", "Roofing", "Painting", "Flooring", "Nutec House", "Wendy House", "Paving", "Awnings"],
+  "services": [
+    {
+      "title": "Building & Construction",
+      "slug": "building-construction",
+      "description": "New buildings, houses, granny flats, garages, additions, extensions, retaining walls, roofing, and painting",
+      "items": ["New Building (Houses, Granny Flats, Garages)", "Additions and Extensions", "Retaining Wall", "Roofing", "Painting"]
+    },
+    {
+      "title": "Nutec & Wendy Houses",
+      "slug": "nutec-wendy-houses",
+      "description": "Nutec houses, wendy houses, guard huts, classrooms, workshops, offices, and storage sheds",
+      "items": ["Nutec House", "Nutec Shed", "1-4 Bedroom Nutec House", "Wendy/Wood House for main living", "Guard hut for security", "Classroom", "Workshop / Office", "Shed/Storage"]
+    },
+    {
+      "title": "Paving & Landscaping",
+      "slug": "paving-landscaping",
+      "description": "Driveway, commercial, pool/patio, and walkway paving plus commercial and residential landscaping with instant grass supply and installation",
+      "items": ["Driveway paving", "Commercial Paving", "Pool / Patio Paving", "Walkway / Garden paving", "Commercial Landscaping", "Residential Landscaping", "Complex or Estate Landscaping", "Instant Grass Supply and Installed"]
+    },
+    {
+      "title": "Tiling & Flooring",
+      "slug": "tiling-flooring",
+      "description": "Residential and commercial tiling, kitchen and bathroom tiling, new tile installation, and epoxy flooring",
+      "items": ["New Tile Installation", "Residential House Tiling", "Residential Kitchen Tiling", "Commercial / Retail Tiling", "Residential Bathroom Tiling", "Epoxy Flooring"]
+    },
+    {
+      "title": "Awnings & Lapas",
+      "slug": "awnings-lapas",
+      "description": "Fixed, louvre, retractable, and folding arm awnings plus brand new lapas, repairs, re-thatching, and upgrades",
+      "items": ["Fixed Awning (Solid)", "Fixed Awning (Fabric)", "Louvre Awning", "Retractable Awning (Fabric)", "Folding Arm Awning (Fabric)", "Brand New Lapa", "Lapa Repair or Re-thatch", "Lapa Upgrade"]
+    },
+    {
+      "title": "Cladding & Walling",
+      "slug": "cladding-walling",
+      "description": "Precast walling, wood cladding, dash cladding, brick cladding, vinyl cladding, stone cladding, pebble cladding, and fiber cement cladding",
+      "items": ["Precast Walling Extension", "New Precast Walling", "Wood Cladding", "Dash Cladding", "Brick Cladding", "Vinyl Cladding", "Stone Cladding", "Pebble Cladding", "Fiber Cement Cladding"]
+    }
+  ],
+  "primaryCity": "Durban",
+  "serviceAreas": ["Durban (Pinetown – Hillcrest – Bluff)", "Durban North (Umhlanga – Ballito)", "South Coast – KZN"],
+  "areaPages": [],
+  "aboutText": "We specialise in architecture and property development, enhancing the appeal of commercial and residential properties since 2016. With us, you'll experience the full journey — from architecture and development to interior design, all under one roof. We're the company that brings visions to life and sets the benchmark for excellence.",
+  "whyChooseUs": "Customers choose Plan Elite because we deliver a complete, reliable, and hassle-free building and planning solution. Professional expertise, fast turnaround times, clear communication, compliance guaranteed, affordable quality, and a customer-focused approach.",
+  "servicesText": "We specialise in architecture and property development, enhancing the appeal of commercial and residential properties since 2016. With us, you'll experience the full journey — from architecture and development to interior design, all under one roof.",
+  "experience": "10",
+  "yearBusinessStarted": 2016,
+  "accreditations": ["NHBRC", "SACAP"],
+  "logo": {
+    "url": "https://v5.airtableusercontent.com/v3/u/50/50/1770501600000/MxGhBh8oDodUdCZgNzGJog/Mc3rwVvzi0Ofao8hiCtL2yn_F6cpMA4iGjB2qz-qcmOSDCblUgvF3lm_nit2Pjfeod5tqYUiT-DpraXJ5aLkkGqeJSz8wJuNtrD8oH4sSIHcYJqxrSERpuA47Q92AF_3TrFm7efnKT-P-LkM29qogaJZdPwBm-Ju1l_ZEUqns7rdDm-iGr0CEiy5MlqSbZlr/aJzK7KGbvXBzKnb_szOHs_KHD-PV_gxx9bKMQZ8NMF4",
+    "filename": "IMG-20250130-WA0001.jpg",
+    "width": 750,
+    "height": 750
+  },
+  "headshot": {
+    "url": "https://v5.airtableusercontent.com/v3/u/50/50/1770501600000/qmKpWpmrKsaWKZF7sgenZA/mod3rSOJVnHM6LsUkL55LBPVVU6iGnarOXlR6q269k0_q9apxtR1M2Gqc-HkC8XU_HOvIUTARUFMzDpdibchRX7W0kDcLN-57BWwiz5V7OD1D0l9WHSvuEACxKa6VeZ43MUoiS6q-cpH4sh7aUR_06c0PXHhNfx0Yy7vdFqXtcA/DRdAbQ8mBhwz5nYuc5H1TxnQvs4i02k3bvzgyiEs3fA",
+    "filename": "RIAAN-DIRECTOR-1.jpg",
+    "width": 1080,
+    "height": 1080
+  },
+  "gallery": [
+    {"url": "https://v5.airtableusercontent.com/v3/u/50/50/1770501600000/BruR8MHjPBeAECrU-uP2CQ/IOj7JG2JU5SQdqY6syLdFo2y6IwYMIUheNQXrIuUiQqWWM50x4BYAaISIEGeAhJR8521oYBeS5u6rJr-AANfnKhd-IWgrir6s_SpHi9jk2FECdQcwfhnu9MAKNmJvsOQkXXD7iBsI7OYUx2F5Jzm7UrElQ534_oDe66nJLXAAEU/iFzO8cZnQqyRc2NC2m930NdJnxLytjJPVUuoSSlxeNc", "filename": "Need a architect.jpg"},
+    {"url": "https://v5.airtableusercontent.com/v3/u/50/50/1770501600000/729G0EZja3Yt6b38eeuSRg/pMFKboIDZiyKRMsom-gZ4UA_lau_342vGjoKMhgnoCd5vkWE2NG2Y8hxq88zgc3dpD7n_EQZhSM-n50G8dh-qxX51NtVUU6U2ckUWb01IC82J0ws7T8mTVCYJgFc3KvwklafNbXBj_H29-AWFoKNO26NrP_m8OuQ1MG23MLHUHHKhg6ygXYY_akZlWPi-ynVn_VJmN6atG652rY1qBtQcw/5u4jQgd4RD-UtqTB9l0sug8mOp-9sfCt9L2OiT-rC_c", "filename": "construction.jpg"},
+    {"url": "https://v5.airtableusercontent.com/v3/u/50/50/1770501600000/r-vD2UhnLw42PW3NJ0jgKw/52fZVSp5hg3eobb8McuuHkU5_mkgvNX5ik8dwstlMPe_2csUXUQmBc_iFFOFqRs-PaoX4X0m-ZaCaFBHOotdjuOwI2gI-2r9YLxKH7sOrJTYma7cVs-mvWw0V2EUosiRkfwSijaJWwzIT3DPkNmuI-bvtYOKc36yJwI6td8akQkWQWpqMXVMqzIkv6ub1P4T01hBRK6PcacbmV08kTZOSg/cnbeSNQTqUZb-4eqnMc0509DxI7ITZWKtMBIViAWd0A", "filename": "building.jpg"},
+    {"url": "https://v5.airtableusercontent.com/v3/u/50/50/1770501600000/Z_b51I97TEFVERBaa0-upw/Nw2JGDjrfLAoW_7aHQDQUl8KF1CTfYVdEWfvyQ852MxsQ93xP142VatdWs13jdI0nMSEXAsQOptbBWzX355SlhPr2H69AYQFO9P_zSNs1A0EIq6RFykvMocw7UaCmosL1wazJVuSxEIUhKaUmmWD6c3ewmJi2eN6veTMz_wSTqbz2Sx4A52Wr3MBHgbPjXQFLqE8qoxRch0ZQRfeB2F6DA/L5E0weCDvVp6z4GxY45kBBz6BdXJl9N0XyCDiCLX8wA", "filename": "interior.jpg"},
+    {"url": "https://v5.airtableusercontent.com/v3/u/50/50/1770501600000/LMKekiLS7comsmF1mY_AKQ/bq-LEKlnrG6jNAC2Y-Xb2O9TbtJSwtr_HDksmzcSpBxYL8xW0jMIoGRi8vOLHPxRcjNWdo5LNoHqkx2JDBCG0nEJlYbR5w69_IxNpvXDQbeF4rqUK8weBhqBkhaYxCasQwmLFeLzC3smy9EXxM02IxhOTxPW6S831YJ7jS-9sVU/TpzJ6cocSCDZvAQdPAGLJWMdRjYI0E6ut7X1oXIyVqg", "filename": "render.png"},
+    {"url": "https://v5.airtableusercontent.com/v3/u/50/50/1770501600000/9oWkfTKLh6l____9LngH-Q/8lyLe7ffP30iEkS9DsrZsBDlgiM91ShKKE9eUV68OKMbhGp2z-6N8uT3XUG2WuVlto0w6hGaFco2NEz3X8LwWQjty6q76B_EKjuvpy6Ie15tHjmAo2Tbjf_O3_MrolKDjilMNduWnONRp-mUOsfZeIgIdv7rXC21czIha92How8/G7nC1sdKaYZ5sWGzuInDgB4MtgTn4oLDRSLYqifU_wA", "filename": "view6.png"}
+  ],
+  "googleMapsUrl": null,
+  "helloPeterUrl": null,
+  "featuresDescribeBusiness": null,
+  "gmbReviewScore": null,
+  "whereBusinessesGetLeadsFrom": null,
+  "facebookPage": "https://www.facebook.com/PlanElite/",
+  "instagramPage": null,
+  "googleBusinessProfile": null,
+  "companyRating": 5
+}

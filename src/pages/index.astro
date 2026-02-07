@@ -1,0 +1,95 @@
+---
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import TrustBadges from '../components/TrustBadges.astro';
+import GoogleReviewWidget from '../components/GoogleReviewWidget.astro';
+import Services from '../components/Services.astro';
+import FAQ from '../components/FAQ.astro';
+import ContactForm from '../components/ContactForm.astro';
+import ServiceAreas from '../components/ServiceAreas.astro';
+import Gallery from '../components/Gallery.astro';
+import ValueStrip from '../components/ValueStrip.astro';
+import { site } from '../site.config';
+
+const whyCount = site.homepage.whyChooseCards.length;
+const whyGridClass = whyCount === 4
+  ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4'
+  : whyCount === 3
+    ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
+    : whyCount === 2
+      ? 'grid-cols-1 sm:grid-cols-2'
+      : 'grid-cols-1';
+
+// Validate iconSvg paths at build time — fall back to inline icon if SVG file doesn't exist
+const whyChooseCards = site.homepage.whyChooseCards.map((card) => {
+  if (card.iconSvg) {
+    const svgPath = join(process.cwd(), 'public', card.iconSvg);
+    if (!existsSync(svgPath)) {
+      // SVG file missing — clear iconSvg so the inline icon fallback is used
+      return { ...card, iconSvg: undefined };
+    }
+  }
+  return card;
+});
+---
+
+<BaseLayout
+  title={site.homepage.metaTitle}
+  description={site.homepage.metaDescription}
+>
+  <Hero
+    title={site.homepage.heroTitle}
+    subtitle={site.homepage.heroSubtitle}
+  />
+
+  {(site as any).homepage?.valueStrip && (
+    <ValueStrip items={(site as any).homepage.valueStrip} />
+  )}
+
+  <TrustBadges />
+
+  <GoogleReviewWidget />
+
+  <Services />
+
+  <ServiceAreas />
+
+  <!-- Why Choose Us -->
+  <section class="py-16 md:py-24 bg-background">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-[family-name:var(--font-display)] uppercase text-primary mb-4">
+          {site.homepage.whyChooseTitle}
+        </h2>
+        <p class="text-muted max-w-2xl mx-auto text-lg">
+          {site.homepage.whyChooseSubtitle}
+        </p>
+      </div>
+      <div class={`grid ${whyGridClass} gap-8`}>
+        {whyChooseCards.map((card) => (
+          <div class="bg-background rounded-md p-8 text-center shadow-sm hover:shadow-md transition-shadow">
+            <div class="w-16 h-16 bg-accent/10 rounded-md flex items-center justify-center mx-auto mb-5">
+              {card.iconSvg ? (
+                <img src={card.iconSvg} alt="" class="w-10 h-10" aria-hidden="true" loading="lazy" />
+              ) : (
+                <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={card.icon} />
+                </svg>
+              )}
+            </div>
+            <h3 class="text-xl font-[family-name:var(--font-display)] uppercase text-primary mb-3">{card.title}</h3>
+            <p class="text-muted">{card.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Gallery />
+
+  <FAQ faqs={site.homepage.faqs} />
+
+  <ContactForm />
+</BaseLayout>

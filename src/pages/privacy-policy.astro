@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../site.config';
+---
+
+<BaseLayout
+  title={`Privacy Policy | ${site.name}`}
+  description={`Privacy policy for ${site.name}. Learn how we handle your personal information.`}
+>
+  <section class="py-16 md:py-20 bg-background">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h1 class="text-3xl md:text-4xl font-[family-name:var(--font-display)] uppercase text-primary mb-8">Privacy Policy</h1>
+
+      <div class="prose prose-lg text-muted space-y-6">
+        <p>This privacy policy explains how {site.name} collects, uses, and protects your personal information when you use our website or services.</p>
+
+        <h2 class="text-xl font-[family-name:var(--font-display)] uppercase text-primary mt-8 mb-3">Information We Collect</h2>
+        <p>We may collect personal information such as your name, phone number, email address, and physical address when you contact us for a quote, book a service, or submit an enquiry through our website.</p>
+
+        <h2 class="text-xl font-[family-name:var(--font-display)] uppercase text-primary mt-8 mb-3">How We Use Your Information</h2>
+        <p>Your information is used solely for the purpose of providing our services, responding to your enquiries, and improving our website. We do not sell, trade, or share your personal information with third parties.</p>
+
+        <h2 class="text-xl font-[family-name:var(--font-display)] uppercase text-primary mt-8 mb-3">Data Security</h2>
+        <p>We take reasonable measures to protect your personal information from unauthorised access, alteration, or disclosure.</p>
+
+        <h2 class="text-xl font-[family-name:var(--font-display)] uppercase text-primary mt-8 mb-3">Cookies</h2>
+        <p>Our website may use cookies to improve your browsing experience. You can choose to disable cookies through your browser settings.</p>
+
+        <h2 class="text-xl font-[family-name:var(--font-display)] uppercase text-primary mt-8 mb-3">Contact Us</h2>
+        <p>If you have any questions about this privacy policy, please contact us at <a href={`mailto:${site.email}`} class="text-accent hover:text-accent-light">{site.email}</a> or call <a href={`tel:${site.phoneRaw}`} class="text-accent hover:text-accent-light">{site.phone}</a>.</p>
+
+        <p class="text-sm text-muted mt-8">Last updated: {new Date().getFullYear()}</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

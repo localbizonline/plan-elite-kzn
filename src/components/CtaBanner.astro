@@ -1,0 +1,317 @@
+---
+import { Image } from 'astro:assets';
+import { site } from '../site.config';
+import { getHomeHero, getGalleryImages } from '../images';
+
+interface Props {
+  variant?: 'full-bleed-accent' | 'split-image' | 'stats-bar' | 'testimonial-cta' | 'emergency-urgent' | 'map-cta';
+}
+
+const { variant = 'full-bleed-accent' } = Astro.props;
+
+const whatsappUrl = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(site.whatsappMessage)}`;
+
+// Data for stats-bar variant
+const currentYear = new Date().getFullYear();
+const yearsInBusiness = site.foundingYear ? currentYear - parseInt(site.foundingYear) : 0;
+const hasStats = yearsInBusiness > 3 || site.reviews.totalReviews > 0;
+
+// Data for testimonial-cta variant
+const bestReview = site.reviews.items
+  .filter(r => r.text && r.text.length > 30)
+  .sort((a, b) => b.rating - a.rating)[0] || null;
+
+// Data for split-image variant — reuse a gallery image or home hero
+const galleryImages = getGalleryImages();
+const splitImage = galleryImages.length > 0 ? galleryImages[0] : getHomeHero();
+
+// Data for map-cta variant
+const serviceAreas = site.homepage.serviceAreas || [];
+
+// CTA banner config — populated by content writer or uses smart defaults
+const ctaConfig = (site as any).ctaBanner || {};
+const headline = ctaConfig.headline || `Need a ${site.tagline.split(' ')[0]} in ${site.address.city}?`;
+const subtitle = ctaConfig.subtitle || `Call ${site.name} today for fast, reliable service and a free quote.`;
+---
+
+{/* Variant: full-bleed-accent — Bold accent background, white text, dual CTAs */}
+{variant === 'full-bleed-accent' && (
+  <section class="cta-banner cta-banner--full-bleed bg-accent py-16 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-[family-name:var(--font-display)] text-white mb-4 leading-tight">
+        {headline}
+      </h2>
+      <p class="text-lg md:text-xl text-white/85 font-[family-name:var(--font-body)] mb-8 max-w-2xl mx-auto">
+        {subtitle}
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href={`tel:${site.phoneRaw}`}
+          class="inline-flex items-center justify-center gap-2 bg-white text-accent px-8 py-4 rounded-md text-lg font-bold transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1v3.49a1 1 0 01-1 1C10.07 22 2 13.93 2 3.01a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.19z"/>
+          </svg>
+          Call {site.phone}
+        </a>
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center gap-2 border-2 border-white text-white hover:bg-white hover:text-accent px-8 py-4 rounded-md text-lg font-bold transition-all duration-200"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          WhatsApp Us
+        </a>
+      </div>
+    </div>
+  </section>
+)}
+
+{/* Variant: split-image — Text left, image right */}
+{variant === 'split-image' && (
+  <section class="cta-banner cta-banner--split-image bg-primary overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2">
+        <div class="flex flex-col justify-center px-6 sm:px-10 lg:px-16 py-16 md:py-20">
+          <h2 class="text-3xl md:text-4xl font-[family-name:var(--font-display)] text-white mb-4 leading-tight">
+            {headline}
+          </h2>
+          <p class="text-lg text-white/80 font-[family-name:var(--font-body)] mb-8">
+            {subtitle}
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a
+              href={`tel:${site.phoneRaw}`}
+              class="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent-light text-white px-8 py-4 rounded-md text-lg font-bold transition-colors duration-200 shadow-lg"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1v3.49a1 1 0 01-1 1C10.07 22 2 13.93 2 3.01a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.19z"/>
+              </svg>
+              Call Now
+            </a>
+            <a
+              href="/contact/"
+              class="inline-flex items-center justify-center gap-2 border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 rounded-md text-lg font-bold transition-colors duration-200"
+            >
+              Get Free Quote
+            </a>
+          </div>
+        </div>
+        <div class="relative min-h-[300px] md:min-h-full">
+          {splitImage ? (
+            <Image
+              src={splitImage}
+              alt={`${site.name} — professional ${site.tagline.toLowerCase()}`}
+              class="absolute inset-0 w-full h-full object-cover"
+              widths={[480, 768, 1024]}
+              sizes="(max-width: 768px) 100vw, 50vw"
+              loading="lazy"
+            />
+          ) : (
+            <div class="absolute inset-0 bg-primary-light"></div>
+          )}
+        </div>
+      </div>
+    </div>
+  </section>
+)}
+
+{/* Variant: stats-bar — Social proof stats + CTA */}
+{variant === 'stats-bar' && hasStats && (
+  <section class="cta-banner cta-banner--stats-bar bg-accent py-14 md:py-18">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-10 text-center mb-10">
+        {yearsInBusiness > 3 && (
+          <div class="cta-stat">
+            <span class="block text-4xl md:text-5xl font-[family-name:var(--font-display)] text-white font-bold">
+              {yearsInBusiness}+
+            </span>
+            <span class="text-sm md:text-base text-white/75 uppercase tracking-wide font-semibold">
+              Years Experience
+            </span>
+          </div>
+        )}
+        {site.reviews.totalReviews > 0 && (
+          <div class="cta-stat">
+            <span class="block text-4xl md:text-5xl font-[family-name:var(--font-display)] text-white font-bold">
+              {site.reviews.totalReviews}+
+            </span>
+            <span class="text-sm md:text-base text-white/75 uppercase tracking-wide font-semibold">
+              Happy Clients
+            </span>
+          </div>
+        )}
+        {site.reviews.averageRating >= 4.0 && (
+          <div class="cta-stat col-span-2 md:col-span-1">
+            <span class="block text-4xl md:text-5xl font-[family-name:var(--font-display)] text-white font-bold">
+              {site.reviews.averageRating}<span class="text-2xl">&#9733;</span>
+            </span>
+            <span class="text-sm md:text-base text-white/75 uppercase tracking-wide font-semibold">
+              Google Rating
+            </span>
+          </div>
+        )}
+      </div>
+      <div class="text-center">
+        <p class="text-xl md:text-2xl font-[family-name:var(--font-display)] text-white mb-6">
+          {headline}
+        </p>
+        <a
+          href={`tel:${site.phoneRaw}`}
+          class="inline-flex items-center justify-center gap-2 bg-white text-accent px-10 py-4 rounded-md text-lg font-bold transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1v3.49a1 1 0 01-1 1C10.07 22 2 13.93 2 3.01a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.19z"/>
+          </svg>
+          Call {site.phone}
+        </a>
+      </div>
+    </div>
+  </section>
+)}
+{/* Fallback for stats-bar when no stats available */}
+{variant === 'stats-bar' && !hasStats && (
+  <section class="cta-banner cta-banner--full-bleed bg-accent py-16 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-[family-name:var(--font-display)] text-white mb-4">{headline}</h2>
+      <p class="text-lg text-white/85 font-[family-name:var(--font-body)] mb-8 max-w-2xl mx-auto">{subtitle}</p>
+      <a href={`tel:${site.phoneRaw}`} class="inline-flex items-center justify-center gap-2 bg-white text-accent px-8 py-4 rounded-md text-lg font-bold transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1v3.49a1 1 0 01-1 1C10.07 22 2 13.93 2 3.01a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.19z"/></svg>
+        Call {site.phone}
+      </a>
+    </div>
+  </section>
+)}
+
+{/* Variant: testimonial-cta — Featured review + CTA */}
+{variant === 'testimonial-cta' && bestReview && (
+  <section class="cta-banner cta-banner--testimonial bg-surface py-16 md:py-20 border-t border-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <div class="flex justify-center gap-1 mb-6">
+        {Array.from({ length: bestReview.rating }).map(() => (
+          <svg class="w-7 h-7 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+          </svg>
+        ))}
+      </div>
+      <blockquote class="text-xl md:text-2xl text-text leading-relaxed font-[family-name:var(--font-body)] mb-4 italic max-w-3xl mx-auto">
+        <span class="text-accent text-3xl font-bold not-italic">&ldquo;</span>{bestReview.text}<span class="text-accent text-3xl font-bold not-italic">&rdquo;</span>
+      </blockquote>
+      <p class="text-primary font-bold text-lg mb-8">
+        &mdash; {bestReview.name}{bestReview.source ? `, ${bestReview.source}` : ''}
+      </p>
+      <p class="text-muted text-lg mb-6">Experience the same quality service.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href={`tel:${site.phoneRaw}`}
+          class="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent-light text-white px-8 py-4 rounded-md text-lg font-bold transition-colors duration-200 shadow-lg"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1v3.49a1 1 0 01-1 1C10.07 22 2 13.93 2 3.01a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.19z"/>
+          </svg>
+          Call Now
+        </a>
+        <a
+          href="/reviews/"
+          class="inline-flex items-center gap-2 text-accent hover:text-accent-light font-bold text-lg transition-colors px-8 py-4"
+        >
+          Read More Reviews
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+)}
+{/* Fallback for testimonial-cta when no reviews */}
+{variant === 'testimonial-cta' && !bestReview && (
+  <section class="cta-banner cta-banner--full-bleed bg-accent py-16 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-[family-name:var(--font-display)] text-white mb-4">{headline}</h2>
+      <p class="text-lg text-white/85 font-[family-name:var(--font-body)] mb-8 max-w-2xl mx-auto">{subtitle}</p>
+      <a href={`tel:${site.phoneRaw}`} class="inline-flex items-center justify-center gap-2 bg-white text-accent px-8 py-4 rounded-md text-lg font-bold transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5">
+        Call {site.phone}
+      </a>
+    </div>
+  </section>
+)}
+
+{/* Variant: emergency-urgent — Dark bg, pulsing dot, single phone CTA */}
+{variant === 'emergency-urgent' && (
+  <section class="cta-banner cta-banner--emergency bg-primary py-14 md:py-18">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-5 py-2 mb-6">
+        <span class="cta-pulse-dot"></span>
+        <span class="text-white font-bold text-sm uppercase tracking-wide">Available Now &mdash; 24/7 Emergency</span>
+      </div>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-[family-name:var(--font-display)] text-white mb-4 leading-tight">
+        Don&rsquo;t Wait. Call for Immediate Help.
+      </h2>
+      <p class="text-lg text-white/75 font-[family-name:var(--font-body)] mb-8">
+        {site.name} is ready to respond. Fast, professional, {site.address.city}-based.
+      </p>
+      <a
+        href={`tel:${site.phoneRaw}`}
+        class="inline-flex items-center justify-center gap-3 bg-accent hover:bg-accent-light text-white px-12 py-5 rounded-md text-xl font-bold transition-all duration-200 shadow-xl hover:shadow-2xl hover:-translate-y-1"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1v3.49a1 1 0 01-1 1C10.07 22 2 13.93 2 3.01a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.19z"/>
+        </svg>
+        {site.phone}
+      </a>
+    </div>
+  </section>
+)}
+
+{/* Variant: map-cta — Text + CTA left, area list right */}
+{variant === 'map-cta' && serviceAreas.length >= 2 && (
+  <section class="cta-banner cta-banner--map-cta overflow-hidden">
+    <div class="grid grid-cols-1 md:grid-cols-2">
+      <div class="bg-primary flex flex-col justify-center px-6 sm:px-10 lg:px-16 py-14 md:py-18">
+        <h2 class="text-3xl md:text-4xl font-[family-name:var(--font-display)] text-white mb-4 leading-tight">
+          Serving All of {site.address.city} &amp; Surrounds
+        </h2>
+        <p class="text-lg text-white/80 font-[family-name:var(--font-body)] mb-8">
+          {subtitle}
+        </p>
+        <div>
+          <a
+            href="/contact/"
+            class="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent-light text-white px-8 py-4 rounded-md text-lg font-bold transition-colors duration-200 shadow-lg"
+          >
+            Get a Quote
+          </a>
+        </div>
+      </div>
+      <div class="bg-accent flex flex-col justify-center px-6 sm:px-10 lg:px-16 py-14 md:py-18">
+        <h3 class="text-lg font-[family-name:var(--font-display)] text-white/80 uppercase tracking-wide mb-5">
+          Our Service Areas
+        </h3>
+        <ul class="space-y-3">
+          {serviceAreas.map((area) => (
+            <li class="flex items-center gap-3 text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 flex-shrink-0 text-white/70" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/>
+              </svg>
+              <span class="text-lg font-[family-name:var(--font-body)] font-semibold">{area.name}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+)}
+{/* Fallback for map-cta when not enough service areas */}
+{variant === 'map-cta' && serviceAreas.length < 2 && (
+  <section class="cta-banner cta-banner--full-bleed bg-accent py-16 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-[family-name:var(--font-display)] text-white mb-4">{headline}</h2>
+      <p class="text-lg text-white/85 font-[family-name:var(--font-body)] mb-8 max-w-2xl mx-auto">{subtitle}</p>
+      <a href={`tel:${site.phoneRaw}`} class="inline-flex items-center justify-center gap-2 bg-white text-accent px-8 py-4 rounded-md text-lg font-bold transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5">
+        Call {site.phone}
+      </a>
+    </div>
+  </section>
+)}

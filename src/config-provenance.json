@@ -1,0 +1,136 @@
+{
+  "generatedAt": "2026-02-07T18:33:40.264Z",
+  "source": "populate-config.mjs",
+  "fields": {
+    "name": {
+      "source": "airtable",
+      "field": "companyName",
+      "updatedAt": "2026-02-07T18:33:40.264Z"
+    },
+    "phone": {
+      "source": "airtable",
+      "field": "phone",
+      "updatedAt": "2026-02-07T18:33:40.264Z"
+    },
+    "email": {
+      "source": "airtable",
+      "field": "email",
+      "updatedAt": "2026-02-07T18:33:40.264Z"
+    },
+    "founder": {
+      "source": "airtable",
+      "field": "ownerFirstName + ownerLastName",
+      "updatedAt": "2026-02-07T18:33:40.264Z"
+    },
+    "foundingYear": {
+      "source": "airtable",
+      "field": "yearStarted",
+      "updatedAt": "2026-02-07T18:33:40.264Z"
+    },
+    "city": {
+      "source": "airtable",
+      "field": "primaryCity",
+      "updatedAt": "2026-02-07T18:33:40.264Z"
+    },
+    "region": {
+      "source": "airtable",
+      "field": "address.region",
+      "updatedAt": "2026-02-07T18:33:40.264Z"
+    },
+    "street": {
+      "source": "airtable",
+      "field": "address.street",
+      "updatedAt": "2026-02-07T18:33:40.264Z"
+    },
+    "postalCode": {
+      "source": "airtable",
+      "field": "address.postalCode",
+      "updatedAt": "2026-02-07T18:33:40.264Z"
+    },
+    "whatsapp": {
+      "source": "airtable",
+      "field": "whatsapp",
+      "updatedAt": "2026-02-07T18:33:40.264Z"
+    },
+    "mapsEmbed": {
+      "source": "airtable",
+      "field": "Google Maps URL",
+      "updatedAt": "2026-02-07T18:33:40.264Z"
+    },
+    "tagline": {
+      "source": "airtable",
+      "field": "derived:niche",
+      "updatedAt": "2026-02-07T18:33:40.264Z"
+    },
+    "description": {
+      "source": "airtable",
+      "field": "derived:niche+city",
+      "updatedAt": "2026-02-07T18:33:40.264Z"
+    },
+    "badges": {
+      "source": "airtable",
+      "field": "derived:differentiators",
+      "updatedAt": "2026-02-07T18:33:40.264Z"
+    },
+    "heroBadges": {
+      "source": "airtable",
+      "field": "derived:differentiators",
+      "updatedAt": "2026-02-07T18:33:40.264Z"
+    },
+    "displayFont": {
+      "source": "design-tokens",
+      "field": "displayFont",
+      "updatedAt": "2026-02-07T18:33:40.264Z"
+    },
+    "bodyFont": {
+      "source": "design-tokens",
+      "field": "bodyFont",
+      "updatedAt": "2026-02-07T18:33:40.264Z"
+    },
+    "accentFont": {
+      "source": "design-tokens",
+      "field": "accentFont",
+      "updatedAt": "2026-02-07T18:33:40.264Z"
+    },
+    "primary": {
+      "source": "design-tokens",
+      "field": "primary",
+      "updatedAt": "2026-02-07T18:33:40.264Z"
+    },
+    "accent": {
+      "source": "design-tokens",
+      "field": "accent",
+      "updatedAt": "2026-02-07T18:33:40.264Z"
+    },
+    "primaryLight": {
+      "source": "design-tokens",
+      "field": "primaryLight",
+      "updatedAt": "2026-02-07T18:33:40.264Z"
+    },
+    "accentLight": {
+      "source": "design-tokens",
+      "field": "accentLight",
+      "updatedAt": "2026-02-07T18:33:40.264Z"
+    },
+    "background": {
+      "source": "design-tokens",
+      "field": "background",
+      "updatedAt": "2026-02-07T18:33:40.264Z"
+    },
+    "surface": {
+      "source": "design-tokens",
+      "field": "surface",
+      "updatedAt": "2026-02-07T18:33:40.264Z"
+    },
+    "text": {
+      "source": "design-tokens",
+      "field": "text",
+      "updatedAt": "2026-02-07T18:33:40.264Z"
+    },
+    "muted": {
+      "source": "design-tokens",
+      "field": "muted",
+      "updatedAt": "2026-02-07T18:33:40.264Z"
+    }
+  }
+}

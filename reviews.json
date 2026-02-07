@@ -1,0 +1,97 @@
+{
+  "generatedAt": "2026-02-07T12:00:00Z",
+  "companyName": "Plan Elite KZN",
+  "tradingAs": "Plan Elite - Pty Ltd",
+  "owner": "Riaan Van Rooyen",
+  "website": "https://elitecompanygroup.com/",
+  "aggregateRating": {
+    "google": {
+      "rating": 4.8,
+      "reviewCount": 20,
+      "placeId": "ChIJEduZ09PE70oR4xjw8suDXUw",
+      "address": "58 Inanda Rd, Waterfall, Durban, 3610",
+      "phone": "+27611680099",
+      "category": "Architecture firm",
+      "isClaimed": true,
+      "mapsUrl": "https://www.google.com/maps/place/?q=place_id:ChIJEduZ09PE70oR4xjw8suDXUw",
+      "note": "DataForSEO review text API failed repeatedly (Task In Queue) — listing data confirmed via google_maps_search MCP tool"
+    },
+    "facebook": {
+      "pageName": "Plan Elite - Pty Ltd",
+      "pageUrl": "https://www.facebook.com/PlanElite/",
+      "followers": 811,
+      "reviewCount": 2,
+      "ratingStatus": "Not yet rated",
+      "note": "Facebook shows 2 reviews but 'Not yet rated' — recommendation-based system"
+    },
+    "helloPeter": null,
+    "combined": {
+      "weightedRating": 4.8,
+      "totalReviewCount": 22,
+      "platforms": ["google", "facebook"],
+      "note": "Combined rating weighted toward Google (20 reviews at 4.8). Facebook has 2 recommendations (no numeric rating). Hello Peter has no listing."
+    }
+  },
+  "reviewCounts": {
+    "google": 20,
+    "facebook": 2,
+    "helloPeter": 0,
+    "other": 0,
+    "total": 22
+  },
+  "links": {
+    "googleMaps": "https://www.google.com/maps/place/?q=place_id:ChIJEduZ09PE70oR4xjw8suDXUw",
+    "facebook": "https://www.facebook.com/PlanElite/",
+    "facebookReviews": "https://www.facebook.com/PlanElite/reviews",
+    "helloPeter": null,
+    "website": "https://elitecompanygroup.com/",
+    "instagram": "https://www.instagram.com/plan_elite_architecture/",
+    "linkedin": "https://www.linkedin.com/company/plan-elite/"
+  },
+  "testimonials": [
+    {
+      "quote": "These guys take engineering and architecture to another level! Definitely recommend them!",
+      "author": "Christopher Jackson",
+      "rating": null,
+      "platform": "facebook",
+      "type": "recommendation",
+      "date": "2024-03-16",
+      "verified": true
+    }
+  ],
+  "allReviews": [
+    {
+      "quote": "These guys take engineering and architecture to another level! Definitely recommend them!",
+      "author": "Christopher Jackson",
+      "rating": null,
+      "platform": "facebook",
+      "type": "recommendation",
+      "date": "2024-03-16",
+      "ownerResponse": "Thank you Chris! Appreciate it",
+      "ownerResponseAuthor": "Daniel Green"
+    }
+  ],
+  "businessContext": {
+    "founded": 2016,
+    "founderCeo": "Daniel Green",
+    "directors": ["Ryno Van Den Berg", "Riaan Van Rooyen"],
+    "headOfConstruction": "Riaan Van Rooyen",
+    "teamSize": 12,
+    "services": ["Architecture", "Property Development", "Interior Design", "Construction", "Renovation", "Building Plans", "3D Renders"],
+    "sacapRegistered": true,
+    "operatingAreas": ["Durban", "Pinetown", "Hillcrest", "Bluff", "Umhlanga", "Ballito", "South Coast KZN", "Cape Town"],
+    "tagline": "Dream Elite - Plan Elite - Build Elite",
+    "socialMedia": {
+      "facebook": "https://www.facebook.com/PlanElite/",
+      "instagram": "https://www.instagram.com/plan_elite_architecture/",
+      "linkedin": "https://www.linkedin.com/company/plan-elite/"
+    }
+  },
+  "collectionNotes": {
+    "googleReviewTexts": "FAILED — DataForSEO google_reviews_by_place_id and google_reviews_search both failed repeatedly with 'Task In Queue' errors. 8+ attempts made across two collection runs. Listing metadata (rating, count, address, phone) confirmed via google_maps_search.",
+    "helloPeter": "No listing found. Searched hellopeter.com/plan-elite, hellopeter.com/elite-company-group, hellopeter.com/plan-elite-kzn. All redirected to homepage.",
+    "facebook": "Scraped via Bright Data. 2 reviews visible, 1 recommendation text extracted (Christopher Jackson, March 2024). Page requires login for full access.",
+    "instagram": "Instagram handle: @plan_elite_architecture. Could not scrape due to login wall.",
+    "secondListingClarification": "Previous collection referenced a possible second listing at 47 Shongweni Rd. Google Maps search confirms that address is 'Plantations Estate' (housing complex), NOT Plan Elite. Only the 58 Inanda Rd listing is Plan Elite."
+  }
+}

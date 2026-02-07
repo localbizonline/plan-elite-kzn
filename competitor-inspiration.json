@@ -1,0 +1,186 @@
+{
+  "niche": "Building Construction & Property Development",
+  "searchedAt": "2026-02-07T18:28:00Z",
+  "cities": [
+    {
+      "city": "Durban, KwaZulu-Natal",
+      "query": "building construction contractor Durban KwaZulu-Natal",
+      "sites": [
+        {
+          "url": "https://buildingcontractordurban.co.za/",
+          "title": "Building Contractor Durban: Quality Building Renovations in DBN",
+          "screenshotPath": "competitor-screenshots/durban-1-desktop.png",
+          "designSignals": {
+            "bodyFont": "-apple-system",
+            "h1Font": "-apple-system",
+            "heroBg": "light grey background with construction worker photo",
+            "ctaColor": "blue CTA buttons, WhatsApp green",
+            "bodyBg": "rgb(247, 248, 249)"
+          }
+        },
+        {
+          "url": "https://jehcon.co.za/",
+          "title": "Building Contractors in Durban - Jehcon Group Construction & Alterations",
+          "screenshotPath": "competitor-screenshots/durban-2-desktop.png",
+          "designSignals": {
+            "bodyFont": "Open Sans",
+            "h1Font": "Open Sans",
+            "heroBg": "rgb(33, 31, 34) - dark overlay on kitchen/interior photo",
+            "ctaColor": "orange accent",
+            "bodyBg": "rgb(249, 249, 249)"
+          }
+        }
+      ]
+    },
+    {
+      "city": "Umhlanga / Ballito, KZN",
+      "query": "building contractor construction company Umhlanga Ballito KZN",
+      "sites": [
+        {
+          "url": "https://keplersa.co.za/",
+          "title": "Turnkey Construction and Renovations | Kepler Construction",
+          "screenshotPath": "competitor-screenshots/umhlanga-1-desktop.png",
+          "designSignals": {
+            "bodyFont": "Raleway",
+            "h1Font": "Helvetica",
+            "heroBg": "dark blue overlay on construction worker photo",
+            "ctaColor": "gold/amber button",
+            "bodyBg": "rgb(255, 255, 255)"
+          }
+        },
+        {
+          "url": "https://pinnacleconstruction.co.za/",
+          "title": "Pinnacle Construction",
+          "screenshotPath": "competitor-screenshots/umhlanga-2-desktop.png",
+          "designSignals": {
+            "bodyFont": "Open Sans",
+            "h1Font": "Abel",
+            "heroBg": "rgb(0, 6, 18) - dark background with architectural photo",
+            "ctaColor": "teal/mint green accent",
+            "bodyBg": "rgb(255, 255, 255)"
+          }
+        }
+      ]
+    },
+    {
+      "city": "Pinetown / Hillcrest, KZN",
+      "query": "building construction property development Pinetown Hillcrest KZN",
+      "sites": [
+        {
+          "url": "https://quickbuildkzn.co.za/",
+          "title": "Quick Build KZN | Construction & Engineering",
+          "screenshotPath": "competitor-screenshots/pinetown-1-desktop.png",
+          "designSignals": {
+            "bodyFont": "Open Sans",
+            "h1Font": "Open Sans",
+            "heroBg": "blue gradient with blueprint/architectural illustration",
+            "ctaColor": "white outlined button on blue",
+            "bodyBg": "rgb(255, 255, 255)"
+          }
+        },
+        {
+          "url": "https://elangenibuildings.co.za/",
+          "title": "Elangeni Buildings",
+          "screenshotPath": "competitor-screenshots/pinetown-2-desktop.png",
+          "designSignals": {
+            "bodyFont": "Open Sans",
+            "h1Font": "sans-serif bold uppercase",
+            "heroBg": "photo of completed nutec/IBR house with dark overlay",
+            "ctaColor": "orange/amber button",
+            "bodyBg": "rgb(255, 255, 255)"
+          }
+        }
+      ]
+    },
+    {
+      "city": "Perth, Australia",
+      "query": "building construction contractor Perth Australia",
+      "sites": [
+        {
+          "url": "https://www.dtconstructionwa.com.au/",
+          "title": "Perth Construction, Building Contractor & Renovation Experts",
+          "screenshotPath": "competitor-screenshots/perth-1-desktop.png",
+          "designSignals": {
+            "bodyFont": "sans-serif",
+            "h1Font": "sans-serif bold",
+            "heroBg": "dark overlay on modern commercial construction photo",
+            "ctaColor": "olive/muted green button",
+            "bodyBg": "rgb(255, 255, 255)"
+          }
+        },
+        {
+          "url": "https://www.devcobuilders.com.au/",
+          "title": "Construction Companies Perth - WA Buildings - Devco Builders",
+          "screenshotPath": "competitor-screenshots/perth-2-desktop.png",
+          "designSignals": {
+            "bodyFont": "sans-serif",
+            "h1Font": "sans-serif",
+            "heroBg": "creative split layout - white with large D branding, photo collage right",
+            "ctaColor": "dark/navy button",
+            "bodyBg": "rgb(255, 255, 255)"
+          }
+        }
+      ]
+    },
+    {
+      "city": "Cape Town, South Africa",
+      "query": "building contractor construction company Cape Town South Africa",
+      "sites": [
+        {
+          "url": "https://jbs-building.co.za/",
+          "title": "JBS Building Co: Building Contractor Cape Town",
+          "screenshotPath": "competitor-screenshots/capetown-1-desktop.png",
+          "designSignals": {
+            "bodyFont": "sans-serif",
+            "h1Font": "sans-serif uppercase",
+            "heroBg": "full dark charcoal/grey, minimal hero with text overlay on faded photo",
+            "ctaColor": "white outlined ENQUIRE button",
+            "bodyBg": "rgb(51, 51, 51)"
+          }
+        },
+        {
+          "url": "https://growconstruction.co.za/",
+          "title": "Construction Company Cape Town | Builders & Renovations",
+          "screenshotPath": "competitor-screenshots/capetown-2-desktop.png",
+          "designSignals": {
+            "bodyFont": "sans-serif",
+            "h1Font": "bold sans-serif uppercase",
+            "heroBg": "architectural render of luxury home with pool and mountains",
+            "ctaColor": "red/coral accent",
+            "bodyBg": "rgb(255, 255, 255)"
+          }
+        }
+      ]
+    },
+    {
+      "city": "Dallas, USA",
+      "query": "building contractor property development Dallas Texas",
+      "sites": [
+        {
+          "url": "http://www.thomasdc.com/",
+          "title": "Thomas Development + Construction - Dallas",
+          "screenshotPath": "competitor-screenshots/dallas-1-desktop.png",
+          "designSignals": {
+            "bodyFont": "serif",
+            "h1Font": "serif thin wide letterSpacing",
+            "heroBg": "luxury home at dusk with warm interior glow, editorial photography",
+            "ctaColor": "minimal text navigation, no prominent CTA button",
+            "bodyBg": "rgb(255, 255, 255)"
+          }
+        },
+        {
+          "url": "https://eliteconstructionusa.com/",
+          "title": "Dallas General Contractor | Multifamily & Commercial | ELITE",
+          "screenshotPath": "competitor-screenshots/dallas-2-desktop.png",
+          "designSignals": {
+            "bodyFont": "Poppins",
+            "h1Font": "Poppins bold uppercase",
+            "heroBg": "strong blue overlay on construction workers photo",
+            "ctaColor": "white button with blue text",
+            "bodyBg": "rgb(255, 255, 255)"
+          }
+        }
+      ]
+    }
+  ]
+}

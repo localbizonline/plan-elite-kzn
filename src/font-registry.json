@@ -1,0 +1,332 @@
+{
+  "version": "1.0.0",
+  "description": "Pre-bundled font registry for South African home service websites. 20 curated Google Fonts with tagging for automated selection by niche, style, and mood.",
+  "fontDir": "public/fonts",
+  "weights": [400, 600, 700],
+  "fonts": {
+    "oswald": {
+      "family": "Oswald",
+      "role": "display",
+      "category": "sans-serif",
+      "style": ["bold", "condensed", "industrial", "modern"],
+      "mood": ["authoritative", "confident", "rugged", "dependable"],
+      "niches": ["plumbing", "roofing", "building", "hvac", "emergency-service", "general-trade"],
+      "pairsWith": ["open-sans", "lato", "work-sans", "dm-sans", "inter"],
+      "files": {
+        "400": "oswald-latin-regular.woff2",
+        "600": "oswald-latin-600.woff2",
+        "700": "oswald-latin-700.woff2"
+      }
+    },
+    "montserrat": {
+      "family": "Montserrat",
+      "role": "display",
+      "category": "sans-serif",
+      "style": ["geometric", "clean", "modern", "bold"],
+      "mood": ["professional", "confident", "trustworthy", "energetic"],
+      "niches": ["electrical", "painting", "cleaning", "landscaping", "premium-service", "general-trade"],
+      "pairsWith": ["merriweather", "open-sans", "lora", "dm-sans", "inter"],
+      "files": {
+        "400": "montserrat-latin-regular.woff2",
+        "600": "montserrat-latin-600.woff2",
+        "700": "montserrat-latin-700.woff2"
+      }
+    },
+    "barlow": {
+      "family": "Barlow",
+      "role": "display",
+      "category": "sans-serif",
+      "style": ["industrial", "modern", "clean", "geometric"],
+      "mood": ["dependable", "rugged", "professional", "confident"],
+      "niches": ["plumbing", "hvac", "building", "roofing", "electrical", "general-trade"],
+      "pairsWith": ["inter", "fira-sans", "work-sans", "lato", "open-sans"],
+      "files": {
+        "400": "barlow-latin-regular.woff2",
+        "600": "barlow-latin-600.woff2",
+        "700": "barlow-latin-700.woff2"
+      }
+    },
+    "archivo": {
+      "family": "Archivo",
+      "role": "display",
+      "category": "sans-serif",
+      "style": ["bold", "modern", "industrial", "geometric"],
+      "mood": ["authoritative", "confident", "energetic", "dependable"],
+      "niches": ["locksmith", "pest-control", "emergency-service", "roofing", "building"],
+      "pairsWith": ["inter", "nunito-sans", "open-sans", "lexend", "dm-sans"],
+      "files": {
+        "400": "archivo-latin-regular.woff2",
+        "600": "archivo-latin-600.woff2",
+        "700": "archivo-latin-700.woff2"
+      }
+    },
+    "big-shoulders-display": {
+      "family": "Big Shoulders Display",
+      "role": "display",
+      "category": "sans-serif",
+      "style": ["bold", "condensed", "industrial", "modern"],
+      "mood": ["rugged", "authoritative", "energetic", "confident"],
+      "niches": ["building", "roofing", "plumbing", "hvac", "general-trade", "emergency-service"],
+      "pairsWith": ["work-sans", "inter", "open-sans", "lexend", "fira-sans"],
+      "files": {
+        "400": "big-shoulders-display-latin-regular.woff2",
+        "600": "big-shoulders-display-latin-600.woff2",
+        "700": "big-shoulders-display-latin-700.woff2"
+      }
+    },
+    "saira": {
+      "family": "Saira",
+      "role": "display",
+      "category": "sans-serif",
+      "style": ["modern", "geometric", "condensed", "bold"],
+      "mood": ["energetic", "confident", "professional", "authoritative"],
+      "niches": ["electrical", "locksmith", "pest-control", "emergency-service", "hvac"],
+      "pairsWith": ["inter", "open-sans", "nunito-sans", "fira-sans", "dm-sans"],
+      "files": {
+        "400": "saira-latin-regular.woff2",
+        "600": "saira-latin-600.woff2",
+        "700": "saira-latin-700.woff2"
+      }
+    },
+    "playfair-display": {
+      "family": "Playfair Display",
+      "role": "display",
+      "category": "serif",
+      "style": ["elegant", "traditional", "premium"],
+      "mood": ["sophisticated", "trustworthy", "professional", "warm"],
+      "niches": ["premium-service", "painting", "landscaping", "cleaning"],
+      "pairsWith": ["lato", "open-sans", "dm-sans", "nunito-sans", "work-sans"],
+      "files": {
+        "400": "playfair-display-latin-regular.woff2",
+        "600": "playfair-display-latin-600.woff2",
+        "700": "playfair-display-latin-700.woff2"
+      }
+    },
+    "sora": {
+      "family": "Sora",
+      "role": "display",
+      "category": "sans-serif",
+      "style": ["geometric", "modern", "clean"],
+      "mood": ["professional", "confident", "sophisticated", "trustworthy"],
+      "niches": ["electrical", "hvac", "premium-service", "pest-control", "cleaning"],
+      "pairsWith": ["inter", "dm-sans", "work-sans", "nunito-sans", "open-sans"],
+      "files": {
+        "400": "sora-latin-regular.woff2",
+        "600": "sora-latin-600.woff2",
+        "700": "sora-latin-700.woff2"
+      }
+    },
+    "urbanist": {
+      "family": "Urbanist",
+      "role": "display",
+      "category": "sans-serif",
+      "style": ["geometric", "clean", "modern", "elegant"],
+      "mood": ["sophisticated", "professional", "approachable", "trustworthy"],
+      "niches": ["cleaning", "landscaping", "painting", "premium-service", "pest-control"],
+      "pairsWith": ["inter", "dm-sans", "open-sans", "lato", "fira-sans"],
+      "files": {
+        "400": "urbanist-latin-regular.woff2",
+        "600": "urbanist-latin-600.woff2",
+        "700": "urbanist-latin-700.woff2"
+      }
+    },
+    "raleway": {
+      "family": "Raleway",
+      "role": "display",
+      "category": "sans-serif",
+      "style": ["elegant", "clean", "modern", "premium"],
+      "mood": ["sophisticated", "professional", "trustworthy", "warm"],
+      "niches": ["premium-service", "painting", "landscaping", "cleaning", "electrical"],
+      "pairsWith": ["merriweather", "lato", "open-sans", "nunito-sans", "fira-sans"],
+      "files": {
+        "400": "raleway-latin-regular.woff2",
+        "600": "raleway-latin-600.woff2",
+        "700": "raleway-latin-700.woff2"
+      }
+    },
+    "inter": {
+      "family": "Inter",
+      "role": "body",
+      "category": "sans-serif",
+      "style": ["clean", "modern", "geometric", "humanist"],
+      "mood": ["professional", "trustworthy", "dependable", "approachable"],
+      "niches": ["general-trade", "electrical", "hvac", "locksmith", "pest-control", "premium-service"],
+      "pairsWith": ["oswald", "archivo", "big-shoulders-display", "sora", "montserrat", "barlow", "saira"],
+      "files": {
+        "400": "inter-latin-regular.woff2",
+        "600": "inter-latin-600.woff2",
+        "700": "inter-latin-700.woff2"
+      }
+    },
+    "open-sans": {
+      "family": "Open Sans",
+      "role": "body",
+      "category": "sans-serif",
+      "style": ["clean", "humanist", "friendly"],
+      "mood": ["approachable", "trustworthy", "warm", "dependable"],
+      "niches": ["general-trade", "plumbing", "cleaning", "landscaping", "painting", "building"],
+      "pairsWith": ["oswald", "montserrat", "big-shoulders-display", "raleway", "playfair-display", "barlow"],
+      "files": {
+        "400": "open-sans-latin-regular.woff2",
+        "600": "open-sans-latin-600.woff2",
+        "700": "open-sans-latin-700.woff2"
+      }
+    },
+    "dm-sans": {
+      "family": "DM Sans",
+      "role": "body",
+      "category": "sans-serif",
+      "style": ["geometric", "clean", "modern", "rounded"],
+      "mood": ["approachable", "professional", "warm", "trustworthy"],
+      "niches": ["cleaning", "pest-control", "landscaping", "painting", "premium-service", "electrical"],
+      "pairsWith": ["montserrat", "sora", "urbanist", "playfair-display", "archivo", "saira"],
+      "files": {
+        "400": "dm-sans-latin-regular.woff2",
+        "600": "dm-sans-latin-600.woff2",
+        "700": "dm-sans-latin-700.woff2"
+      }
+    },
+    "lato": {
+      "family": "Lato",
+      "role": "body",
+      "category": "sans-serif",
+      "style": ["humanist", "clean", "friendly"],
+      "mood": ["warm", "trustworthy", "approachable", "professional"],
+      "niches": ["general-trade", "plumbing", "roofing", "hvac", "building", "landscaping"],
+      "pairsWith": ["oswald", "raleway", "montserrat", "playfair-display", "barlow", "big-shoulders-display"],
+      "note": "No 600 weight available — use 400 and 700 only",
+      "files": {
+        "400": "lato-latin-regular.woff2",
+        "700": "lato-latin-700.woff2"
+      }
+    },
+    "fira-sans": {
+      "family": "Fira Sans",
+      "role": "body",
+      "category": "sans-serif",
+      "style": ["humanist", "modern", "clean"],
+      "mood": ["professional", "dependable", "trustworthy", "approachable"],
+      "niches": ["electrical", "locksmith", "hvac", "plumbing", "general-trade", "emergency-service"],
+      "pairsWith": ["barlow", "saira", "oswald", "archivo", "big-shoulders-display", "sora"],
+      "files": {
+        "400": "fira-sans-latin-regular.woff2",
+        "600": "fira-sans-latin-600.woff2",
+        "700": "fira-sans-latin-700.woff2"
+      }
+    },
+    "merriweather": {
+      "family": "Merriweather",
+      "role": "body",
+      "category": "serif",
+      "style": ["traditional", "elegant", "humanist"],
+      "mood": ["trustworthy", "warm", "sophisticated", "dependable"],
+      "niches": ["premium-service", "landscaping", "painting", "cleaning", "building"],
+      "pairsWith": ["montserrat", "raleway", "oswald", "barlow", "urbanist"],
+      "note": "No 600 weight available — use 400 and 700 only",
+      "files": {
+        "400": "merriweather-latin-regular.woff2",
+        "700": "merriweather-latin-700.woff2"
+      }
+    },
+    "rubik": {
+      "family": "Rubik",
+      "role": "both",
+      "category": "sans-serif",
+      "style": ["rounded", "friendly", "modern", "geometric"],
+      "mood": ["approachable", "warm", "trustworthy", "energetic"],
+      "niches": ["cleaning", "pest-control", "landscaping", "painting", "general-trade"],
+      "pairsWith": ["inter", "open-sans", "oswald", "archivo"],
+      "files": {
+        "400": "rubik-latin-regular.woff2",
+        "600": "rubik-latin-600.woff2",
+        "700": "rubik-latin-700.woff2"
+      }
+    },
+    "work-sans": {
+      "family": "Work Sans",
+      "role": "both",
+      "category": "sans-serif",
+      "style": ["clean", "modern", "geometric", "humanist"],
+      "mood": ["professional", "dependable", "approachable", "confident"],
+      "niches": ["general-trade", "electrical", "plumbing", "hvac", "building", "locksmith"],
+      "pairsWith": ["oswald", "barlow", "big-shoulders-display", "playfair-display", "archivo"],
+      "files": {
+        "400": "work-sans-latin-regular.woff2",
+        "600": "work-sans-latin-600.woff2",
+        "700": "work-sans-latin-700.woff2"
+      }
+    },
+    "nunito-sans": {
+      "family": "Nunito Sans",
+      "role": "both",
+      "category": "sans-serif",
+      "style": ["rounded", "friendly", "clean", "modern"],
+      "mood": ["approachable", "warm", "trustworthy", "professional"],
+      "niches": ["cleaning", "landscaping", "pest-control", "painting", "general-trade"],
+      "pairsWith": ["archivo", "saira", "oswald", "montserrat", "sora"],
+      "files": {
+        "400": "nunito-sans-latin-regular.woff2",
+        "600": "nunito-sans-latin-600.woff2",
+        "700": "nunito-sans-latin-700.woff2"
+      }
+    },
+    "lexend": {
+      "family": "Lexend",
+      "role": "both",
+      "category": "sans-serif",
+      "style": ["clean", "modern", "geometric", "rounded"],
+      "mood": ["approachable", "trustworthy", "warm", "dependable"],
+      "niches": ["general-trade", "emergency-service", "electrical", "plumbing", "hvac", "locksmith"],
+      "pairsWith": ["archivo", "big-shoulders-display", "barlow", "oswald", "saira"],
+      "files": {
+        "400": "lexend-latin-regular.woff2",
+        "600": "lexend-latin-600.woff2",
+        "700": "lexend-latin-700.woff2"
+      }
+    }
+  },
+  "pairings": [
+    { "display": "oswald", "body": "open-sans", "aesthetic": "Industrial Classic", "bestFor": ["plumbing", "roofing", "building", "hvac"] },
+    { "display": "oswald", "body": "lato", "aesthetic": "Strong & Warm", "bestFor": ["plumbing", "general-trade", "hvac"] },
+    { "display": "montserrat", "body": "merriweather", "aesthetic": "Modern Authority", "bestFor": ["premium-service", "building", "landscaping"] },
+    { "display": "montserrat", "body": "dm-sans", "aesthetic": "Clean Professional", "bestFor": ["electrical", "cleaning", "painting"] },
+    { "display": "barlow", "body": "inter", "aesthetic": "Technical Precision", "bestFor": ["electrical", "hvac", "locksmith"] },
+    { "display": "barlow", "body": "fira-sans", "aesthetic": "Industrial Modern", "bestFor": ["plumbing", "building", "roofing"] },
+    { "display": "archivo", "body": "inter", "aesthetic": "Bold Digital", "bestFor": ["locksmith", "emergency-service", "pest-control"] },
+    { "display": "archivo", "body": "nunito-sans", "aesthetic": "Bold & Friendly", "bestFor": ["pest-control", "cleaning", "general-trade"] },
+    { "display": "big-shoulders-display", "body": "work-sans", "aesthetic": "Muscular Trade", "bestFor": ["building", "roofing", "plumbing"] },
+    { "display": "big-shoulders-display", "body": "lexend", "aesthetic": "Strong & Clear", "bestFor": ["emergency-service", "general-trade", "hvac"] },
+    { "display": "saira", "body": "fira-sans", "aesthetic": "Technical Edge", "bestFor": ["electrical", "hvac", "locksmith"] },
+    { "display": "saira", "body": "inter", "aesthetic": "Precision Modern", "bestFor": ["electrical", "pest-control", "emergency-service"] },
+    { "display": "playfair-display", "body": "lato", "aesthetic": "Premium Heritage", "bestFor": ["premium-service", "landscaping", "painting"] },
+    { "display": "playfair-display", "body": "open-sans", "aesthetic": "Elegant Accessible", "bestFor": ["cleaning", "painting", "premium-service"] },
+    { "display": "sora", "body": "dm-sans", "aesthetic": "Contemporary Clean", "bestFor": ["electrical", "pest-control", "cleaning"] },
+    { "display": "sora", "body": "inter", "aesthetic": "Modern Minimal", "bestFor": ["hvac", "premium-service", "electrical"] },
+    { "display": "urbanist", "body": "dm-sans", "aesthetic": "Refined Modern", "bestFor": ["cleaning", "landscaping", "premium-service"] },
+    { "display": "urbanist", "body": "open-sans", "aesthetic": "Approachable Modern", "bestFor": ["painting", "pest-control", "landscaping"] },
+    { "display": "raleway", "body": "merriweather", "aesthetic": "Sophisticated Classic", "bestFor": ["premium-service", "painting", "landscaping"] },
+    { "display": "raleway", "body": "open-sans", "aesthetic": "Elegant Approachable", "bestFor": ["cleaning", "painting", "landscaping"] }
+  ],
+  "nicheRecommendations": {
+    "plumbing": ["oswald+open-sans", "barlow+fira-sans", "big-shoulders-display+work-sans"],
+    "electrical": ["barlow+inter", "sora+dm-sans", "montserrat+dm-sans"],
+    "roofing": ["big-shoulders-display+work-sans", "oswald+lato", "barlow+fira-sans"],
+    "cleaning": ["urbanist+dm-sans", "montserrat+dm-sans", "raleway+open-sans"],
+    "landscaping": ["playfair-display+lato", "raleway+merriweather", "urbanist+dm-sans"],
+    "locksmith": ["archivo+inter", "barlow+inter", "saira+fira-sans"],
+    "pest-control": ["archivo+nunito-sans", "sora+dm-sans", "saira+fira-sans"],
+    "hvac": ["barlow+inter", "oswald+open-sans", "big-shoulders-display+lexend"],
+    "painting": ["playfair-display+lato", "raleway+open-sans", "montserrat+dm-sans"],
+    "building": ["big-shoulders-display+work-sans", "oswald+open-sans", "montserrat+merriweather"],
+    "general-trade": ["oswald+open-sans", "barlow+inter", "montserrat+dm-sans"],
+    "premium-service": ["playfair-display+lato", "raleway+merriweather", "urbanist+dm-sans"],
+    "emergency-service": ["archivo+inter", "big-shoulders-display+lexend", "oswald+open-sans"]
+  },
+  "accentFontSuggestions": {
+    "_description": "Optional 3rd font for badges, stats, pull quotes, and special UI elements. Used during uniqueness enhancement to add typographic variety. Pick an accent font that contrasts with both display and body — e.g., a serif accent with sans-serif display+body, or a geometric accent with humanist display+body.",
+    "forSansSerifPairings": ["playfair-display", "merriweather", "rubik", "lexend"],
+    "forSerifPairings": ["oswald", "barlow", "archivo", "work-sans"],
+    "forGeometricPairings": ["playfair-display", "merriweather", "rubik"],
+    "forHumanistPairings": ["sora", "urbanist", "lexend", "montserrat"]
+  }
+}

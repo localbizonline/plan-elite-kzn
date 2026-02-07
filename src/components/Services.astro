@@ -1,0 +1,63 @@
+---
+import { Image } from 'astro:assets';
+import { site } from '../site.config';
+import { getServiceImage, getHomeHero } from '../images';
+
+const count = site.services.length;
+const gridClass = count >= 5
+  ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
+  : count === 4
+    ? 'grid-cols-1 sm:grid-cols-2'
+    : count === 3
+      ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
+      : count === 2
+        ? 'grid-cols-1 sm:grid-cols-2'
+        : 'grid-cols-1';
+---
+
+<section class="py-20 md:py-28 bg-surface">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-[family-name:var(--font-display)] text-primary uppercase mb-4">
+        Our Services
+      </h2>
+      <p class="text-muted text-lg max-w-2xl mx-auto font-[family-name:var(--font-body)]">
+        {site.description}
+      </p>
+    </div>
+
+    <div class={`grid ${gridClass} gap-6 lg:gap-8`}>
+      {site.services.map((service) => (
+        <a
+          href={`/services/${service.slug}/`}
+          class="group bg-surface rounded-md overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-t-4 border-accent"
+        >
+          <div class="aspect-[4/3] overflow-hidden">
+            <Image
+              src={getServiceImage(service.slug, 'card') || getHomeHero()!}
+              alt={`${service.title} - ${site.name}`}
+              width={400}
+              height={300}
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+            />
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-[family-name:var(--font-display)] text-primary uppercase mb-2">
+              {service.title}
+            </h3>
+            <p class="text-muted text-base leading-relaxed font-[family-name:var(--font-body)]">
+              {service.description}
+            </p>
+            <span class="inline-flex items-center gap-1 text-accent font-bold text-base mt-4 group-hover:gap-2 transition-all duration-200">
+              Learn More
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

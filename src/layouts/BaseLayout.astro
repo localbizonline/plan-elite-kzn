@@ -1,0 +1,126 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import MobileActionBar from '../components/MobileActionBar.astro';
+import ReviewsStrip from '../components/ReviewsStrip.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+import { site } from '../site.config';
+
+const ctaBannerVariant = ((site as any).ctaBanner?.variant || 'full-bleed-accent') as
+  'full-bleed-accent' | 'split-image' | 'stats-bar' | 'testimonial-cta' | 'emergency-urgent' | 'map-cta';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalUrl?: string;
+  ogImage?: string;
+}
+
+const {
+  title,
+  description,
+  canonicalUrl,
+  ogImage = '/images/og-image.jpg',
+} = Astro.props;
+
+const siteUrl = site.url;
+const resolvedCanonical = canonicalUrl || Astro.url.href;
+const resolvedOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": site.schemaType,
+  "name": site.name,
+  "image": `${siteUrl}/images/og-image.jpg`,
+  "telephone": site.phone,
+  "email": site.email,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": site.address.street,
+    "addressLocality": site.address.city,
+    "addressRegion": site.address.region,
+    "postalCode": site.address.postalCode,
+    "addressCountry": site.address.country,
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": site.address.coords.lat,
+    "longitude": site.address.coords.lng,
+  },
+  "url": siteUrl,
+  "priceRange": site.priceRange,
+  "openingHoursSpecification": (() => {
+    const h = site.contact?.hours;
+    if (!h?.standard) {
+      return { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "08:00", "closes": "17:00" };
+    }
+    const specs = [];
+    if (h.standard) {
+      const [opens, closes] = (h.standard.hours || '08:00 - 17:00').split(/\s*[-–]\s*/);
+      specs.push({ "@type": "OpeningHoursSpecification", "dayOfWeek": h.standard.days || "Monday-Friday", "opens": opens?.trim() || "08:00", "closes": closes?.trim() || "17:00" });
+    }
+    if (h.emergency?.hours) {
+      const [opens, closes] = h.emergency.hours.split(/\s*[-–]\s*/);
+      specs.push({ "@type": "OpeningHoursSpecification", "dayOfWeek": h.emergency.days || "Monday-Sunday", "opens": opens?.trim() || "00:00", "closes": closes?.trim() || "23:59" });
+    }
+    return specs.length === 1 ? specs[0] : specs;
+  })(),
+  ...(site.reviews.totalReviews > 0 ? {
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": String(site.reviews.averageRating),
+      "reviewCount": String(site.reviews.totalReviews),
+    },
+  } : {}),
+  "foundingDate": site.foundingYear,
+  "founder": {
+    "@type": "Person",
+    "name": site.founder,
+  },
+};
+---
+
+<!doctype html>
+<html lang="en-ZA">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <link rel="canonical" href={resolvedCanonical} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={resolvedOgImage} />
+    <meta property="og:url" content={resolvedCanonical} />
+    <meta property="og:locale" content="en_ZA" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={resolvedOgImage} />
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body class="min-h-screen flex flex-col bg-background text-text font-[family-name:var(--font-body)]">
+    <Header />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <ReviewsStrip />
+    <CtaBanner variant={ctaBannerVariant} />
+    <Footer />
+    <MobileActionBar />
+  </body>
+</html>

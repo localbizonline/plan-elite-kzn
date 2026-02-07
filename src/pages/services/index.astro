@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import Services from '../../components/Services.astro';
+import ContactForm from '../../components/ContactForm.astro';
+import { site } from '../../site.config';
+import { getInnerHero, getHomeHero } from '../../images';
+
+const heroImage = getInnerHero() || getHomeHero()!;
+---
+
+<BaseLayout
+  title={site.servicesPage.metaTitle}
+  description={site.servicesPage.metaDescription}
+>
+  <Hero
+    title={site.servicesPage.heroTitle}
+    subtitle={site.servicesPage.heroSubtitle}
+    backgroundImage={heroImage}
+  />
+
+  <Services />
+
+  <ContactForm />
+</BaseLayout>

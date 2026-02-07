@@ -1,0 +1,117 @@
+{
+  "name": "Plan Elite KZN",
+  "phone": "(081) 000-9096",
+  "phoneRaw": "0810009096",
+  "whatsapp": "27810009096",
+  "email": "riaan@elitecompanygroup.com",
+  "founder": "Owner",
+  "yearStarted": "2020",
+  "niche": "Building Construction & Property Development",
+  "city": "Durban",
+  "region": "Gauteng",
+  "services": [
+    {
+      "title": "Building & Construction",
+      "slug": "building-construction",
+      "description": "New buildings, houses, granny flats, garages, additions, extensions, retaining walls, roofing, and painting",
+      "items": [
+        "New Building (Houses, Granny Flats, Garages)",
+        "Additions and Extensions",
+        "Retaining Wall",
+        "Roofing",
+        "Painting"
+      ]
+    },
+    {
+      "title": "Nutec & Wendy Houses",
+      "slug": "nutec-wendy-houses",
+      "description": "Nutec houses, wendy houses, guard huts, classrooms, workshops, offices, and storage sheds",
+      "items": [
+        "Nutec House",
+        "Nutec Shed",
+        "1-4 Bedroom Nutec House",
+        "Wendy/Wood House for main living",
+        "Guard hut for security",
+        "Classroom",
+        "Workshop / Office",
+        "Shed/Storage"
+      ]
+    },
+    {
+      "title": "Paving & Landscaping",
+      "slug": "paving-landscaping",
+      "description": "Driveway, commercial, pool/patio, and walkway paving plus commercial and residential landscaping with instant grass supply and installation",
+      "items": [
+        "Driveway paving",
+        "Commercial Paving",
+        "Pool / Patio Paving",
+        "Walkway / Garden paving",
+        "Commercial Landscaping",
+        "Residential Landscaping",
+        "Complex or Estate Landscaping",
+        "Instant Grass Supply and Installed"
+      ]
+    },
+    {
+      "title": "Tiling & Flooring",
+      "slug": "tiling-flooring",
+      "description": "Residential and commercial tiling, kitchen and bathroom tiling, new tile installation, and epoxy flooring",
+      "items": [
+        "New Tile Installation",
+        "Residential House Tiling",
+        "Residential Kitchen Tiling",
+        "Commercial / Retail Tiling",
+        "Residential Bathroom Tiling",
+        "Epoxy Flooring"
+      ]
+    },
+    {
+      "title": "Awnings & Lapas",
+      "slug": "awnings-lapas",
+      "description": "Fixed, louvre, retractable, and folding arm awnings plus brand new lapas, repairs, re-thatching, and upgrades",
+      "items": [
+        "Fixed Awning (Solid)",
+        "Fixed Awning (Fabric)",
+        "Louvre Awning",
+        "Retractable Awning (Fabric)",
+        "Folding Arm Awning (Fabric)",
+        "Brand New Lapa",
+        "Lapa Repair or Re-thatch",
+        "Lapa Upgrade"
+      ]
+    },
+    {
+      "title": "Cladding & Walling",
+      "slug": "cladding-walling",
+      "description": "Precast walling, wood cladding, dash cladding, brick cladding, vinyl cladding, stone cladding, pebble cladding, and fiber cement cladding",
+      "items": [
+        "Precast Walling Extension",
+        "New Precast Walling",
+        "Wood Cladding",
+        "Dash Cladding",
+        "Brick Cladding",
+        "Vinyl Cladding",
+        "Stone Cladding",
+        "Pebble Cladding",
+        "Fiber Cement Cladding"
+      ]
+    }
+  ],
+  "features": [],
+  "aboutText": "We specialise in architecture and property development, enhancing the appeal of commercial and residential properties since 2016. With us, you'll experience the full journey — from architecture and development to interior design, all under one roof. We're the company that brings visions to life and sets the benchmark for excellence.",
+  "serviceAreas": "Durban (Pinetown – Hillcrest – Bluff) | Durban North (Umhlanga – Ballito) | South Coast – KZN",
+  "mapsUrl": "",
+  "website": "https://elitecompanygroup.com/",
+  "address": {
+    "street": "",
+    "city": "Durban",
+    "region": "Gauteng",
+    "postalCode": "",
+    "country": "ZA",
+    "coords": {
+      "lat": -26.2041,
+      "lng": 28.0473
+    },
+    "mapsEmbed": ""
+  }
+}

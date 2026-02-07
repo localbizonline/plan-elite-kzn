@@ -1,0 +1,81 @@
+---
+import { Image } from 'astro:assets';
+import { site } from '../site.config';
+import { getHomeHero } from '../images';
+import GoogleBadge from './GoogleBadge.astro';
+import YearsBadge from './YearsBadge.astro';
+
+interface Props {
+  title: string;
+  subtitle: string;
+  showCtas?: boolean;
+  backgroundImage?: ImageMetadata;
+}
+
+const {
+  title,
+  subtitle,
+  showCtas = true,
+  backgroundImage = getHomeHero()!,
+} = Astro.props;
+
+const hasReviews = site.reviews.totalReviews > 0;
+const hasFoundingYear = site.foundingYear && parseInt(site.foundingYear) > 0;
+---
+
+<section class="hero-section relative min-h-[500px] md:min-h-[600px] flex items-center overflow-hidden">
+  <Image
+    src={backgroundImage}
+    alt=""
+    class="absolute inset-0 w-full h-full object-cover"
+    widths={[640, 960, 1280, 1920]}
+    sizes="100vw"
+    loading="eager"
+    role="presentation"
+  />
+
+  <div class="absolute inset-0 bg-gradient-to-br from-primary/85 via-primary/70 to-primary/55"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 w-full">
+    <div class="max-w-3xl">
+      {hasReviews && (
+        <div class="mb-4">
+          <GoogleBadge variant="hero" />
+        </div>
+      )}
+
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-[family-name:var(--font-display)] text-white uppercase leading-tight mb-4 md:mb-6">
+        {title}
+      </h1>
+      <p class="text-lg sm:text-xl md:text-2xl text-gray-200 font-[family-name:var(--font-body)] mb-8 md:mb-10 max-w-2xl">
+        {subtitle}
+      </p>
+
+      {showCtas && (
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a
+            href={`tel:${site.phoneRaw}`}
+            class="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent-light text-white px-8 py-4 rounded-md text-lg font-bold transition-colors duration-200 shadow-lg"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1v3.49a1 1 0 01-1 1C10.07 22 2 13.93 2 3.01a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.19z"/>
+            </svg>
+            Call Now — Free Quote
+          </a>
+          <a
+            href="/services/"
+            class="inline-flex items-center justify-center gap-2 border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 rounded-md text-lg font-bold transition-colors duration-200"
+          >
+            View Our Services
+          </a>
+        </div>
+      )}
+
+      {hasFoundingYear && (
+        <div class="hidden md:flex mt-8">
+          <YearsBadge variant="hero" />
+        </div>
+      )}
+    </div>
+  </div>
+</section>

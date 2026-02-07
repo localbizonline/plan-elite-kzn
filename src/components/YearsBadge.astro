@@ -1,0 +1,93 @@
+---
+import { site } from '../site.config';
+
+interface Props {
+  variant?: 'hero' | 'inline';
+}
+
+const { variant = 'hero' } = Astro.props;
+
+const year = parseInt(site.foundingYear);
+const years = new Date().getFullYear() - year;
+const city = site.address.city;
+
+const isHero = variant === 'hero';
+---
+
+<div
+  class:list={[
+    'years-badge',
+    isHero ? 'years-badge--hero' : 'years-badge--inline',
+  ]}
+  aria-label={`${years} years serving ${city}`}
+>
+  <div class="years-badge__inner">
+    <span class="years-badge__number">{years}+</span>
+    <span class="years-badge__label">Years</span>
+    <span class="years-badge__sub">Serving {city}</span>
+  </div>
+</div>
+
+<style>
+  .years-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 110px;
+    height: 110px;
+    border: 3px solid var(--color-accent);
+    border-radius: 50%;
+    transform: rotate(-8deg);
+    position: relative;
+    flex-shrink: 0;
+  }
+  .years-badge::after {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border: 1px dashed var(--color-accent);
+    border-radius: 50%;
+    opacity: 0.5;
+  }
+  .years-badge--hero {
+    border-color: white;
+  }
+  .years-badge--hero::after {
+    border-color: white;
+  }
+  .years-badge__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    line-height: 1;
+  }
+  .years-badge__number {
+    font-family: var(--font-display);
+    font-size: 1.875rem;
+    font-weight: 900;
+    color: var(--color-accent);
+  }
+  .years-badge--hero .years-badge__number {
+    color: white;
+  }
+  .years-badge__label {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+  }
+  .years-badge--hero .years-badge__label {
+    color: white;
+  }
+  .years-badge__sub {
+    font-size: 0.55rem;
+    color: var(--color-muted);
+    margin-top: 2px;
+  }
+  .years-badge--hero .years-badge__sub {
+    color: rgba(255, 255, 255, 0.7);
+  }
+</style>

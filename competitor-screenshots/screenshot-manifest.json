@@ -1,0 +1,101 @@
+{
+  "timestamp": "2026-02-07T18:26:24.931Z",
+  "screenshots": [
+    {
+      "url": "https://buildingcontractordurban.co.za/",
+      "label": "durban-1",
+      "screenshotPath": "durban-1-desktop.png",
+      "status": "ok",
+      "designSignals": {
+        "bodyBg": "rgb(247, 248, 249)",
+        "bodyFont": "-apple-system",
+        "heroBg": "rgb(255, 255, 255)",
+        "ctaColor": null,
+        "ctaText": null,
+        "h1Font": "-apple-system",
+        "title": "Building Contractor Durban: Quality Building Renovations in DBN"
+      },
+      "title": "Building Contractor Durban: Quality Building Renovations in DBN"
+    },
+    {
+      "url": "https://jehcon.co.za/",
+      "label": "durban-2",
+      "screenshotPath": "durban-2-desktop.png",
+      "status": "ok",
+      "designSignals": {
+        "bodyBg": "rgb(249, 249, 249)",
+        "bodyFont": "Open Sans",
+        "heroBg": "rgb(33, 31, 34)",
+        "ctaColor": null,
+        "ctaText": null,
+        "h1Font": "Open Sans",
+        "title": "Building Contractors in Durban - Jehcon Group Construction & Alterations"
+      },
+      "title": "Building Contractors in Durban - Jehcon Group Construction & Alterations"
+    },
+    {
+      "url": "https://keplersa.co.za/",
+      "label": "umhlanga-1",
+      "screenshotPath": "umhlanga-1-desktop.png",
+      "status": "ok",
+      "designSignals": {
+        "bodyBg": "rgb(255, 255, 255)",
+        "bodyFont": "Raleway",
+        "heroBg": "rgba(0, 0, 0, 0)",
+        "ctaColor": null,
+        "ctaText": null,
+        "h1Font": "Helvetica",
+        "title": "Turnkey Construction and Renovations | Kepler Construction"
+      },
+      "title": "Turnkey Construction and Renovations | Kepler Construction"
+    },
+    {
+      "url": "https://pinnacleconstruction.co.za/",
+      "label": "umhlanga-2",
+      "screenshotPath": "umhlanga-2-desktop.png",
+      "status": "ok",
+      "designSignals": {
+        "bodyBg": "rgb(255, 255, 255)",
+        "bodyFont": "Open Sans",
+        "heroBg": "rgb(0, 6, 18)",
+        "ctaColor": null,
+        "ctaText": null,
+        "h1Font": "Abel",
+        "title": "Pinnacle Construction"
+      },
+      "title": "Pinnacle Construction"
+    },
+    {
+      "url": "https://quickbuildkzn.co.za/",
+      "label": "pinetown-1",
+      "screenshotPath": "pinetown-1-desktop.png",
+      "status": "ok",
+      "designSignals": {
+        "bodyBg": "rgb(255, 255, 255)",
+        "bodyFont": "Open Sans",
+        "heroBg": "rgb(255, 255, 255)",
+        "ctaColor": "rgb(255, 255, 255)",
+        "ctaText": "rgb(102, 102, 102)",
+        "h1Font": null,
+        "title": "Quick Build KZN | Construction & Engineering"
+      },
+      "title": "Quick Build KZN | Construction & Engineering"
+    },
+    {
+      "url": "https://elangenibuildings.co.za/",
+      "label": "pinetown-2",
+      "screenshotPath": "pinetown-2-desktop.png",
+      "status": "ok",
+      "designSignals": {
+        "bodyBg": "rgb(255, 255, 255)",
+        "bodyFont": "Open Sans",
+        "heroBg": "rgba(0, 0, 0, 0)",
+        "ctaColor": null,
+        "ctaText": null,
+        "h1Font": null,
+        "title": "Elangeni Buildings"
+      },
+      "title": "Elangeni Buildings"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+---
+interface Props {
+  name: string;
+  text: string;
+  rating: number;
+  date: string;
+  service?: string;
+  source?: string;
+}
+
+const { name, text, rating, date, service, source } = Astro.props;
+
+const stars = Array.from({ length: 5 }, (_, i) => i < rating);
+---
+
+<div class="bg-surface rounded-md shadow-md p-6 md:p-8 border border-gray-100">
+  <div class="flex gap-1 mb-4">
+    {stars.map((filled) => (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class:list={['h-5 w-5', filled ? 'text-yellow-400' : 'text-gray-300']}
+        viewBox="0 0 24 24"
+        fill="currentColor"
+      >
+        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+      </svg>
+    ))}
+  </div>
+
+  <blockquote class="text-text leading-relaxed mb-4 font-[family-name:var(--font-body)]">
+    <span class="text-accent text-2xl font-bold leading-none">"</span>
+    {text}
+    <span class="text-accent text-2xl font-bold leading-none">"</span>
+  </blockquote>
+
+  <div class="flex items-center justify-between border-t border-gray-100 pt-4">
+    <div>
+      <p class="font-bold text-primary font-[family-name:var(--font-body)]">{name}</p>
+      {service && (
+        <p class="text-sm text-muted font-[family-name:var(--font-body)]">{service}</p>
+      )}
+    </div>
+    <div class="text-right">
+      {source && (
+        <p class="text-xs text-accent font-bold font-[family-name:var(--font-body)]">{source}</p>
+      )}
+      <time class="text-sm text-muted font-[family-name:var(--font-body)]">{date}</time>
+    </div>
+  </div>
+</div>

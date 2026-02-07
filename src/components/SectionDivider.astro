@@ -1,0 +1,54 @@
+---
+/**
+ * SectionDivider — SVG shape divider between sections.
+ *
+ * Place at the BOTTOM of a section. The SVG fills the width and the
+ * `fill` colour should match the background of the section BELOW.
+ *
+ * Props:
+ *   shape  — wave | angle | curve | zigzag | arrow | torn (default: wave)
+ *   fill   — CSS color string (default: var(--color-background))
+ *   flip   — mirror vertically (default: false)
+ *   height — px height of the divider (default: 60)
+ */
+interface Props {
+  shape?: 'wave' | 'angle' | 'curve' | 'zigzag' | 'arrow' | 'torn';
+  fill?: string;
+  flip?: boolean;
+  height?: number;
+}
+
+const {
+  shape = 'wave',
+  fill = 'var(--color-background)',
+  flip = false,
+  height = 60,
+} = Astro.props;
+
+const SHAPES: Record<string, string> = {
+  wave: 'M0,40 C150,80 350,0 500,40 C650,80 850,0 1000,40 C1150,80 1350,0 1440,40 L1440,120 L0,120Z',
+  angle: 'M0,0 L1440,80 L1440,120 L0,120Z',
+  curve: 'M0,80 Q720,0 1440,80 L1440,120 L0,120Z',
+  zigzag: 'M0,60 L120,20 L240,60 L360,20 L480,60 L600,20 L720,60 L840,20 L960,60 L1080,20 L1200,60 L1320,20 L1440,60 L1440,120 L0,120Z',
+  arrow: 'M0,60 L670,60 L720,0 L770,60 L1440,60 L1440,120 L0,120Z',
+  torn: 'M0,50 L80,55 L130,35 L200,58 L260,30 L340,52 L400,25 L480,55 L530,40 L600,60 L680,28 L740,50 L820,35 L880,55 L960,20 L1020,50 L1100,30 L1160,55 L1220,38 L1300,52 L1360,28 L1440,48 L1440,120 L0,120Z',
+};
+
+const pathData = SHAPES[shape] || SHAPES.wave;
+const transformStyle = flip ? 'transform: scaleY(-1);' : '';
+---
+
+<div
+  class="section-divider"
+  style={`position:relative; width:100%; overflow:hidden; line-height:0; margin-top:-1px; ${transformStyle}`}
+  aria-hidden="true"
+>
+  <svg
+    viewBox="0 0 1440 120"
+    preserveAspectRatio="none"
+    style={`display:block; width:100%; height:${height}px;`}
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d={pathData} fill={fill} />
+  </svg>
+</div>

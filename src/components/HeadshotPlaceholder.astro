@@ -1,0 +1,45 @@
+---
+import { site } from '../site.config';
+
+interface Props {
+  width?: number;
+  height?: number;
+  class?: string;
+}
+
+const { width = 480, height = 600, class: className = '' } = Astro.props;
+---
+
+<div
+  class:list={['headshot-placeholder relative overflow-hidden', className]}
+  style={`width: 100%; max-width: ${width}px; aspect-ratio: ${width}/${height};`}
+  role="img"
+  aria-label={`${site.founder || site.name} photo placeholder`}
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 480 600"
+    width="100%"
+    height="100%"
+    class="w-full h-full"
+  >
+    <rect width="480" height="600" fill="var(--color-primary, #1e293b)" opacity="0.1" rx="16" />
+    <g transform="translate(240, 220)" fill="var(--color-primary, #1e293b)" opacity="0.25">
+      <circle cx="0" cy="-40" r="70" />
+      <path d="M-120,80 Q-120,20 -60,0 Q0,-15 0,-15 Q0,-15 60,0 Q120,20 120,80 L120,180 L-120,180 Z" />
+    </g>
+    <text
+      x="240"
+      y="520"
+      text-anchor="middle"
+      fill="var(--color-primary, #1e293b)"
+      opacity="0.3"
+      font-family="var(--font-display, system-ui), sans-serif"
+      font-size="22"
+      font-weight="700"
+      letter-spacing="1"
+    >
+      {site.name.toUpperCase()}
+    </text>
+  </svg>
+</div>

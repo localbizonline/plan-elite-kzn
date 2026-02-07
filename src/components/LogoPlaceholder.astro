@@ -1,0 +1,70 @@
+---
+import { site } from '../site.config';
+
+interface Props {
+  height?: number;
+  class?: string;
+}
+
+const { height = 40, class: className = '' } = Astro.props;
+
+const words = site.name.split(' ');
+const isLong = words.length > 2;
+const line1 = isLong ? words.slice(0, Math.ceil(words.length / 2)).join(' ') : site.name;
+const line2 = isLong ? words.slice(Math.ceil(words.length / 2)).join(' ') : '';
+
+const maxLineLen = Math.max(line1.length, line2.length);
+const width = Math.max(120, maxLineLen * 11);
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox={`0 0 ${width} ${height}`}
+  height={height}
+  width={width}
+  class:list={['logo-placeholder', className]}
+  role="img"
+  aria-label={`${site.name} logo`}
+>
+  {isLong ? (
+    <>
+      <text
+        x="0"
+        y="18"
+        fill="currentColor"
+        font-family="var(--font-display, system-ui), sans-serif"
+        font-size="16"
+        font-weight="700"
+        text-transform="uppercase"
+        letter-spacing="0.5"
+      >
+        {line1}
+      </text>
+      <text
+        x="0"
+        y="36"
+        fill="currentColor"
+        font-family="var(--font-display, system-ui), sans-serif"
+        font-size="16"
+        font-weight="700"
+        text-transform="uppercase"
+        letter-spacing="0.5"
+      >
+        {line2}
+      </text>
+    </>
+  ) : (
+    <text
+      x="0"
+      y="28"
+      fill="currentColor"
+      font-family="var(--font-display, system-ui), sans-serif"
+      font-size="20"
+      font-weight="700"
+      text-transform="uppercase"
+      letter-spacing="0.5"
+    >
+      {site.name}
+    </text>
+  )}
+</svg>
