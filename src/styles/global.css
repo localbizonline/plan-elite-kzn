@@ -259,12 +259,4 @@ footer h3::after {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
-/* Section divider — ensure angle divider renders inside hero */
-.hero-section .section-divider {
-  display: block !important;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 5;
-}
+/* Section divider inside hero removed — caused broken white diagonal slash (enhancer/uniqueness conflict) */

@@ -1,47 +1,38 @@
 {
-  "buildId": "build-1770489170905",
-  "stage": "A",
-  "status": "complete",
-  "completedAt": "2026-02-07T18:49:00.000Z",
+  "stage": "a-complete",
   "projectPath": "/Users/jeremymartin/Documents/Cursor/Websites/plan-elite-kzn",
-  "summary": {
-    "companyName": "Plan Elite KZN",
-    "niche": "Building Construction & Property Development",
-    "primaryCity": "Durban",
-    "pages": 18,
-    "services": 6,
-    "areaPages": 3,
-    "images": {
-      "total": 54,
-      "aiGenerated": 21,
-      "fromAirtable": 8,
-      "placeholders": 0
-    },
-    "reviews": {
-      "averageRating": 4.8,
-      "totalReviews": 20,
-      "testimonials": 7
-    },
-    "designDirection": "Luxury/Refined",
-    "uniquenessDirection": "Clean Professional",
-    "ctaBannerVariant": "stats-bar",
-    "fonts": {
-      "display": "Montserrat",
-      "body": "Merriweather"
-    },
-    "colors": {
-      "primary": "#0E1235",
-      "accent": "#C5943A"
-    },
-    "enhancements": 7,
-    "buildTime": "1.27s"
+  "companyName": "Plan Elite KZN",
+  "companySlug": "plan-elite-kzn",
+  "niche": "Building Construction & Property Development",
+  "primaryCity": "Durban",
+  "qaPassed": null,
+  "deployUrl": null,
+  "buildStats": { "pages": 18, "errors": 0, "warnings": 0 },
+  "checklist": {
+    "passed": 30,
+    "total": 32,
+    "errors": 1,
+    "warnings": 1,
+    "quality": "POOR",
+    "readyForDeploy": true,
+    "note": "1 error is from premature SEO QA run + DataForSEO API failures (external service issues, not build problems). 1 warning is Google review texts not retrieved (API issue). Actual build: 18 pages, 0 errors, 0 warnings."
   },
-  "readyForStageB": true,
-  "stageBActions": [
-    "Create GitHub repository",
-    "Push code",
-    "Create Netlify site",
-    "Deploy",
-    "Run QA verification"
+  "designEnhancement": {
+    "status": "complete",
+    "enhancementsApplied": 13,
+    "heroLayout": "split-with-badges",
+    "buildPassed": true
+  },
+  "teammates": [
+    "competitor-researcher",
+    "data-collector",
+    "designer",
+    "content-writer",
+    "image-processor",
+    "uniqueness-tweaker",
+    "design-enhancer",
+    "seo-qa",
+    "design-reviewer",
+    "image-qa"
   ]
 }

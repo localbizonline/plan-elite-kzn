@@ -14,19 +14,19 @@ import { site } from '../site.config';
       <div class="prose prose-lg text-muted space-y-6">
         <p>By using the services of {site.name}, you agree to the following terms and conditions.</p>
 
-        <h2 class="text-xl font-[family-name:var(--font-display)] uppercase text-primary mt-8 mb-3">Services</h2>
+        <h2 class="text-xl font-[family-name:var(--font-display)] text-primary mt-8 mb-3">Services</h2>
         <p>{site.name} provides the following services: {site.legal.servicesList.join(', ')}. All services are subject to availability and may vary based on your specific requirements.</p>
 
-        <h2 class="text-xl font-[family-name:var(--font-display)] uppercase text-primary mt-8 mb-3">Quotes and Pricing</h2>
+        <h2 class="text-xl font-[family-name:var(--font-display)] text-primary mt-8 mb-3">Quotes and Pricing</h2>
         <p>All quotes are provided free of charge and are valid for 30 days from the date of issue. Final pricing may vary based on the scope of work required. We always provide upfront pricing before commencing any work.</p>
 
-        <h2 class="text-xl font-[family-name:var(--font-display)] uppercase text-primary mt-8 mb-3">Payment</h2>
+        <h2 class="text-xl font-[family-name:var(--font-display)] text-primary mt-8 mb-3">Payment</h2>
         <p>Payment is due upon completion of services unless otherwise agreed in writing. We accept cash, EFT, and card payments.</p>
 
-        <h2 class="text-xl font-[family-name:var(--font-display)] uppercase text-primary mt-8 mb-3">Liability</h2>
+        <h2 class="text-xl font-[family-name:var(--font-display)] text-primary mt-8 mb-3">Liability</h2>
         <p>{site.name} takes all reasonable care when performing services. We are {site.legal.registrations.join(' and ')}.</p>
 
-        <h2 class="text-xl font-[family-name:van(--font-display)] uppercase text-primary mt-8 mb-3">Contact</h2>
+        <h2 class="text-xl font-[family-name:var(--font-display)] text-primary mt-8 mb-3">Contact</h2>
         <p>For any questions regarding these terms, please contact us at <a href={`mailto:${site.email}`} class="text-accent hover:text-accent-light">{site.email}</a> or call <a href={`tel:${site.phoneRaw}`} class="text-accent hover:text-accent-light">{site.phone}</a>.</p>
 
         <p class="text-sm text-muted mt-8">Last updated: {new Date().getFullYear()}</p>

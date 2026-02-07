@@ -59,9 +59,54 @@ Phase 7.8 — Applied 2026-02-07
 - **Why:** Complements the warm cream background (#F5F3EF) and gold accent. Cool grey shadows felt disconnected from the warm palette
 - **Files:** `src/styles/global.css`
 
+### 8. Split Hero with Trust Cluster (Structural HTML)
+- **Category:** Hero — Structural
+- **Aggressiveness:** High
+- **What:** Complete hero rewrite from centered single-column to 5-column grid split layout. Left column: GoogleBadge + H1 + subtitle + dual CTAs + mobile YearsBadge. Right column (desktop): frosted glass trust cluster card showing NHBRC/SACAP/CIDB accreditation badges with shield icons, divider line, YearsBadge, and star rating display.
+- **Why:** Competitors like Devco (Perth) and Thomas DC (Dallas) use split hero layouts to maximize trust signals above the fold. No KZN building competitor clusters accreditations in the hero. The frosted glass card (`bg-white/8 backdrop-blur-md`) creates depth against the background image while keeping text legible.
+- **Files:** `src/components/Hero.astro`
+
+### 9. Angle Section Divider Below Hero (Component)
+- **Category:** Component
+- **Aggressiveness:** Medium
+- **What:** Added SectionDivider with `shape="angle"` between the hero and the next section. Used `!important` override since uniqueness-config had set `sectionDividerShape: "none"` globally.
+- **Why:** Architectural angle shape ties into the building/construction niche. Creates visual break between full-bleed hero and content sections. Competitors use flat edges — the angle adds dynamism.
+- **Files:** `src/components/Hero.astro`, `src/styles/global.css`
+
+### 10. Scroll Reveal Animations (Layout + CSS)
+- **Category:** Layout / Animation
+- **Aggressiveness:** Medium
+- **What:** Added IntersectionObserver script to BaseLayout.astro. Wrapped all homepage sections in `<div class="reveal">` containers. CSS transitions: opacity 0 to 1 with 28px upward translate, 0.65s ease-out timing, 8% threshold trigger.
+- **Why:** Premium construction sites like Pinnacle and Thomas DC use scroll animations. Adds perceived quality and guides the eye through the page. Uses `observer.unobserve()` to fire only once per element.
+- **Files:** `src/layouts/BaseLayout.astro`, `src/pages/index.astro`, `src/styles/global.css`
+
+### 11. Service Card "Free Quote" Ribbons (Component + CSS)
+- **Category:** Component
+- **Aggressiveness:** Medium
+- **What:** Added a `service-card__price-tag` ribbon div to each service card. Gold accent background, white text, CSS `clip-path: polygon()` for angled left edge. Changed card container from `overflow-hidden` to `overflow-visible` for ribbon visibility.
+- **Why:** No competitor uses card ribbons. Reinforces the "free quote" message on every service card. The gold ribbon catches the eye and differentiates from grid-of-plain-cards layouts common in KZN competitors.
+- **Files:** `src/components/Services.astro`, `src/styles/global.css`
+
+### 12. Homepage Section Reorder (Layout)
+- **Category:** Layout
+- **Aggressiveness:** Low
+- **What:** Moved Gallery section up to appear directly after Services (before ServiceAreas and Why Choose Us). New order: Hero > ValueStrip > TrustBadges > GoogleReviewWidget > Services > Gallery > ServiceAreas > Why Choose Us > FAQ > ContactForm.
+- **Why:** Building/construction is a visual niche. Showing portfolio work immediately after the service list reinforces capability. Competitors like Devco and Pinnacle lead with portfolio — we follow services with visual proof.
+- **Files:** `src/pages/index.astro`
+
+### 13. Inline Uppercase Removal Across All Pages (Template Tell)
+- **Category:** CSS / Template Tell
+- **Aggressiveness:** High
+- **What:** Removed `uppercase` class from H2 and H3 elements in 15 files: Gallery.astro, FAQ.astro, ContactForm.astro, ReviewsStrip.astro, ServiceAreas.astro, Services.astro, services/[slug].astro, about-us.astro, contact.astro, reviews.astro, [slug].astro, terms-and-conditions.astro, privacy-policy.astro. Also fixed a typo (`van` to `var`) in terms-and-conditions.astro Contact heading.
+- **Why:** The CSS heading hierarchy (Enhancement #5) sets H1 to uppercase and H2+ to sentence case via CSS. But inline `uppercase` Tailwind classes in the HTML were overriding the CSS. Removing them allows the global CSS hierarchy to work correctly and eliminates a template tell (every template site would have uppercase H2s otherwise).
+- **Files:** 15 component and page files across the project
+
 ## Build Result
 - **Build passed:** Yes
 - **Pages:** 18
-- **Build time:** 1.27s
+- **Build time:** 1.29s
 - **Errors:** 0
 - **Warnings:** 0
+
+## Summary
+13 total enhancements applied across CSS, structural HTML, components, layout, and template tell removal. The site now has a split hero with trust cluster, scroll animations, service card ribbons, architectural section dividers, and a refined mixed-case heading hierarchy. These changes differentiate Plan Elite KZN from both the template baseline and all analyzed KZN competitors.

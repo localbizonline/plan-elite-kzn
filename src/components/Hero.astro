@@ -4,7 +4,6 @@ import { site } from '../site.config';
 import { getHomeHero } from '../images';
 import GoogleBadge from './GoogleBadge.astro';
 import YearsBadge from './YearsBadge.astro';
-import SectionDivider from './SectionDivider.astro';
 
 interface Props {
   title: string;
@@ -142,6 +141,4 @@ const accreditations = (site.legal?.registrations || []).slice(0, 3);
     </div>
   </div>
 
-  {/* Angle section divider */}
-  <SectionDivider shape="angle" fill="var(--color-background)" height={50} />
 </section>
