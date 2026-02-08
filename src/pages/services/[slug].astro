@@ -6,6 +6,7 @@ import FAQ from '../../components/FAQ.astro';
 import TrustBadges from '../../components/TrustBadges.astro';
 import { Image } from 'astro:assets';
 import { site } from '../../site.config';
+import { getEdit } from '../../utils/content-overrides';
 import { getServiceImage, getHomeHero, getServiceGalleryImages } from '../../images';
 
 export function getStaticPaths() {
@@ -16,6 +17,7 @@ export function getStaticPaths() {
 }
 
 const { service } = Astro.props;
+const si = site.services.findIndex(s => s.slug === service.slug);
 
 const heroImage = getServiceImage(service.slug, 'hero') || getHomeHero()!;
 const contentImage = getServiceImage(service.slug, 'content') || getServiceImage(service.slug, 'card') || getHomeHero()!;
@@ -28,8 +30,10 @@ const serviceGallery = getServiceGalleryImages(service.slug);
   description={service.description}
 >
   <Hero
-    title={service.title}
-    subtitle={service.heroSubtitle}
+    title={getEdit(`services.${si}.title`, service.title)}
+    subtitle={getEdit(`services.${si}.heroSubtitle`, service.heroSubtitle)}
+    data-edit-title={`services.${si}.title`}
+    data-edit-subtitle={`services.${si}.heroSubtitle`}
     backgroundImage={heroImage}
   />
 
@@ -49,10 +53,10 @@ const serviceGallery = getServiceGalleryImages(service.slug);
           />
         </div>
         <div>
-          <h2 class="text-3xl md:text-4xl font-[family-name:var(--font-display)] text-primary mb-4">
-            {service.title}
+          <h2 class="text-3xl md:text-4xl font-[family-name:var(--font-display)] text-primary mb-4" data-edit={`services.${si}.title`}>
+            {getEdit(`services.${si}.title`, service.title)}
           </h2>
-          <div class="text-muted text-lg leading-relaxed mb-6 [&>p]:mb-3 [&>ul]:list-disc [&>ul]:pl-5 [&>ul]:mb-3 [&>ul>li]:mb-1.5 [&>p:last-child]:mb-0 [&>ul:last-child]:mb-0" set:html={service.longDescription} />
+          <div class="text-muted text-lg leading-relaxed mb-6 [&>p]:mb-3 [&>ul]:list-disc [&>ul]:pl-5 [&>ul]:mb-3 [&>ul>li]:mb-1.5 [&>p:last-child]:mb-0 [&>ul:last-child]:mb-0" data-edit={`services.${si}.longDescription`} set:html={getEdit(`services.${si}.longDescription`, service.longDescription)} />
           <a
             href={`tel:${site.phoneRaw}`}
             class="inline-flex items-center gap-2 bg-accent hover:bg-accent-light text-white font-bold py-3 px-8 rounded-md transition-colors"

@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import { site } from '../site.config';
+import { getEdit } from '../utils/content-overrides';
 import { getServiceImage, getHomeHero } from '../images';
 
 const count = site.services.length;
@@ -21,13 +22,13 @@ const gridClass = count >= 5
       <h2 class="text-3xl sm:text-4xl md:text-5xl font-[family-name:var(--font-display)] text-primary mb-4">
         Our Services
       </h2>
-      <p class="text-muted text-lg max-w-2xl mx-auto font-[family-name:var(--font-body)]">
-        {site.description}
+      <p class="text-muted text-lg max-w-2xl mx-auto font-[family-name:var(--font-body)]" data-edit="description">
+        {getEdit('description', site.description)}
       </p>
     </div>
 
     <div class={`grid ${gridClass} gap-6 lg:gap-8`}>
-      {site.services.map((service) => (
+      {site.services.map((service, si) => (
         <a
           href={`/services/${service.slug}/`}
           class="group relative bg-surface rounded-md overflow-visible shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-t-4 border-accent"
@@ -44,11 +45,11 @@ const gridClass = count >= 5
             />
           </div>
           <div class="p-6">
-            <h3 class="text-xl font-[family-name:var(--font-display)] text-primary mb-2">
-              {service.title}
+            <h3 class="text-xl font-[family-name:var(--font-display)] text-primary mb-2" data-edit={`services.${si}.title`}>
+              {getEdit(`services.${si}.title`, service.title)}
             </h3>
-            <p class="text-muted text-base leading-relaxed font-[family-name:var(--font-body)]">
-              {service.description}
+            <p class="text-muted text-base leading-relaxed font-[family-name:var(--font-body)]" data-edit={`services.${si}.description`}>
+              {getEdit(`services.${si}.description`, service.description)}
             </p>
             <span class="inline-flex items-center gap-1 text-accent font-bold text-base mt-4 group-hover:gap-2 transition-all duration-200">
               Learn More

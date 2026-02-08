@@ -5,6 +5,7 @@ import Footer from '../components/Footer.astro';
 import MobileActionBar from '../components/MobileActionBar.astro';
 import ReviewsStrip from '../components/ReviewsStrip.astro';
 import CtaBanner from '../components/CtaBanner.astro';
+import InlineEditor from '../components/InlineEditor.astro';
 import { site } from '../site.config';
 
 const ctaBannerVariant = ((site as any).ctaBanner?.variant || 'full-bleed-accent') as
@@ -122,6 +123,7 @@ const jsonLd = {
     <CtaBanner variant={ctaBannerVariant} />
     <Footer />
     <MobileActionBar />
+    <InlineEditor />
     <script>
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(e => {

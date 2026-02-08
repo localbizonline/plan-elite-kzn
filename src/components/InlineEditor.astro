@@ -1,0 +1,407 @@
+---
+/**
+ * InlineEditor — client-side visual editing for staging sites.
+ *
+ * Only loads on *.netlify.app domains (or localhost for dev).
+ * Renders nothing and ships zero JS on production domains.
+ *
+ * How it works:
+ * 1. Scans DOM for elements with data-edit="some.key" attributes
+ * 2. Makes text elements contenteditable on click
+ * 3. Tracks changes in a local edits map
+ * 4. "Save" commits client-edits.json to the repo via GitHub API
+ * 5. Netlify auto-rebuilds from the commit
+ *
+ * GitHub token is passed via INLINE_EDITOR_TOKEN env var at build time
+ * and baked into the staging build. This is intentionally not secure —
+ * these are temporary staging sites only.
+ */
+
+// Read repo info from env at build time
+const ghToken = import.meta.env.INLINE_EDITOR_TOKEN || '';
+const ghRepo  = import.meta.env.INLINE_EDITOR_REPO  || ''; // "owner/repo"
+const ghBranch = import.meta.env.INLINE_EDITOR_BRANCH || 'main';
+
+const isEnabled = ghToken && ghRepo;
+---
+
+{isEnabled && (
+<div id="inline-editor-root">
+  <!-- Floating toolbar -->
+  <div id="ie-toolbar" style="
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 99999;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  ">
+    <button id="ie-toggle" type="button" style="
+      background: #111827;
+      color: #fff;
+      border: 2px solid #6366f1;
+      padding: 10px 18px;
+      border-radius: 9999px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+      transition: all 0.2s;
+    ">Edit Page</button>
+
+    <button id="ie-save" type="button" style="
+      display: none;
+      background: #059669;
+      color: #fff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 9999px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+      transition: all 0.2s;
+    ">Save Changes</button>
+
+    <button id="ie-cancel" type="button" style="
+      display: none;
+      background: #dc2626;
+      color: #fff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 9999px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+    ">Cancel</button>
+  </div>
+
+  <!-- Status toast -->
+  <div id="ie-toast" style="
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    z-index: 99999;
+    background: #111827;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+    display: none;
+    max-width: 360px;
+  "></div>
+
+  <!-- Image upload overlay (hidden by default) -->
+  <input type="file" id="ie-file-input" accept="image/*" style="display:none" />
+</div>
+
+<script define:vars={{ ghToken, ghRepo, ghBranch }}>
+(function() {
+  'use strict';
+
+  // ------- State -------
+  let editing = false;
+  let edits = {};           // { "homepage.heroTitle": "New text", ... }
+  let originals = {};       // { "homepage.heroTitle": "Original text", ... }
+  let imageEdits = {};      // { "homepage.heroImage": { base64, filename } }
+  let activeImageKey = null;
+
+  // ------- DOM refs -------
+  const toggleBtn = document.getElementById('ie-toggle');
+  const saveBtn   = document.getElementById('ie-save');
+  const cancelBtn = document.getElementById('ie-cancel');
+  const toast     = document.getElementById('ie-toast');
+  const fileInput = document.getElementById('ie-file-input');
+
+  // ------- Editable elements -------
+  function getEditables() {
+    return document.querySelectorAll('[data-edit]');
+  }
+
+  function getImageEditables() {
+    return document.querySelectorAll('[data-edit-image]');
+  }
+
+  // ------- Toast -------
+  function showToast(msg, duration = 3000) {
+    toast.textContent = msg;
+    toast.style.display = 'block';
+    if (duration > 0) {
+      setTimeout(() => { toast.style.display = 'none'; }, duration);
+    }
+  }
+
+  // ------- Enter/Exit edit mode -------
+  function enterEditMode() {
+    editing = true;
+    toggleBtn.textContent = 'Editing...';
+    toggleBtn.style.background = '#6366f1';
+    saveBtn.style.display = 'inline-block';
+    cancelBtn.style.display = 'inline-block';
+
+    getEditables().forEach(el => {
+      const key = el.dataset.edit;
+      originals[key] = el.textContent;
+      el.contentEditable = 'true';
+      el.style.outline = '2px dashed #6366f1';
+      el.style.outlineOffset = '4px';
+      el.style.cursor = 'text';
+      el.style.minHeight = '1em';
+
+      el.addEventListener('input', handleInput);
+      el.addEventListener('focus', handleFocus);
+      el.addEventListener('blur', handleBlur);
+    });
+
+    getImageEditables().forEach(el => {
+      el.style.outline = '2px dashed #f59e0b';
+      el.style.outlineOffset = '4px';
+      el.style.cursor = 'pointer';
+      el.addEventListener('click', handleImageClick);
+    });
+
+    showToast('Click any highlighted text to edit it. Click images to replace them.');
+  }
+
+  function exitEditMode(discard = false) {
+    editing = false;
+    toggleBtn.textContent = 'Edit Page';
+    toggleBtn.style.background = '#111827';
+    saveBtn.style.display = 'none';
+    cancelBtn.style.display = 'none';
+
+    getEditables().forEach(el => {
+      const key = el.dataset.edit;
+      el.contentEditable = 'false';
+      el.style.outline = '';
+      el.style.outlineOffset = '';
+      el.style.cursor = '';
+      el.removeEventListener('input', handleInput);
+      el.removeEventListener('focus', handleFocus);
+      el.removeEventListener('blur', handleBlur);
+
+      if (discard && originals[key] !== undefined) {
+        el.textContent = originals[key];
+      }
+    });
+
+    getImageEditables().forEach(el => {
+      el.style.outline = '';
+      el.style.outlineOffset = '';
+      el.style.cursor = '';
+      el.removeEventListener('click', handleImageClick);
+    });
+
+    if (discard) {
+      edits = {};
+      imageEdits = {};
+      originals = {};
+      showToast('Changes discarded.');
+    }
+  }
+
+  // ------- Input handlers -------
+  function handleInput(e) {
+    const key = e.target.dataset.edit;
+    const newText = e.target.textContent.trim();
+    if (newText !== originals[key]) {
+      edits[key] = newText;
+    } else {
+      delete edits[key];
+    }
+  }
+
+  function handleFocus(e) {
+    e.target.style.outline = '2px solid #6366f1';
+  }
+
+  function handleBlur(e) {
+    e.target.style.outline = '2px dashed #6366f1';
+  }
+
+  function handleImageClick(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    activeImageKey = e.currentTarget.dataset.editImage;
+    fileInput.click();
+  }
+
+  // ------- File input for images -------
+  fileInput.addEventListener('change', async (e) => {
+    const file = e.target.files[0];
+    if (!file || !activeImageKey) return;
+
+    // Read as base64
+    const reader = new FileReader();
+    reader.onload = function(ev) {
+      const base64 = ev.target.result.split(',')[1]; // strip data:image/...;base64,
+      const ext = file.name.split('.').pop().toLowerCase();
+      const filename = activeImageKey.replace(/\./g, '-') + '.' + ext;
+
+      imageEdits[activeImageKey] = { base64, filename, contentType: file.type };
+
+      // Show preview on the element
+      const el = document.querySelector(`[data-edit-image="${activeImageKey}"]`);
+      if (el) {
+        // For <img> tags
+        if (el.tagName === 'IMG') {
+          el.src = ev.target.result;
+        } else {
+          // For background containers, find the child img
+          const img = el.querySelector('img');
+          if (img) img.src = ev.target.result;
+        }
+        el.style.outline = '2px solid #059669';
+        showToast('Image replaced. Click Save to commit.');
+      }
+    };
+    reader.readAsDataURL(file);
+
+    // Reset input so same file can be selected again
+    fileInput.value = '';
+  });
+
+  // ------- GitHub API helpers -------
+  async function ghGet(path) {
+    const res = await fetch(`https://api.github.com/repos/${ghRepo}/${path}`, {
+      headers: {
+        'Authorization': `Bearer ${ghToken}`,
+        'Accept': 'application/vnd.github.v3+json',
+      },
+    });
+    if (!res.ok && res.status !== 404) throw new Error(`GitHub GET ${path}: ${res.status}`);
+    if (res.status === 404) return null;
+    return res.json();
+  }
+
+  async function ghPut(path, body) {
+    const res = await fetch(`https://api.github.com/repos/${ghRepo}/${path}`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${ghToken}`,
+        'Accept': 'application/vnd.github.v3+json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
+    });
+    if (!res.ok) {
+      const err = await res.text();
+      throw new Error(`GitHub PUT ${path}: ${res.status} — ${err}`);
+    }
+    return res.json();
+  }
+
+  // ------- Save to GitHub -------
+  async function saveEdits() {
+    const hasTextEdits = Object.keys(edits).length > 0;
+    const hasImageEdits = Object.keys(imageEdits).length > 0;
+
+    if (!hasTextEdits && !hasImageEdits) {
+      showToast('No changes to save.');
+      return;
+    }
+
+    saveBtn.textContent = 'Saving...';
+    saveBtn.style.opacity = '0.7';
+    saveBtn.disabled = true;
+    showToast('Saving changes to GitHub...', 0);
+
+    try {
+      // 1. Save text edits — merge with existing client-edits.json
+      if (hasTextEdits) {
+        const existing = await ghGet(`contents/client-edits.json?ref=${ghBranch}`);
+        let merged = {};
+
+        if (existing && existing.content) {
+          try {
+            merged = JSON.parse(atob(existing.content.replace(/\n/g, '')));
+          } catch { /* start fresh */ }
+        }
+
+        // Merge new edits
+        Object.assign(merged, edits);
+
+        const content = btoa(unescape(encodeURIComponent(JSON.stringify(merged, null, 2))));
+
+        await ghPut(`contents/client-edits.json`, {
+          message: 'Client edit: update text content',
+          content,
+          branch: ghBranch,
+          ...(existing?.sha ? { sha: existing.sha } : {}),
+        });
+      }
+
+      // 2. Save image edits — upload to public/images/client-uploads/
+      for (const [key, img] of Object.entries(imageEdits)) {
+        const path = `public/images/client-uploads/${img.filename}`;
+
+        // Check if file exists (to get sha for update)
+        const existing = await ghGet(`contents/${path}?ref=${ghBranch}`);
+
+        await ghPut(`contents/${path}`, {
+          message: `Client edit: replace image ${key}`,
+          content: img.base64,
+          branch: ghBranch,
+          ...(existing?.sha ? { sha: existing.sha } : {}),
+        });
+
+        // Also add image path to client-edits.json so the build knows where to find it
+        const editsFile = await ghGet(`contents/client-edits.json?ref=${ghBranch}`);
+        let merged = {};
+        if (editsFile && editsFile.content) {
+          try {
+            merged = JSON.parse(atob(editsFile.content.replace(/\n/g, '')));
+          } catch { /* fresh */ }
+        }
+        merged[key] = `/images/client-uploads/${img.filename}`;
+        const content = btoa(unescape(encodeURIComponent(JSON.stringify(merged, null, 2))));
+        await ghPut(`contents/client-edits.json`, {
+          message: `Client edit: update image reference ${key}`,
+          content,
+          branch: ghBranch,
+          sha: editsFile?.sha || undefined,
+        });
+      }
+
+      showToast('Saved! Site will rebuild in ~30 seconds. Refresh to see changes.', 8000);
+      exitEditMode(false);
+      edits = {};
+      imageEdits = {};
+      originals = {};
+    } catch (err) {
+      console.error('InlineEditor save error:', err);
+      showToast('Save failed: ' + err.message, 6000);
+    } finally {
+      saveBtn.textContent = 'Save Changes';
+      saveBtn.style.opacity = '1';
+      saveBtn.disabled = false;
+    }
+  }
+
+  // ------- Event listeners -------
+  toggleBtn.addEventListener('click', () => {
+    if (editing) {
+      exitEditMode(false);
+    } else {
+      enterEditMode();
+    }
+  });
+
+  saveBtn.addEventListener('click', saveEdits);
+  cancelBtn.addEventListener('click', () => exitEditMode(true));
+
+  // Prevent navigating away with unsaved edits
+  window.addEventListener('beforeunload', (e) => {
+    if (editing && (Object.keys(edits).length > 0 || Object.keys(imageEdits).length > 0)) {
+      e.preventDefault();
+      e.returnValue = '';
+    }
+  });
+})();
+</script>
+)}

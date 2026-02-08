@@ -12,6 +12,7 @@ import ServiceAreas from '../components/ServiceAreas.astro';
 import Gallery from '../components/Gallery.astro';
 import ValueStrip from '../components/ValueStrip.astro';
 import { site } from '../site.config';
+import { getEdit } from '../utils/content-overrides';
 
 const whyCount = site.homepage.whyChooseCards.length;
 const whyGridClass = whyCount === 4
@@ -40,8 +41,10 @@ const whyChooseCards = site.homepage.whyChooseCards.map((card) => {
   description={site.homepage.metaDescription}
 >
   <Hero
-    title={site.homepage.heroTitle}
-    subtitle={site.homepage.heroSubtitle}
+    title={getEdit('homepage.heroTitle', site.homepage.heroTitle)}
+    subtitle={getEdit('homepage.heroSubtitle', site.homepage.heroSubtitle)}
+    data-edit-title="homepage.heroTitle"
+    data-edit-subtitle="homepage.heroSubtitle"
   />
 
   {(site as any).homepage?.valueStrip && (
@@ -72,11 +75,11 @@ const whyChooseCards = site.homepage.whyChooseCards.map((card) => {
   <section class="py-16 md:py-24 bg-background reveal">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-[family-name:var(--font-display)] text-primary mb-4">
-          {site.homepage.whyChooseTitle}
+        <h2 class="text-3xl md:text-4xl font-[family-name:var(--font-display)] text-primary mb-4" data-edit="homepage.whyChooseTitle">
+          {getEdit('homepage.whyChooseTitle', site.homepage.whyChooseTitle)}
         </h2>
-        <p class="text-muted max-w-2xl mx-auto text-lg">
-          {site.homepage.whyChooseSubtitle}
+        <p class="text-muted max-w-2xl mx-auto text-lg" data-edit="homepage.whyChooseSubtitle">
+          {getEdit('homepage.whyChooseSubtitle', site.homepage.whyChooseSubtitle)}
         </p>
       </div>
       <div class={`grid ${whyGridClass} gap-8`}>
@@ -91,8 +94,8 @@ const whyChooseCards = site.homepage.whyChooseCards.map((card) => {
                 </svg>
               )}
             </div>
-            <h3 class="text-xl font-[family-name:var(--font-display)] text-primary mb-3">{card.title}</h3>
-            <p class="text-muted">{card.description}</p>
+            <h3 class="text-xl font-[family-name:var(--font-display)] text-primary mb-3" data-edit={`homepage.whyChooseCards.${whyChooseCards.indexOf(card)}.title`}>{getEdit(`homepage.whyChooseCards.${whyChooseCards.indexOf(card)}.title`, card.title)}</h3>
+            <p class="text-muted" data-edit={`homepage.whyChooseCards.${whyChooseCards.indexOf(card)}.description`}>{getEdit(`homepage.whyChooseCards.${whyChooseCards.indexOf(card)}.description`, card.description)}</p>
           </div>
         ))}
       </div>

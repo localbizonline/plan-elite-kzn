@@ -6,6 +6,7 @@ import ContactForm from '../components/ContactForm.astro';
 import HeadshotPlaceholder from '../components/HeadshotPlaceholder.astro';
 import { Image } from 'astro:assets';
 import { site } from '../site.config';
+import { getEdit } from '../utils/content-overrides';
 import { getInnerHero, getHomeHero, getHeadshot } from '../images';
 
 const heroImage = getInnerHero() || getHomeHero()!;
@@ -17,8 +18,10 @@ const headshotImg = getHeadshot();
   description={site.about.metaDescription}
 >
   <Hero
-    title={site.about.heroTitle}
-    subtitle={site.about.heroSubtitle}
+    title={getEdit('about.heroTitle', site.about.heroTitle)}
+    subtitle={getEdit('about.heroSubtitle', site.about.heroSubtitle)}
+    data-edit-title="about.heroTitle"
+    data-edit-subtitle="about.heroSubtitle"
     backgroundImage={heroImage}
   />
 
@@ -27,12 +30,12 @@ const headshotImg = getHeadshot();
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div class="order-2 lg:order-1">
-          <h2 class="text-3xl md:text-4xl font-[family-name:var(--font-display)] text-primary mb-6">
-            {site.about.heading}
+          <h2 class="text-3xl md:text-4xl font-[family-name:var(--font-display)] text-primary mb-6" data-edit="about.heading">
+            {getEdit('about.heading', site.about.heading)}
           </h2>
-          {site.about.paragraphs.map((p) => (
-            <p class="text-muted text-lg leading-relaxed mb-5">
-              {p}
+          {site.about.paragraphs.map((p, i) => (
+            <p class="text-muted text-lg leading-relaxed mb-5" data-edit={`about.paragraphs.${i}`}>
+              {getEdit(`about.paragraphs.${i}`, p)}
             </p>
           ))}
         </div>
@@ -51,7 +54,7 @@ const headshotImg = getHeadshot();
               <HeadshotPlaceholder class="rounded-md shadow-lg max-w-md" />
             )}
             <div class="absolute -bottom-4 -left-4 bg-accent text-white px-6 py-3 rounded-md shadow-lg">
-              <p class="font-[family-name:var(--font-display)] uppercase text-lg">{site.about.badge}</p>
+              <p class="font-[family-name:var(--font-display)] uppercase text-lg" data-edit="about.badge">{getEdit('about.badge', site.about.badge)}</p>
             </div>
           </div>
         </div>
@@ -63,10 +66,10 @@ const headshotImg = getHeadshot();
   <section class="py-12 bg-primary">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-        {site.about.stats.map((stat) => (
+        {site.about.stats.map((stat, i) => (
           <div>
-            <p class="text-4xl md:text-5xl font-[family-name:var(--font-display)] uppercase text-white mb-2">{stat.value}</p>
-            <p class="text-white/80 text-sm md:text-base uppercase tracking-wide">{stat.label}</p>
+            <p class="text-4xl md:text-5xl font-[family-name:var(--font-display)] uppercase text-white mb-2" data-edit={`about.stats.${i}.value`}>{getEdit(`about.stats.${i}.value`, stat.value)}</p>
+            <p class="text-white/80 text-sm md:text-base uppercase tracking-wide" data-edit={`about.stats.${i}.label`}>{getEdit(`about.stats.${i}.label`, stat.label)}</p>
           </div>
         ))}
       </div>

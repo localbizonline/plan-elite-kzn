@@ -47,10 +47,10 @@ const accreditations = (site.legal?.registrations || []).slice(0, 3);
           </div>
         )}
 
-        <h1 class="text-3xl sm:text-4xl md:text-5xl font-[family-name:var(--font-display)] text-white uppercase leading-tight mb-4 md:mb-6">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-[family-name:var(--font-display)] text-white uppercase leading-tight mb-4 md:mb-6" data-edit={Astro.props['data-edit-title'] || undefined}>
           {title}
         </h1>
-        <p class="text-lg sm:text-xl md:text-2xl text-gray-200 font-[family-name:var(--font-body)] mb-8 md:mb-10 max-w-2xl">
+        <p class="text-lg sm:text-xl md:text-2xl text-gray-200 font-[family-name:var(--font-body)] mb-8 md:mb-10 max-w-2xl" data-edit={Astro.props['data-edit-subtitle'] || undefined}>
           {subtitle}
         </p>
 

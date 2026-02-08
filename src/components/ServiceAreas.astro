@@ -1,11 +1,12 @@
 ---
 import { Image } from 'astro:assets';
 import { site } from '../site.config';
+import { getEdit } from '../utils/content-overrides';
 import { getServiceAreasBackground } from '../images';
 
 const areas = site.homepage.serviceAreas;
-const title = site.homepage.serviceAreasTitle || `Areas We Serve in ${site.address.city}`;
-const subtitle = site.homepage.serviceAreasSubtitle || `Professional ${site.tagline.toLowerCase()} across ${site.address.city} and surrounding areas.`;
+const title = getEdit('homepage.serviceAreasTitle', site.homepage.serviceAreasTitle || `Areas We Serve in ${site.address.city}`);
+const subtitle = getEdit('homepage.serviceAreasSubtitle', site.homepage.serviceAreasSubtitle || `Professional ${site.tagline.toLowerCase()} across ${site.address.city} and surrounding areas.`);
 
 const bgImage = getServiceAreasBackground();
 ---
@@ -37,10 +38,10 @@ const bgImage = getServiceAreasBackground();
           </svg>
           <span class="text-accent font-bold text-sm uppercase tracking-wider">Service Areas</span>
         </div>
-        <h2 class="text-3xl md:text-4xl font-[family-name:var(--font-display)] text-white mb-4">
+        <h2 class="text-3xl md:text-4xl font-[family-name:var(--font-display)] text-white mb-4" data-edit="homepage.serviceAreasTitle">
           {title}
         </h2>
-        <p class="text-gray-300 max-w-2xl mx-auto text-lg">
+        <p class="text-gray-300 max-w-2xl mx-auto text-lg" data-edit="homepage.serviceAreasSubtitle">
           {subtitle}
         </p>
       </div>

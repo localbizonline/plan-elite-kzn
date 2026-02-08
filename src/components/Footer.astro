@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import { site } from '../site.config';
+import { getEdit } from '../utils/content-overrides';
 import { getLogo } from '../images';
 import LogoPlaceholder from './LogoPlaceholder.astro';
 
@@ -38,8 +39,8 @@ const serviceLinks = site.services.map((s) => ({
             <LogoPlaceholder height={80} class="h-20 w-auto text-white" />
           )}
         </a>
-        <p class="text-gray-300 text-sm leading-relaxed">
-          {site.description}
+        <p class="text-gray-300 text-sm leading-relaxed" data-edit="description">
+          {getEdit('description', site.description)}
         </p>
       </div>
 
