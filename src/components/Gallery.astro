@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import EditableImage from './EditableImage.astro';
 import { site } from '../site.config';
 import { getEdit } from '../utils/content-overrides';
 import { getGalleryImages } from '../images';
@@ -34,7 +35,8 @@ const subtitle = getEdit('homepage.gallerySubtitle', site.homepage.gallerySubtit
         {galleryImages.map((img, i) => (
           <div class="group rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
             <div class="aspect-[4/3] overflow-hidden">
-              <Image
+              <EditableImage
+                editKey={`gallery.${i}`}
                 src={img}
                 alt={`${site.name} — recent work example ${i + 1}`}
                 width={600}

@@ -1,0 +1,93 @@
+---
+/**
+ * EditableImage — wraps an image with data-edit-image support.
+ *
+ * At build time: checks client-edits.json for an image override.
+ *   - If override exists → renders a plain <img> pointing at the uploaded file.
+ *   - If no override → renders Astro's optimized <Image> component.
+ *
+ * At runtime (in edit mode): the wrapper div has data-edit-image="key"
+ * so InlineEditor can detect it and allow image replacement.
+ *
+ * Usage:
+ *   <EditableImage
+ *     editKey="homepage.heroImage"
+ *     src={heroImageMetadata}
+ *     alt="Hero background"
+ *     class="w-full h-full object-cover"
+ *     width={1920}
+ *     height={1080}
+ *     loading="eager"
+ *   />
+ */
+import { Image } from 'astro:assets';
+import { getImageEdit } from '../utils/content-overrides';
+
+interface Props {
+  /** The edit key for client-edits.json (e.g. "homepage.heroImage") */
+  editKey: string;
+  /** Original Astro ImageMetadata source */
+  src: ImageMetadata;
+  alt: string;
+  class?: string;
+  width?: number;
+  height?: number;
+  widths?: number[];
+  sizes?: string;
+  loading?: 'eager' | 'lazy';
+  role?: string;
+  [key: string]: any;
+}
+
+const {
+  editKey,
+  src,
+  alt,
+  class: className = '',
+  width,
+  height,
+  widths,
+  sizes,
+  loading = 'lazy',
+  role,
+  ...rest
+} = Astro.props;
+
+const imageOverride = getImageEdit(editKey);
+---
+
+<div data-edit-image={editKey} style="display:contents;">
+  {imageOverride ? (
+    <img
+      src={imageOverride}
+      alt={alt}
+      class={className}
+      width={width}
+      height={height}
+      loading={loading}
+      role={role}
+    />
+  ) : (
+    widths ? (
+      <Image
+        src={src}
+        alt={alt}
+        class={className}
+        widths={widths}
+        sizes={sizes || '100vw'}
+        loading={loading}
+        role={role}
+      />
+    ) : (
+      <Image
+        src={src}
+        alt={alt}
+        class={className}
+        width={width || 800}
+        height={height || 600}
+        loading={loading}
+        role={role}
+      />
+    )
+  )}
+</div>

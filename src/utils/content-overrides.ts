@@ -48,3 +48,15 @@ export function getEdit(key: string, fallback: string): string {
   const all = loadEdits();
   return all[key] ?? fallback;
 }
+
+/**
+ * Check if an image override exists in client-edits.json.
+ * Returns the public path (e.g. "/images/client-uploads/homepage-heroImage.jpg")
+ * or null if no override exists.
+ *
+ * @param key  Dot-path matching the data-edit-image attribute (e.g. "homepage.heroImage")
+ */
+export function getImageEdit(key: string): string | null {
+  const all = loadEdits();
+  return all[key] ?? null;
+}

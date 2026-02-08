@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
+import EditableImage from '../../components/EditableImage.astro';
 import ContactForm from '../../components/ContactForm.astro';
 import FAQ from '../../components/FAQ.astro';
 import TrustBadges from '../../components/TrustBadges.astro';
@@ -34,6 +35,7 @@ const serviceGallery = getServiceGalleryImages(service.slug);
     subtitle={getEdit(`services.${si}.heroSubtitle`, service.heroSubtitle)}
     data-edit-title={`services.${si}.title`}
     data-edit-subtitle={`services.${si}.heroSubtitle`}
+    data-edit-image={`services.${si}.heroImage`}
     backgroundImage={heroImage}
   />
 
@@ -44,7 +46,8 @@ const serviceGallery = getServiceGalleryImages(service.slug);
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div>
-          <Image
+          <EditableImage
+            editKey={`services.${si}.cardImage`}
             src={cardImage}
             alt={`${service.title} - ${site.name}`}
             class="rounded-md shadow-lg w-full object-cover"
@@ -109,7 +112,8 @@ const serviceGallery = getServiceGalleryImages(service.slug);
             </ul>
           </div>
           <div>
-            <Image
+            <EditableImage
+              editKey={`services.${si}.contentImage`}
               src={contentImage}
               alt={`${service.title} service by ${site.name}`}
               class="rounded-md shadow-lg w-full object-cover"
@@ -143,7 +147,8 @@ const serviceGallery = getServiceGalleryImages(service.slug);
           {serviceGallery.map((img, i) => (
             <div class="group rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
               <div class="aspect-[4/3] overflow-hidden">
-                <Image
+                <EditableImage
+                  editKey={`services.${si}.gallery.${i}`}
                   src={img}
                   alt={`${service.title} by ${site.name} — example ${i + 1}`}
                   width={600}

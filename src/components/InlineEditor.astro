@@ -159,10 +159,14 @@ const isEnabled = ghToken && ghRepo;
     });
 
     getImageEditables().forEach(el => {
-      el.style.outline = '2px dashed #f59e0b';
-      el.style.outlineOffset = '4px';
-      el.style.cursor = 'pointer';
-      el.addEventListener('click', handleImageClick);
+      // The wrapper may use display:contents, so style the img inside instead
+      const target = el.querySelector('img') || el;
+      target.style.outline = '2px dashed #f59e0b';
+      target.style.outlineOffset = '4px';
+      target.style.cursor = 'pointer';
+      target.addEventListener('click', handleImageClick);
+      // Store the edit key on the img so click handler can read it
+      target.dataset._editImageKey = el.dataset.editImage;
     });
 
     showToast('Click any highlighted text to edit it. Click images to replace them.');
@@ -191,10 +195,11 @@ const isEnabled = ghToken && ghRepo;
     });
 
     getImageEditables().forEach(el => {
-      el.style.outline = '';
-      el.style.outlineOffset = '';
-      el.style.cursor = '';
-      el.removeEventListener('click', handleImageClick);
+      const target = el.querySelector('img') || el;
+      target.style.outline = '';
+      target.style.outlineOffset = '';
+      target.style.cursor = '';
+      target.removeEventListener('click', handleImageClick);
     });
 
     if (discard) {
@@ -227,7 +232,8 @@ const isEnabled = ghToken && ghRepo;
   function handleImageClick(e) {
     e.preventDefault();
     e.stopPropagation();
-    activeImageKey = e.currentTarget.dataset.editImage;
+    // Key may be on the wrapper (data-edit-image) or stored on the img (_editImageKey)
+    activeImageKey = e.currentTarget.dataset.editImage || e.currentTarget.dataset._editImageKey;
     fileInput.click();
   }
 
@@ -248,15 +254,14 @@ const isEnabled = ghToken && ghRepo;
       // Show preview on the element
       const el = document.querySelector(`[data-edit-image="${activeImageKey}"]`);
       if (el) {
-        // For <img> tags
-        if (el.tagName === 'IMG') {
-          el.src = ev.target.result;
-        } else {
-          // For background containers, find the child img
-          const img = el.querySelector('img');
-          if (img) img.src = ev.target.result;
+        // Find the img inside the wrapper (or the element itself if it's an img)
+        const img = el.tagName === 'IMG' ? el : el.querySelector('img');
+        if (img) {
+          img.src = ev.target.result;
+          // Clear srcset so browser uses our preview src
+          img.removeAttribute('srcset');
+          img.style.outline = '2px solid #059669';
         }
-        el.style.outline = '2px solid #059669';
         showToast('Image replaced. Click Save to commit.');
       }
     };

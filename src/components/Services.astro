@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import EditableImage from './EditableImage.astro';
 import { site } from '../site.config';
 import { getEdit } from '../utils/content-overrides';
 import { getServiceImage, getHomeHero } from '../images';
@@ -35,7 +36,8 @@ const gridClass = count >= 5
         >
           <div class="service-card__price-tag">Free Quote</div>
           <div class="aspect-[4/3] overflow-hidden rounded-t-md">
-            <Image
+            <EditableImage
+              editKey={`services.${si}.cardImage`}
               src={getServiceImage(service.slug, 'card') || getHomeHero()!}
               alt={`${service.title} - ${site.name}`}
               width={400}

@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import EditableImage from './EditableImage.astro';
 import { site } from '../site.config';
 import { getHomeHero } from '../images';
 import GoogleBadge from './GoogleBadge.astro';
@@ -10,6 +11,7 @@ interface Props {
   subtitle: string;
   showCtas?: boolean;
   backgroundImage?: ImageMetadata;
+  'data-edit-image'?: string;
 }
 
 const {
@@ -19,21 +21,36 @@ const {
   backgroundImage = getHomeHero()!,
 } = Astro.props;
 
+const imageEditKey = Astro.props['data-edit-image'];
+
 const hasReviews = site.reviews.totalReviews > 0;
 const hasFoundingYear = site.foundingYear && parseInt(site.foundingYear) > 0;
 const accreditations = (site.legal?.registrations || []).slice(0, 3);
 ---
 
 <section class="hero-section relative min-h-[540px] md:min-h-[620px] flex items-center overflow-hidden">
-  <Image
-    src={backgroundImage}
-    alt=""
-    class="absolute inset-0 w-full h-full object-cover"
-    widths={[640, 960, 1280, 1920]}
-    sizes="100vw"
-    loading="eager"
-    role="presentation"
-  />
+  {imageEditKey ? (
+    <EditableImage
+      editKey={imageEditKey}
+      src={backgroundImage}
+      alt=""
+      class="absolute inset-0 w-full h-full object-cover"
+      widths={[640, 960, 1280, 1920]}
+      sizes="100vw"
+      loading="eager"
+      role="presentation"
+    />
+  ) : (
+    <Image
+      src={backgroundImage}
+      alt=""
+      class="absolute inset-0 w-full h-full object-cover"
+      widths={[640, 960, 1280, 1920]}
+      sizes="100vw"
+      loading="eager"
+      role="presentation"
+    />
+  )}
 
   <div class="absolute inset-0 bg-gradient-to-br from-primary/88 via-primary/72 to-primary/55"></div>
 

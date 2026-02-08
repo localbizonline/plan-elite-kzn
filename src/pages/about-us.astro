@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
+import EditableImage from '../components/EditableImage.astro';
 import Services from '../components/Services.astro';
 import ContactForm from '../components/ContactForm.astro';
 import HeadshotPlaceholder from '../components/HeadshotPlaceholder.astro';
@@ -22,6 +23,7 @@ const headshotImg = getHeadshot();
     subtitle={getEdit('about.heroSubtitle', site.about.heroSubtitle)}
     data-edit-title="about.heroTitle"
     data-edit-subtitle="about.heroSubtitle"
+    data-edit-image="about.heroImage"
     backgroundImage={heroImage}
   />
 
@@ -42,7 +44,8 @@ const headshotImg = getHeadshot();
         <div class="order-1 lg:order-2 flex justify-center">
           <div class="relative">
             {headshotImg ? (
-              <Image
+              <EditableImage
+                editKey="about.headshot"
                 src={headshotImg}
                 alt={`${site.founder} - ${site.name}`}
                 class="rounded-md shadow-lg w-full max-w-md object-cover"
